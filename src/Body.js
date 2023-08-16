@@ -1,7 +1,7 @@
 import React from "react"
 
-function H1({text}) {
-    return <h1 color="red" style={{color:"blue"}}>{text}</h1>
+function H1({ text }) {
+    return <h1 color="red" style={{ color: "blue" }}>{text}</h1>
 }
 
 export default function Body() {
