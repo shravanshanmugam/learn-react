@@ -5,9 +5,11 @@ import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import { Link } from "react-router-dom"
-import logo from "../images/react-logo.png"
+import logo from "../../images/react-logo.png"
 
-const pages = ['Hero', 'About', 'Blog'];
+const pages = [{
+  title: 'Fun facts about React', route: 'fun-facts'
+}, { title: 'Reasons I like React', route: 'reasons' }, { title: 'About', route: 'about' }];
 
 function MaterialUIHeader() {
   const [, setAnchorElNav] = React.useState(null);
@@ -23,17 +25,17 @@ function MaterialUIHeader() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Link to="/">
-              <img src={logo} id="nav-logo" className="App-logo" alt="logo" />
+            <img src={logo} id="nav-logo" className="App-logo" alt="logo" />
           </Link>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                key={page}
+                key={page.title}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
-                href={page.toLowerCase()}
+                href={page.route}
               >
-                {page}
+                {page.title}
               </Button>
             ))}
           </Box>

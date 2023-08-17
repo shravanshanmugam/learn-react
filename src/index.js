@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Root from './routes/Root';
-import App from './routes/App';
-import About from './routes/About';
-import Hero from './components/MaterialUIHero'
+import About from './routes/materialui/About'
+import FunFacts from './routes/materialui/FunFacts';
+import Reasons from './routes/materialui/Reasons';
 import ErrorPage from './routes/ErrorPage';
 import reportWebVitals from './reportWebVitals';
 import {
@@ -18,14 +18,18 @@ const router = createBrowserRouter([
     element: <Root/>,
     errorElement: <Navigate to="/error" replace={true}/>,
     children: [
-      { index: true, element: <App/> },
+      { index: true, element: <FunFacts/> },
       {
         path: "/about",
         element: <About/>
       },
       {
-        path: "/hero",
-        element: <Hero/>
+        path: "/fun-facts",
+        element: <FunFacts/>
+      },
+      {
+        path: "/reasons",
+        element: <Reasons/>
       },
       {
         path: "/error",

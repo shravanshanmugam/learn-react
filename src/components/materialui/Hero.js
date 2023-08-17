@@ -1,9 +1,9 @@
 import * as React from "react"
-import { Box, Typography } from "@mui/material"
+import { Box, Typography, List, ListItemText } from "@mui/material"
 export default function Hero({
-  decorative = "All-in-One",
   title = "The Developer's Toolkit",
   subtitle = "A terminal, editor, screenshot tool, file explorer, and database GUI, all—of course—powered by artificial intelligence.",
+  items = []
 }) {
   return (
     <Box
@@ -18,17 +18,7 @@ export default function Hero({
         textAlign: "center",
       }}
     >
-      <Box
-        sx={{
-          color: "primary.500",
-          fontWeight: 600,
-          fontSize: "sm",
-          textTransform: "uppercase",
-          letterSpacing: 0.5,
-        }}
-      >
-        {decorative}
-      </Box>
+      
       <Typography
         variant="h1"
         sx={{
@@ -47,6 +37,16 @@ export default function Hero({
       >
         {subtitle}
       </Typography>
+
+      <List>
+        {items.map((item) => (
+          <ListItemText
+          key={item}
+            primary={item}
+          />
+
+        ))}
+      </List>
     </Box>
   )
 }

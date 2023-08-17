@@ -1,8 +1,6 @@
 import React from "react"
-import Footer from "../components/Footer"
-import Header from "../components/Header"
-import MaterialUIHeader from "../components/MaterialUIHeader"
-import MaterialUIFooter from "../components/MaterialUIFooter"
+import Header from "../components/materialui/Header"
+import Footer from "../components/materialui/Footer"
 import { Outlet } from "react-router-dom";
 
 
@@ -10,11 +8,11 @@ import { Outlet } from "react-router-dom";
 export default function Root() {
     return (
         <div>
-            <MaterialUIHeader />
+            <Header />
             <div id="outlet">
                 <Outlet />
             </div>
-            <MaterialUIFooter />
+            <Footer />
         </div>
     )
 }
