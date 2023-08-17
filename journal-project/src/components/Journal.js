@@ -3,12 +3,12 @@ import '../style/journal.css'
 import locationIcon from '../images/location-icon.svg'
 
 export default function Journal(props) {
-    return <div class="container">
+    return <div className="container">
     <div className="content-container">
-    <div class="location-image-container">
+    <div className="location-image-container">
             <img src={props.imageUrl} alt="location-img" className="location-image"></img>
         </div>
-        <div class="journal-content-container">
+        <div className="journal-content-container">
             <div className="journal-title">
                 <div className="location-icon">
                     <img src={locationIcon} alt="location-icon" className="location-icon" />
