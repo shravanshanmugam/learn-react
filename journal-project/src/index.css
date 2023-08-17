@@ -1,0 +1,125 @@
+.content-container {
+    margin-left: 40px;
+    margin-right: 40px;
+    /* width: 470px; */
+    height: 168px;
+    flex-shrink: 0;
+    /* background-color: maroon; */
+}
+
+.location-image-container {
+    float: left;
+    /* background-color: red; */
+}
+
+.location-image {
+    width: 125px;
+    height: 168px;
+    flex-shrink: 0;
+    border-radius: 5px;
+}
+
+.journal-content-container {
+    float: left;
+    margin-left: 19px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    width: 80%;
+    max-width: 400px;
+    /* background-color: orange; */
+}
+
+.journal-title {
+    height: 12px;
+    margin-bottom: 12px;
+}
+
+.location-icon {
+    width: 7px;
+    height: 9.55px;
+    flex-shrink: 0;
+    fill: #F55A5A;
+    /* background-color: white; */
+    float: left;
+}
+
+.country-name {
+    /* width: 40px; */
+    height: 10px;
+    flex-shrink: 0;
+    color: #2B283A;
+    font-family: Inter;
+    font-size: 10.24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.741px;
+    margin-left: 4px;
+    /* background-color: green; */
+    float: left;
+}
+
+.map-url {
+    /* width: 106px; */
+    height: 13px;
+    flex-shrink: 0;
+    color: #918E9B;
+    font-family: Inter;
+    font-size: 10.24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+    /* background-color: aqua; */
+    margin-left: 12px;
+    float: left;
+}
+
+.location-name {
+    /* width: 326px; */
+    height: 40px;
+    flex-shrink: 0;
+    color: #2B283A;
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 14px;
+}
+
+.date {
+    /* width: 319px; */
+    height: 11px;
+    flex-shrink: 0;
+    color: #2B283A;
+    font-family: Inter;
+    font-size: 10.24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 9px;
+}
+
+.description {
+    /* width: 326px; */
+    color: #2B283A;
+    font-family: Inter;
+    font-size: 10.24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* 15.36px */
+}
+
+.ruler {
+    /* width: 478px; */
+    margin-top: 18px;
+    margin-bottom: 18px;
+    margin-left: 40px;
+    margin-right: 40px;
+    max-width: 600px;
+    height: 1px;
+    background: #F5F5F5;
+    /* clear: left; */
+}
