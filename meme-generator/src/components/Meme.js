@@ -7,13 +7,22 @@ function randomNumber(length) {
 }
 
 export default function Meme() {
-    const [meme, setMeme] = React.useState({});
+    const [meme, setMeme] = React.useState({
+        topText: "",
+        bottomText: "",
+        randomImage: "https://i.imgflip.com/1bij.jpg"
+    });
+    const memes = memesData.data.memes;
+    const [allMemeImages, setAllMemeImages] = React.useState(memes);
     function generateNewMeme(e) {
-        const memes = memesData.data.memes;
-        const randomIndex = randomNumber(memes.length);
-        const picked = memes[randomIndex];
-        console.log(randomIndex, picked)
-        setMeme(picked);
+        console.log(e);
+        const randomIndex = randomNumber(allMemeImages.length);
+        const pickedUrl = memes[randomIndex].url;
+        console.log(randomIndex, pickedUrl)
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            randomImage: pickedUrl
+        }));
         e.preventDefault();
     }
 
@@ -24,7 +33,7 @@ export default function Meme() {
             <button type="submit" className="form--button" onClick={generateNewMeme}>Get a new meme image  🖼</button>
         </form>
         <section>
-            {meme.url && <img src={meme.url} alt="meme-img" className="meme--image" />}
+            <img src={meme.randomImage} alt="meme-img" className="meme--image" />
         </section>
     </main>
 }
