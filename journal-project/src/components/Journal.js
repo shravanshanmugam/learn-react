@@ -1,5 +1,5 @@
 import React from "react";
-import '../index.css'
+import '../style/journal.css'
 import locationIcon from '../images/location-icon.svg'
 
 export default function Journal(props) {

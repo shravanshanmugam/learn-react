@@ -1,0 +1,39 @@
+header {
+    /* width: 550px; */
+    height: 56px;
+    flex-shrink: 0;
+    background: #F55A5A;
+    margin-bottom: 40px;
+}
+
+.header-content {
+    height: 24px;
+    /* width: 160px; */
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 40%;
+}
+
+.header-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    fill: #FFF;
+    float: left;
+}
+
+.header-text {
+    width: 109px;
+    height: 16px;
+    flex-shrink: 0;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 14.461px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -1.085px;
+    margin-left: 7px;
+    padding-top: 2px;
+    float: left;
+}
