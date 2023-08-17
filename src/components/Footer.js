@@ -1,8 +1,8 @@
 import React from "react"
 
 export default function Footer() {
-    const footer = (
-        <footer>
+    return (
+        <footer className="footer">
             <h3>Contact us</h3>
             <p>98989989898</p>
             <section>
@@ -10,5 +10,4 @@ export default function Footer() {
             </section>
         </footer>
     )
-    return footer;
 }

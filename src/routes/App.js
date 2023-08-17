@@ -1,11 +1,8 @@
 import React from "react"
+import H1 from "../components/H1"
 
-function H1({ text }) {
-    return <h1 color="red" style={{ color: "blue" }}>{text}</h1>
-}
-
-export default function Body() {
-    const main = (
+export default function App() {
+    return (
         <div>
             <H1 text="Fun Facts about React"></H1>
             <ul>
@@ -22,5 +19,4 @@ export default function Body() {
             </ol>
         </div>
     )
-    return main;
 }
