@@ -4,23 +4,32 @@ import './index.css';
 import Root from './routes/Root';
 import App from './routes/App';
 import About from './routes/About';
+import Hero from './components/MaterialUIHero'
 import ErrorPage from './routes/ErrorPage';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
-  RouterProvider
+  RouterProvider, Navigate
 } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root/>,
-    errorElement: <ErrorPage/>,
+    errorElement: <Navigate to="/error" replace={true}/>,
     children: [
       { index: true, element: <App/> },
       {
         path: "/about",
         element: <About/>
+      },
+      {
+        path: "/hero",
+        element: <Hero/>
+      },
+      {
+        path: "/error",
+        element: <ErrorPage/>
       }
     ]
   }
