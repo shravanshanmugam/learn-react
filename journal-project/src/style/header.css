@@ -28,7 +28,7 @@ header {
 }
 
 .header-text {
-    width: 109px;
+    /* width: 109px; */
     height: 16px;
     flex-shrink: 0;
     color: #FFF;
