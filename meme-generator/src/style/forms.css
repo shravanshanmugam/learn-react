@@ -1,0 +1,30 @@
+main {
+    padding: 36px;
+}
+
+.form {
+    display: grid;
+    grid-template: 40px 40px / 1fr 1fr;
+    gap: 17px;
+}
+
+.form--input {
+    border-radius: 5px;
+    border: 1px solid #D5D4D8;
+    text-indent: 5px;
+}
+
+#favorite-color-label {
+    padding: 20px 0 0 10px;
+
+}
+
+#isFriendly-label {
+    padding: 10px 0 0 10px;
+}
+
+select {
+    font-size: 16px;
+    margin-left: 10px;
+    width: 40%;
+}
