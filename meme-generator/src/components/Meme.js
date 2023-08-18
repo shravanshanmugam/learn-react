@@ -25,15 +25,27 @@ export default function Meme() {
         }));
         e.preventDefault();
     }
+    const [formData, setFormData] = React.useState({topText: "", bottomText: ""});
+    function handleChange(e) {
+        setFormData(prevState => {
+            return {
+                ...prevState,
+                [e.target.name]: e.target.value   
+            }
+
+        });
+    }
 
     return <main>
         <form className="form">
-            <input type="text" placeholder="Shut up" className="form--input"></input>
-            <input type="text" placeholder="and take my money" className="form--input"></input>
+            <input type="text" placeholder="Shut up" className="form--input" onChange={handleChange} name="topText" value={formData.firstName}></input>
+            <input type="text" placeholder="and take my money" className="form--input" onChange={handleChange} name="bottomText" value={formData.lastName}></input>
             <button type="submit" className="form--button" onClick={generateNewMeme}>Get a new meme image  🖼</button>
         </form>
         <section>
+            <p>{formData.topText}</p>
             <img src={meme.randomImage} alt="meme-img" className="meme--image" />
+            <p>{formData.bottomText}</p>
         </section>
     </main>
 }
