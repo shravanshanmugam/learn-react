@@ -52,6 +52,17 @@ button:focus {
   width: 30px;
 }
 
+.remove-note {
+  cursor: pointer;
+  background-color: white;
+  border: none;
+  color: #4A4E74;
+  border-radius: 3px;
+  height: 30px;
+  width: 30px;
+  margin-right: 4px;
+}
+
 .first-note {
   cursor: pointer;
   background-color: #4A4E74;
@@ -108,6 +119,16 @@ button:focus {
 .selected-note .text-snippet {
   color: white;
   font-weight: 700;
+}
+
+.selected-note .remove-note {
+  color: white;
+  background-color: #4A4E74;
+  font-weight: 700;
+}
+
+.remove-note:hover {
+  border: 1px solid;
 }
 
 .gutter {

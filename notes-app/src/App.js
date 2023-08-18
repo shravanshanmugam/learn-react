@@ -4,9 +4,10 @@ import Editor from "./components/Editor"
 import { data } from "./data"
 import Split from "react-split"
 import {nanoid} from "nanoid"
+import { addNote, editNote, deleteNote, getNotes } from './noteStore.js'
 
 export default function App() {
-    const [notes, setNotes] = React.useState([])
+    const [notes, setNotes] = React.useState(getNotes())
     const [currentNoteId, setCurrentNoteId] = React.useState(
         (notes[0] && notes[0].id) || ""
     )
@@ -14,18 +15,21 @@ export default function App() {
     function createNewNote() {
         const newNote = {
             id: nanoid(),
-            body: "# Type your markdown note's title here"
+            title: "# Type your markdown",
+            body: "# Type your markdown note's title here",
+            modifiedOn: new Date().getTime()
         }
-        setNotes(prevNotes => [newNote, ...prevNotes])
+        setNotes(addNote(newNote))
         setCurrentNoteId(newNote.id)
     }
     
     function updateNote(text) {
-        setNotes(oldNotes => oldNotes.map(oldNote => {
-            return oldNote.id === currentNoteId
-                ? { ...oldNote, body: text }
-                : oldNote
-        }))
+        setNotes(editNote({id: currentNoteId, body: text, title: text.substring(0, 20), modifiedOn: new Date().getTime()}))
+    }
+
+    function removeNote(id) {
+        console.log(id)
+        setNotes(deleteNote(id))
     }
     
     function findCurrentNote() {
@@ -49,6 +53,7 @@ export default function App() {
                     currentNote={findCurrentNote()}
                     setCurrentNoteId={setCurrentNoteId}
                     newNote={createNewNote}
+                    removeNote={removeNote}
                 />
                 {
                     currentNoteId && 
