@@ -29,7 +29,7 @@ export default function Boxes() {
     return <div className="boxes">
         Use Dark mode?
         {allBoxes.map((box) =>
-            <Box key={box.id} id={box.id} on={box.on} toggle={toggle} />
+            <Box key={box.id} on={box.on} toggle={() => toggle(box.id)} />
         )}
     </div>
 }
