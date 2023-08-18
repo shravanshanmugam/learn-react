@@ -10,7 +10,7 @@ export default function App() {
     return (
         <div className="container">
             <Navbar darkMode={darkMode} toggleDarkMode={handleToggle} />
-            <Main darkMode={darkMode} toggleDarkMode={handleToggle}/>
+            <Main darkMode={darkMode}/>
         </div>
     )
 }
