@@ -25,4 +25,10 @@ main {
 
 .meme--image {
     max-width: 100%;
+    outline-style: solid;
+    margin: auto;
+}
+
+section {
+    text-align: center;
 }

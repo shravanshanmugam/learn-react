@@ -18,13 +18,10 @@ export default function Meme() {
     console.log("meme formData", formData)
     function handleChange(e) {
         const { name, value, type, checked } = e.target;
-        setFormData(prevState => {
-            return {
+        setFormData(prevState => ({
                 ...prevState,
                 [name]: type === "checkbox" ? checked : value
-            }
-
-        });
+            }));
     }
     function handleSubmit(e) {
         console.log(e);

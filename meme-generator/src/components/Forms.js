@@ -2,17 +2,14 @@ import React from 'react'
 import '../style/forms.css'
 
 export default function Forms() {
-    const [formData, setFormData] = React.useState({comments: "", isFriendly: false, employment: "", favoriteColor: "" });
+    const [formData, setFormData] = React.useState({ comments: "", isFriendly: false, employment: "", favoriteColor: "" });
     console.log("formData", formData)
     function handleChange(e) {
         const { name, value, type, checked } = e.target;
-        setFormData(prevState => {
-            return {
-                ...prevState,
-                [name]: type === "checkbox" ? checked : value
-            }
-
-        });
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: type === "checkbox" ? checked : value
+        }));
     }
     return <main>
         <form className="form">
@@ -45,5 +42,5 @@ export default function Forms() {
                 </select>
             </label>
         </form>
-        </main>
+    </main>
 }
