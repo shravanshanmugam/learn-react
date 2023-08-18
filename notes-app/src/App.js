@@ -3,31 +3,47 @@ import Sidebar from "./components/Sidebar"
 import Editor from "./components/Editor"
 import Split from "react-split"
 import {nanoid} from "nanoid"
-import * as noteStore from './noteStore.js'
 
 export default function App() {
-    const [notes, setNotes] = React.useState(noteStore.getNotes())
+    // lazy state initialization
+    const [notes, setNotes] = React.useState(() => JSON.parse(localStorage.getItem('notes')) || []);
     const [currentNoteId, setCurrentNoteId] = React.useState(
         (notes[0] && notes[0].id) || ""
     )
     
+    // on state change, update in local storage
+    React.useEffect(() => {
+        localStorage.setItem('notes', JSON.stringify(notes));
+    }, [notes])
     function createNewNote() {
         const newNote = {
             id: nanoid(),
-            title: "# Type your markdown",
             body: "# Type your markdown note's title here",
             modifiedOn: new Date().getTime()
         }
-        setNotes(noteStore.addNote(newNote))
+        setNotes(prevNotes => [newNote, ...prevNotes])
         setCurrentNoteId(newNote.id)
     }
     
     function updateNote(text) {
-        setNotes(noteStore.editNote({id: currentNoteId, body: text, title: text.substring(0, 20), modifiedOn: new Date().getTime()}))
+        // move updated note to top of the list
+        setNotes(oldNotes => {
+            const newArray = [];
+            for (let i = 0; i < oldNotes.length; i++) {
+                const oldNote = oldNotes[i];
+                if (oldNote.id === currentNoteId) {
+                    newArray.unshift({ ...oldNote, body: text})
+                } else {
+                    newArray.push(oldNote);
+                }
+            }
+            return newArray;
+        })
     }
 
-    function removeNote(id) {
-        setNotes(noteStore.deleteNote(id))
+    function removeNote(event, id) {
+        event.stopPropagation()
+        setNotes(oldNotes => oldNotes.filter(oldNote => oldNote.id !== id))
     }
     
     function findCurrentNote() {

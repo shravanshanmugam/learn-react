@@ -10,8 +10,8 @@ export default function Sidebar(props) {
                 }`}
                 onClick={() => props.setCurrentNoteId(note.id)}
             >
-                <h4 className="text-snippet">{note.title}</h4>
-                <button className="remove-note" onClick={() => props.removeNote(note.id)}>-</button>
+                <h4 className="text-snippet">{note.body.substring(0,20)}</h4>
+                <button className="remove-note" onClick={(e) => props.removeNote(e, note.id)}>-</button>
             </div>
         </div>
     ))
