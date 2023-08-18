@@ -26,3 +26,18 @@ main {
 .meme--image {
     max-width: 100%;
 }
+
+#favorite-color-label {
+    padding: 20px 0 0 10px;
+
+}
+
+#isFriendly-label {
+    padding: 10px 0 0 10px;
+}
+
+select {
+    font-size: 16px;
+    margin-left: 10px;
+    width: 40%;
+}
