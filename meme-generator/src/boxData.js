@@ -1,4 +1,4 @@
-export default [
+const boxData = [
     {
         id: 1,
         on: true
@@ -24,3 +24,4 @@ export default [
         on: false
     },   
 ]
+export default boxData;

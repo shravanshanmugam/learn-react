@@ -1,7 +1,6 @@
 import React from 'react';
 import '../style/meme.css';
-import memesData from '../data'
-import boxData from '../boxData'
+import memesData from '../memeData'
 
 function randomNumber(length) {
     return Math.floor((Math.random() * length) + 1);
@@ -14,7 +13,7 @@ export default function Meme() {
         randomImage: "https://i.imgflip.com/1bij.jpg"
     });
     const memes = memesData.data.memes;
-    const [allMemeImages, setAllMemeImages] = React.useState(memes);
+    const [allMemeImages] = React.useState(memes);
     function generateNewMeme(e) {
         console.log(e);
         const randomIndex = randomNumber(allMemeImages.length);

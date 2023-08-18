@@ -1,4 +1,4 @@
-export default [{
+const journalData = [{
     id: 1,
     country: "Japan",
     location: "Mount Fuji",
@@ -29,3 +29,5 @@ export default [{
     mapUrl: "https://source.unsplash.com/3PeSjpLVtLg"
 }
 ]
+
+export default journalData;

@@ -1,7 +1,7 @@
 import React from "react";
 import Journal from "./Journal";
 import Header from "./Header";
-import data from "../data"
+import data from "../journalData"
 
 function App() {
   return <div>
