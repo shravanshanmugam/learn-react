@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 20px;
+    /* margin: 20px; */
     border-color: black;
     border: 1px solid;
     background: linear-gradient(90deg, #672280 0%, #A626D3 100%);

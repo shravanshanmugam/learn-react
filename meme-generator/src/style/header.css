@@ -21,3 +21,19 @@
     font-size: 12px;
     font-weight: 500;
 }
+
+.header--text {
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    margin-right: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    text-decoration: underline;
+}

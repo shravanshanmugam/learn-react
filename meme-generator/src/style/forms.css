@@ -2,6 +2,12 @@ main {
     padding: 36px;
 }
 
+.main-forms {
+    background-color: #672280;
+    color: #5CC832;
+    font-weight: 500;
+}
+
 .form {
     display: grid;
     grid-template: 40px 40px / 1fr 1fr;
@@ -24,7 +30,16 @@ main {
 }
 
 select {
+    background-color: #672280;
+    color: #5CC832;
     font-size: 16px;
     margin-left: 10px;
     width: 40%;
 }
+textarea {
+    background-color: #672280;
+    color: #5CC832;
+}
+textarea::placeholder {
+    color: #3e8c23;
+  }

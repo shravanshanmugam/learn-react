@@ -11,8 +11,8 @@ export default function Forms() {
             [name]: type === "checkbox" ? checked : value
         }));
     }
-    return <main>
-        <form className="form">
+    return <main className="main-forms">
+        <form className="form" id="forms">
             <textarea placeholder="How are you feeling today?" className="form--input" onChange={handleChange} name="comments" value={formData.comments} />
             <label htmlFor="isFriendly" id="isFriendly-label">
                 <input type="checkbox" id="isFriendly" className="form--input" onChange={handleChange} name="isFriendly" value={formData.isFriendly} />
