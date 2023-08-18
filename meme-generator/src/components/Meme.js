@@ -8,8 +8,8 @@ function randomNumber(length) {
 
 export default function Meme() {
     const [meme, setMeme] = React.useState({
-        topText: "",
-        bottomText: "",
+        topText: "One does not simply",
+        bottomText: "walk into Mordor",
         randomImage: "https://i.imgflip.com/1bij.jpg"
     });
     const memes = memesData.data.memes;
@@ -42,11 +42,11 @@ export default function Meme() {
             <input type="text" placeholder="and take my money" className="form--input" onChange={handleChange} name="bottomText" value={formData.lastName} />
             <button type="submit" className="form--button">Get a new meme image  🖼</button>
         </form>
-        <section>
-            <p>{meme.topText}</p>
+        <div className="meme">
             <img src={meme.randomImage} alt="meme-img" className="meme--image" />
-            <p>{meme.bottomText}</p>
-        </section>
+            <h2 className="meme--text top">{meme.topText}</h2>
+            <h2 className="meme--text bottom">{meme.bottomText}</h2>
+        </div>
         
     </main>
 }
