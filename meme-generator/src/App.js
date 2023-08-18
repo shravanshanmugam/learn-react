@@ -11,6 +11,6 @@ export default function App() {
         <Meme/>
         <Boxes/>
         <Forms/>
-        <StarWars/>
+        {/* <StarWars/> */}
     </div>
 }

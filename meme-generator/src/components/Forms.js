@@ -3,7 +3,6 @@ import '../style/forms.css'
 
 export default function Forms() {
     const [formData, setFormData] = React.useState({ comments: "", isFriendly: false, employment: "", favoriteColor: "" });
-    console.log("formData", formData)
     function handleChange(e) {
         const { name, value, type, checked } = e.target;
         setFormData(prevState => ({
