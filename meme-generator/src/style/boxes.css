@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+.boxes {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+    border-color: black;
+    border: 1px solid;
+    background: linear-gradient(90deg, #672280 0%, #A626D3 100%);
+    color: #5CC832
+}
+
+.box {
+    width: 40px;
+    border-color: black;
+    border-radius: 2px;
+    background-color: white;
+    outline-style: solid;
+    font-size: 8px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    font-weight: 500;
+}

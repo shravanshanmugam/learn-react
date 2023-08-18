@@ -1,6 +1,7 @@
 import React from 'react';
 import '../style/meme.css';
 import memesData from '../data'
+import boxData from '../boxData'
 
 function randomNumber(length) {
     return Math.floor((Math.random() * length) + 1);
