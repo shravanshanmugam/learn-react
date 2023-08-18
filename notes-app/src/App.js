@@ -1,13 +1,12 @@
 import React from "react"
 import Sidebar from "./components/Sidebar"
 import Editor from "./components/Editor"
-import { data } from "./data"
 import Split from "react-split"
 import {nanoid} from "nanoid"
-import { addNote, editNote, deleteNote, getNotes } from './noteStore.js'
+import * as noteStore from './noteStore.js'
 
 export default function App() {
-    const [notes, setNotes] = React.useState(getNotes())
+    const [notes, setNotes] = React.useState(noteStore.getNotes())
     const [currentNoteId, setCurrentNoteId] = React.useState(
         (notes[0] && notes[0].id) || ""
     )
@@ -19,17 +18,16 @@ export default function App() {
             body: "# Type your markdown note's title here",
             modifiedOn: new Date().getTime()
         }
-        setNotes(addNote(newNote))
+        setNotes(noteStore.addNote(newNote))
         setCurrentNoteId(newNote.id)
     }
     
     function updateNote(text) {
-        setNotes(editNote({id: currentNoteId, body: text, title: text.substring(0, 20), modifiedOn: new Date().getTime()}))
+        setNotes(noteStore.editNote({id: currentNoteId, body: text, title: text.substring(0, 20), modifiedOn: new Date().getTime()}))
     }
 
     function removeNote(id) {
-        console.log(id)
-        setNotes(deleteNote(id))
+        setNotes(noteStore.deleteNote(id))
     }
     
     function findCurrentNote() {
