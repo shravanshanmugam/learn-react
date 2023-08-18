@@ -7,7 +7,10 @@ export default function Boxes() {
     const [allBoxes, setAllBoxes] = React.useState(boxData);
     function toggle(id) {
         setAllBoxes(prevBox => {
-            const newBox = [];
+            return prevBox.map(box => {
+                return box.id === id ? {...box, on: !box.on} : box
+            })
+            /* const newBox = [];
             for (let i = 0; i < prevBox.length; i++) {
                 let currBox = prevBox[i];
                 if (id - 1 === i) {
@@ -19,7 +22,7 @@ export default function Boxes() {
                     newBox.push(currBox)
                 }
             }
-            return newBox;
+            return newBox; */
         })
     }
     
