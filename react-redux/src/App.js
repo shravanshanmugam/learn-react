@@ -1,8 +1,9 @@
+import CakeContainer from "./components/CakeContainer";
 
 function App() {
   return (
     <div className="App">
-      Learn React Redux
+      <CakeContainer />
     </div>
   );
 }
