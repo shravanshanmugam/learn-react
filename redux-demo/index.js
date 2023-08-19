@@ -1,5 +1,4 @@
-console.log('Learn Redux!')
-const redux = require('redux');
+import { legacy_createStore } from 'redux';
 
 // Action type
 const BUY_CAKE = "BUY_CAKE";
@@ -31,7 +30,7 @@ const buyCakeReducer = (state = initialState, action) => {
 }
 
 // create Redux store by initializing with Reducer
-const store = redux.legacy_createStore(buyCakeReducer);
+const store = legacy_createStore(buyCakeReducer);
 console.log('Initial state', store.getState());
 
 // call back function whenever state is updated in Redux store. Return function will be the unsubscribe method
