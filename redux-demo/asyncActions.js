@@ -62,7 +62,7 @@ const reducer = (state = initialState, action) => {
     }
 }
 
-// async action creator
+// async action creator which returns a function instead of an action object, which performs an async task
 const fetchUsers = () => {
     return function(dispatch) {
         dispatch(request())
