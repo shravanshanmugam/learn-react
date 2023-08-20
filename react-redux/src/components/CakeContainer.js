@@ -20,7 +20,8 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+// use state and component props to map to props
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     buyCake: () => dispatch(buyCake()),
   };
