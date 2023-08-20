@@ -27,4 +27,5 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
+// pass null as first parameter if not required to map state to props
 export default connect(mapStateToProps, mapDispatchToProps)(CakeContainer);
