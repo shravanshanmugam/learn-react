@@ -7,6 +7,7 @@ function UserContainer() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // thunk middleware is not really used here since we are directly calling the async action
     fetchUsers(dispatch);
   }, []);
 
