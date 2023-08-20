@@ -1,7 +1,7 @@
-import { legacy_createStore } from "redux";
-import rootReducer from "./rootReducer";
+import { applyMiddleware, legacy_createStore } from "redux";
+import logger from "redux-logger";
+import rootReducer from "./rootReducer.js";
 
-const store = legacy_createStore(rootReducer);
-store.subscribe(() => console.log("Updated state", store.getState()));
+const store = legacy_createStore(rootReducer, {}, applyMiddleware(logger));
 
 export default store;
