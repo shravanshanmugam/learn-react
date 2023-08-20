@@ -9,7 +9,7 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <HooksCakeContainer />
-        <CakeContainer />
+        <CakeContainer showCount={false} />
         <IceCreamContainer />
       </div>
     </Provider>

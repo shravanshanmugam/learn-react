@@ -11,9 +11,12 @@ function CakeContainer(props) {
   );
 }
 
-const mapStateToProps = (state) => {
+// use state and component props to map to props
+const mapStateToProps = (state, ownProps) => {
   return {
-    numOfCakes: state.cake.numOfCakes,
+    numOfCakes: ownProps.showCount
+      ? state.cake.numOfCakes
+      : "You are not allowed to see number of cakes",
   };
 };
 
