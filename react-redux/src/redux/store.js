@@ -1,11 +1,6 @@
-import { legacy_createStore, combineReducers } from "redux";
-import cakeReducer from "./cake/CakeReducer";
-import iceCreamReducer from "./iceCream/IceCreamReducer";
+import { legacy_createStore } from "redux";
+import rootReducer from "./rootReducer";
 
-const rootReducer = combineReducers({
-  cake: cakeReducer,
-  iceCream: iceCreamReducer,
-});
 const store = legacy_createStore(rootReducer);
 store.subscribe(() => console.log("Updated state", store.getState()));
 
