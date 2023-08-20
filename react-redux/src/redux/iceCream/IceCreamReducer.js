@@ -10,8 +10,8 @@ const iceCreamReducer = (state = initialState, action) => {
       return {
         ...state,
         numOfIceCream:
-          state.numOfIceCream > 0
-            ? state.numOfIceCream - 1
+          state.numOfIceCream - action.payload >= 0
+            ? state.numOfIceCream - action.payload
             : state.numOfIceCream,
       };
     default:
