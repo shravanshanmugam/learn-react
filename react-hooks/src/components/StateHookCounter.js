@@ -60,7 +60,7 @@ export default function StateHook() {
         <p>
           Hello {userName.firstName} {userName.lastName}
           {""}
-          <span class="blinking-cursor">|</span>!
+          <span className="blinking-cursor">|</span>!
         </p>
       </div>
       <div className="state-item-container">

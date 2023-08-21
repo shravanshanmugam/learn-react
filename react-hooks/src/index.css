@@ -80,7 +80,7 @@ input:active {
 }
 
 div {
-  margin-bottom: 2px;
+  margin-bottom: 3px;
   border-radius: 5px;
 }
 
@@ -131,6 +131,13 @@ p {
 }
 
 .effect-container {
+  background-color: #149eca;
+  color: #23272f;
+  padding: 10px 0px 10px 0px;
+  text-align: center;
+}
+
+.timer-container {
   background-color: #149eca;
   color: #23272f;
   padding: 10px 0px 10px 0px;
