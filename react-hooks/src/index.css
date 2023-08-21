@@ -103,6 +103,10 @@ p {
   margin-block-end: 0.2em;
 }
 
+header {
+  margin: 20px;
+  font-size: 40px;
+}
 .app-title {
   text-align: center;
   margin: 0;
