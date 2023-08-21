@@ -6,6 +6,8 @@ export default function StateHook() {
     firstName: "",
     lastName: "",
   });
+  const [currentItem, setCurrentItem] = React.useState("");
+  const [items, setItems] = React.useState([]);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -13,6 +15,16 @@ export default function StateHook() {
       ...prevState,
       [name]: value,
     }));
+  }
+
+  function changeItem(e) {
+    setCurrentItem(e.target.value);
+  }
+
+  function addItem(e) {
+    e.preventDefault();
+    console.log("add item", currentItem);
+    setItems((prevState) => [...prevState, currentItem]);
   }
 
   return (
@@ -43,10 +55,26 @@ export default function StateHook() {
             value={userName.lastName}
           />
         </form>
-
         <p>
           Hello {userName.firstName} {userName.lastName}!
         </p>
+      </div>
+      <div>
+        <form>
+          <label htmlFor="item-name">Item name:</label>
+          <input
+            type="text"
+            id="item-name"
+            onChange={changeItem}
+            value={currentItem}
+          />
+          <button onClick={addItem}>Add</button>
+        </form>
+        <ul>
+          {items.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );
