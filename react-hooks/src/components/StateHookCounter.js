@@ -28,15 +28,15 @@ export default function StateHook() {
   }
 
   return (
-    <div>
-      <div>
+    <div className="state-container">
+      <div className="state-counter-container">
         <p>Count: {count}</p>
         <button onClick={() => setCount(count - 1)}>-</button>
         <button onClick={() => setCount(initialCount)}>Reset</button>
         <button onClick={() => setCount(count + 1)}>+</button>
       </div>
-      <br />
-      <div>
+      <div className="state-form-container">
+        <p>Greetings!</p>
         <form>
           <label htmlFor="first-name">First name:</label>
           <input
@@ -59,7 +59,8 @@ export default function StateHook() {
           Hello {userName.firstName} {userName.lastName}!
         </p>
       </div>
-      <div>
+      <div className="state-item-container">
+        Add items!
         <form>
           <label htmlFor="item-name">Item name:</label>
           <input
