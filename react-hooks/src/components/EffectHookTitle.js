@@ -7,7 +7,9 @@ export default function EffectHook() {
   }, [count]);
   return (
     <div className="effect-container">
-      <button onClick={() => setCount(count + 1)}>Click me!</button>
+      <button onClick={() => setCount(count + 1)}>
+        Click me to change document title!
+      </button>
       <p>Clicked {count} times</p>
     </div>
   );
