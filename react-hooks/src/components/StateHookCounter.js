@@ -25,6 +25,8 @@ export default function StateHook() {
     e.preventDefault();
     console.log("add item", currentItem);
     setItems((prevState) => [...prevState, currentItem]);
+    setCurrentItem("");
+    document.getElementById("item-name").focus();
   }
 
   return (
@@ -56,11 +58,13 @@ export default function StateHook() {
           />
         </form>
         <p>
-          Hello {userName.firstName} {userName.lastName}!
+          Hello {userName.firstName} {userName.lastName}
+          {""}
+          <span class="blinking-cursor">|</span>!
         </p>
       </div>
       <div className="state-item-container">
-        Add items!
+        <p>Add items!</p>
         <form>
           <label htmlFor="item-name">Item name:</label>
           <input

@@ -5,13 +5,106 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
-  color: aqua;
+  background-color: #23272f;
+  color: #149eca;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+button {
+  background-color: #23272f;
+  color: #149eca;
+  margin: 5px;
+  height: 25px;
+  padding: 0.4em;
+  border: none;
+  border-radius: 4px;
+  padding: 19px;
+  line-height: 2px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale(0.96);
+  box-shadow: 4px 4px 10px 2px rgba(255, 255, 255, 0.24);
+}
+
+button:active {
+  transform: scale(0.94);
+  box-shadow: 4px 4px 10px 2px rgba(255, 255, 255, 0.5);
+}
+
+label {
+  background-color: #149eca;
+  border-color: #23272f;
+  border-radius: 4px solid;
+  margin: 5px;
+  height: 25px;
+  width: 200px;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: rgba(#23272f, 0.2);
+  padding: 0.4em;
+  color: #23272f;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+input {
+  border-color: #23272f;
+  border-radius: 4px solid;
+  margin: 5px;
+  height: 25px;
+  width: 200px;
+  background-color: #149eca;
+  appearance: none;
+  border: none;
+  outline: none;
+  border: 0.1em solid #23272f;
+  background: rgba(#23272f, 0.2);
+  border-radius: 0.4em 0.4em 0.4em 0.4em;
+  padding: 0.4em;
+  color: #23272f;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+input:hover {
+  box-shadow: 4px 4px 10px 2px rgba(255, 255, 255, 0.24);
+}
+
+input:active {
+  box-shadow: 4px 4px 10px 2px rgba(255, 255, 255, 0.3);
+}
+
+div {
+  margin: 10px 0px 10px 0px;
+  border-radius: 5px;
+}
+
+li {
+  list-style: none;
+  font-size: 30px;
+  font-weight: 500;
+  margin-block-start: 0.2em;
+  margin-block-end: 0.2em;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+p {
+  font-size: 30px;
+  font-weight: 500;
+  margin-block-start: 0.2em;
+  margin-block-end: 0.2em;
 }
 
 .app-title {
@@ -20,90 +113,44 @@ code {
 }
 
 .state-container {
-  color: black;
+  color: #23272f;
   text-align: center;
 }
 
 .state-counter-container {
-  background-color: aqua;
-  padding: 20px 0px 20px 0px;
-}
-
-button {
-  background-color: black;
-  color: aqua;
-  margin: 5px;
-  height: 25px;
-  padding: 0.4em;
-  border: none;
-  border-radius: 4px;
-  padding: 19px;
-  line-height: 2px;
-}
-
-button:active {
-  transform: scale(0.94);
-  /* Scaling button to 0.98 to its original size */
-  box-shadow: 3px 2px 22px 1px rgba(255, 255, 255, 0.24);
-  /* Lowering the shadow */
+  background-color: #149eca;
+  padding: 10px 0px 10px 0px;
 }
 
 .state-form-container {
-  background-color: aqua;
-  color: black;
-  padding: 20px 0px 20px 0px;
-}
-
-label {
-  background-color: aqua;
-  border-color: black;
-  border-radius: 4px solid;
-  margin: 5px;
-  height: 25px;
-  width: 200px;
-  appearance: none;
-  border: none;
-  outline: none;
-  background: rgba(black, 0.2);
-  padding: 0.4em;
-  color: black;
-}
-
-input {
-  border-color: black;
-  border-radius: 4px solid;
-  margin: 5px;
-  height: 25px;
-  width: 200px;
-  background-color: aqua;
-  appearance: none;
-  border: none;
-  outline: none;
-  border: 0.1em solid black;
-  background: rgba(black, 0.2);
-  border-radius: 0.4em 0.4em 0.4em 0.4em;
-  padding: 0.4em;
-  color: black;
-}
-
-div {
-  margin: 10px 0px 10px 0px;
-  border-radius: 5px;
+  background-color: #149eca;
+  color: #23272f;
+  padding: 10px 0px 10px 0px;
 }
 
 .state-item-container {
-  background-color: aqua;
-  color: black;
-  padding: 20px 0px 20px 0px;
-}
-
-li {
-  list-style: none;
+  background-color: #149eca;
+  color: #23272f;
+  padding: 10px 0px 10px 0px;
 }
 
 .effect-container {
-  background-color: aqua;
-  color: black;
-  padding: 20px 0px 20px 0px;
+  background-color: #149eca;
+  color: #23272f;
+  padding: 10px 0px 10px 0px;
   text-align: center;
+}
+
+.blinking-cursor {
+  animation: blinker 1s step-end infinite;
+}
+
+@keyframes blinker {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
 }
