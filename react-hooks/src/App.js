@@ -9,6 +9,7 @@ import FetchDataWithReducer from "./components/FetchDataWithReducer";
 import CallbackHookCounter from "./components/CallbackHookCounter";
 import MemoHookCounter from "./components/MemoHookCounter";
 import RefHookFocusInput from "./components/RefHookFocusInput";
+import RefHookTimer from "./components/RefHookTimer";
 
 // create context
 export const UserContext = React.createContext();
@@ -42,6 +43,7 @@ function App() {
       <CallbackHookCounter />
       <MemoHookCounter />
       <RefHookFocusInput />
+      <RefHookTimer />
     </div>
   );
 }
