@@ -5,8 +5,10 @@ import StateHookCounter from "./components/StateHookCounter";
 
 export const UserContext = React.createContext();
 export const LocationContext = React.createContext();
+export const JobContext = React.createContext();
 
 function App() {
+  const [job, setJob] = React.useState("Software developer");
   return (
     <div className="App">
       <header>
@@ -16,7 +18,12 @@ function App() {
       <EffectHookTitle />
       <UserContext.Provider value={"John"}>
         <LocationContext.Provider value={"USA"}>
-          <ContextHook />
+          <JobContext.Provider value={job}>
+            <ContextHook />
+            <div className="context-button">
+              <button onClick={() => setJob("Architect")}>Change job</button>
+            </div>
+          </JobContext.Provider>
         </LocationContext.Provider>
       </UserContext.Provider>
     </div>

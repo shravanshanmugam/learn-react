@@ -1,7 +1,8 @@
 import React from "react";
-import { UserContext, LocationContext } from "../App";
+import { UserContext, LocationContext, JobContext } from "../App";
 
 export default function ContextHook() {
+  const job = React.useContext(JobContext);
   return (
     <UserContext.Consumer>
       {(user) => {
@@ -11,7 +12,7 @@ export default function ContextHook() {
               return (
                 <div className="user-container">
                   <p>
-                    My name is {user}. I am from {location}
+                    My name is {user}. I am from {location}. I work as a {job}
                   </p>
                 </div>
               );
