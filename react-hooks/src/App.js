@@ -2,6 +2,7 @@ import React from "react";
 import ContextHook from "./components/ContextHook";
 import EffectHookTitle from "./components/EffectHookTitle";
 import StateHookCounter from "./components/StateHookCounter";
+import ReducerHookCounter from "./components/ReducerHookCounter";
 
 export const UserContext = React.createContext();
 export const LocationContext = React.createContext();
@@ -26,6 +27,7 @@ function App() {
           </JobContext.Provider>
         </LocationContext.Provider>
       </UserContext.Provider>
+      <ReducerHookCounter />
     </div>
   );
 }

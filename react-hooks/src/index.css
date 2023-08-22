@@ -175,3 +175,10 @@ header {
   padding: 10px 0px 10px 0px;
   text-align: center;
 }
+
+.reducer-container {
+  background-color: #149eca;
+  color: #23272f;
+  padding: 10px 0px 10px 0px;
+  text-align: center;
+}
