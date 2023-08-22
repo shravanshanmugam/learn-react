@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #23272f;
-  color: #149eca;
+  color: #46cdf6;
 }
 
 code {
@@ -16,7 +16,7 @@ code {
 
 button {
   background-color: #23272f;
-  color: #149eca;
+  color: #46cdf6;
   margin: 5px;
   padding: 0.4em;
   border: none;
@@ -39,7 +39,7 @@ button:active {
 }
 
 label {
-  background-color: #149eca;
+  background-color: #46cdf6;
   border-color: #23272f;
   border-radius: 4px solid;
   margin: 5px;
@@ -58,7 +58,7 @@ input {
   border-radius: 4px solid;
   margin: 5px;
   width: 200px;
-  background-color: #149eca;
+  background-color: #46cdf6;
   appearance: none;
   border: none;
   outline: none;
@@ -118,31 +118,31 @@ header {
 }
 
 .state-counter-container {
-  background-color: #149eca;
+  background-color: #46cdf6;
   padding: 10px 0px 10px 0px;
 }
 
 .state-form-container {
-  background-color: #149eca;
+  background-color: #46cdf6;
   color: #23272f;
   padding: 10px 0px 10px 0px;
 }
 
 .state-item-container {
-  background-color: #149eca;
+  background-color: #46cdf6;
   color: #23272f;
   padding: 10px 0px 10px 0px;
 }
 
 .effect-container {
-  background-color: #149eca;
+  background-color: #46cdf6;
   color: #23272f;
   padding: 10px 0px 10px 0px;
   text-align: center;
 }
 
 .timer-container {
-  background-color: #149eca;
+  background-color: #46cdf6;
   color: #23272f;
   padding: 10px 0px 10px 0px;
   text-align: center;
@@ -163,21 +163,21 @@ header {
 }
 
 .user-container {
-  background-color: #149eca;
+  background-color: #46cdf6;
   color: #23272f;
   padding: 10px 0px 10px 0px;
   text-align: center;
 }
 
 .context-button {
-  background-color: #149eca;
+  background-color: #46cdf6;
   color: #23272f;
   padding: 10px 0px 10px 0px;
   text-align: center;
 }
 
 .reducer-container {
-  background-color: #149eca;
+  background-color: #46cdf6;
   color: #23272f;
   padding: 10px 0px 10px 0px;
   text-align: center;
