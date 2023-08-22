@@ -148,13 +148,6 @@ header {
   text-align: center;
 }
 
-.timer-container {
-  background-color: #46cdf6;
-  color: #23272f;
-  padding: 10px 0px 10px 0px;
-  text-align: center;
-}
-
 .blinking-cursor {
   animation: blinker 1s step-end infinite;
 }

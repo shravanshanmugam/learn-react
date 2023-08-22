@@ -20,12 +20,11 @@ export default function EffectHook() {
   return (
     <div>
       <div className="effect-container">
+        <p>Effect hook</p>
         <button onClick={() => setCount(count + 1)}>
           Click me to change document title!
         </button>
         <p>Clicked {count} times</p>
-      </div>
-      <div className="timer-container">
         <p>Passed {timer} seconds</p>
       </div>
     </div>

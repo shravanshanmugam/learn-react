@@ -21,7 +21,7 @@ export default function MultipleReducerHookCounter() {
   const [countTwo, dispatchTwo] = React.useReducer(reducer, initialState);
   return (
     <div className="reducer-container">
-      <p>Reducer Container 1</p>
+      <p>Multiple Reducer - Container 1</p>
       <p>Count: {count.firstCounter}</p>
       <button onClick={() => dispatch({ type: "decrement", value: 5 })}>
         -5
@@ -36,7 +36,7 @@ export default function MultipleReducerHookCounter() {
       <button onClick={() => dispatch({ type: "increment", value: 5 })}>
         +5
       </button>
-      <p>Reducer Container 2</p>
+      <p>Multiple Reducer - Container 2</p>
       <p>Count: {countTwo.firstCounter}</p>
       <button onClick={() => dispatchTwo({ type: "decrement", value: 5 })}>
         -5
