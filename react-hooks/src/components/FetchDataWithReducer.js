@@ -48,6 +48,9 @@ export default function FetchDataWithReducer() {
         .catch((error) => dispatch(failure(error.message)));
     }, 1000);
   }
+  React.useEffect(() => {
+    fetchUsers();
+  }, []);
 
   return (
     <div className="fetch-data-with-reducer">
