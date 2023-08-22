@@ -1,5 +1,10 @@
+import React from "react";
+import ContextHook from "./components/ContextHook";
 import EffectHookTitle from "./components/EffectHookTitle";
 import StateHookCounter from "./components/StateHookCounter";
+
+export const UserContext = React.createContext();
+export const LocationContext = React.createContext();
 
 function App() {
   return (
@@ -9,6 +14,11 @@ function App() {
       </header>
       <StateHookCounter />
       <EffectHookTitle />
+      <UserContext.Provider value={"John"}>
+        <LocationContext.Provider value={"USA"}>
+          <ContextHook />
+        </LocationContext.Provider>
+      </UserContext.Provider>
     </div>
   );
 }
