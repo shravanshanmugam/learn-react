@@ -6,6 +6,7 @@ import ReducerHookCounter from "./components/ReducerHookCounter";
 import MultipleReducerHookCounter from "./components/MultipleReducerHookCounter";
 import ReducerWithContext from "./components/ReducerWithContext";
 import FetchDataWithReducer from "./components/FetchDataWithReducer";
+import CallbackHookCounter from "./components/CallbackHookCounter";
 
 export const UserContext = React.createContext();
 export const LocationContext = React.createContext();
@@ -34,6 +35,7 @@ function App() {
       <MultipleReducerHookCounter />
       <ReducerWithContext />
       <FetchDataWithReducer />
+      <CallbackHookCounter />
     </div>
   );
 }
