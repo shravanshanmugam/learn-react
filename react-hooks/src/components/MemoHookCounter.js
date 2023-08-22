@@ -1,6 +1,7 @@
 import React from "react";
 
 function MemoHookCounter() {
+  const [startSlowCounter, setStartSlowCounter] = React.useState(false);
   const [counterOne, setCounterOne] = React.useState(0);
   const [counterTwo, setCounterTwo] = React.useState(0);
   // cache the result
@@ -14,10 +15,17 @@ function MemoHookCounter() {
     <div className="memo-counter">
       <p>Memo Hook Counter</p>
       <div>
-        <button onClick={() => setCounterOne(counterOne + 1)}>
-          Increment slow counter {counterOne}
+        <button onClick={() => setStartSlowCounter(true)}>
+          Start slow counter
         </button>
-        <span>{isEven}</span>
+        {startSlowCounter && (
+          <>
+            <button onClick={() => setCounterOne(counterOne + 1)}>
+              Increment slow counter {counterOne}
+            </button>
+            <span>{isEven}</span>
+          </>
+        )}
       </div>
       <div>
         <button onClick={() => setCounterTwo(counterTwo + 1)}>
