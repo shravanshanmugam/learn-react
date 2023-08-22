@@ -3,6 +3,7 @@ import ContextHook from "./components/ContextHook";
 import EffectHookTitle from "./components/EffectHookTitle";
 import StateHookCounter from "./components/StateHookCounter";
 import ReducerHookCounter from "./components/ReducerHookCounter";
+import MultipleReducerHookCounter from "./components/MultipleReducerHookCounter";
 
 export const UserContext = React.createContext();
 export const LocationContext = React.createContext();
@@ -28,6 +29,7 @@ function App() {
         </LocationContext.Provider>
       </UserContext.Provider>
       <ReducerHookCounter />
+      <MultipleReducerHookCounter />
     </div>
   );
 }
