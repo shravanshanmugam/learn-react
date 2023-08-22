@@ -37,17 +37,17 @@ export default function MultipleReducerHookCounter() {
       </button>
       <p>Reducer Container 2</p>
       <p>Count: {countTwo.firstCounter}</p>
-      <button onClick={() => dispatch({ type: "decrement", value: 5 })}>
+      <button onClick={() => dispatchTwo({ type: "decrement", value: 5 })}>
         -5
       </button>
-      <button onClick={() => dispatch({ type: "decrement", value: 1 })}>
+      <button onClick={() => dispatchTwo({ type: "decrement", value: 1 })}>
         -1
       </button>
-      <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
-      <button onClick={() => dispatch({ type: "increment", value: 1 })}>
+      <button onClick={() => dispatchTwo({ type: "reset" })}>Reset</button>
+      <button onClick={() => dispatchTwo({ type: "increment", value: 1 })}>
         +1
       </button>
-      <button onClick={() => dispatch({ type: "increment", value: 5 })}>
+      <button onClick={() => dispatchTwo({ type: "increment", value: 5 })}>
         +5
       </button>
     </div>
