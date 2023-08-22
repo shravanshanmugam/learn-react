@@ -202,3 +202,10 @@ header {
   margin: 0px 5px 0px 5px;
   padding: 5px;
 }
+
+.fetch-data-with-reducer {
+  background-color: #46cdf6;
+  color: #23272f;
+  padding: 10px 0px 10px 0px;
+  text-align: center;
+}

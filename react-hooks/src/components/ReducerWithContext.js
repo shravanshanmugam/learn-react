@@ -19,7 +19,7 @@ function ReducerWithContext() {
   const [count, dispatch] = React.useReducer(reducer, initialState);
   return (
     <div className="reducer-context-container">
-      <p>ReducerWithContext</p>
+      <p>Reducer with context</p>
       <p>Count: {count}</p>
       <button onClick={() => dispatch("decrement")}>-</button>
       <button onClick={() => dispatch("reset")}>Reset</button>
