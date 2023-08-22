@@ -17,6 +17,7 @@ const reducer = (state, action) => {
 };
 export default function MultipleReducerHookCounter() {
   const [count, dispatch] = React.useReducer(reducer, initialState);
+  // two independent counters with same reducer function
   const [countTwo, dispatchTwo] = React.useReducer(reducer, initialState);
   return (
     <div className="reducer-container">

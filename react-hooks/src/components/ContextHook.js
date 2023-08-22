@@ -2,9 +2,12 @@ import React from "react";
 import { UserContext, LocationContext, JobContext } from "../App";
 
 export default function ContextHook() {
+  // useContext hook instead of surrounding with Context.Consumer
+  // requires Context object and return current state
   const job = React.useContext(JobContext);
   return (
     <UserContext.Consumer>
+      {/* Surround component which requires state data with Context.Consumer */}
       {(user) => {
         return (
           <LocationContext.Consumer>

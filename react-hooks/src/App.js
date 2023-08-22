@@ -9,6 +9,7 @@ import FetchDataWithReducer from "./components/FetchDataWithReducer";
 import CallbackHookCounter from "./components/CallbackHookCounter";
 import MemoHookCounter from "./components/MemoHookCounter";
 
+// create context
 export const UserContext = React.createContext();
 export const LocationContext = React.createContext();
 export const JobContext = React.createContext();
@@ -22,6 +23,7 @@ function App() {
       </header>
       <StateHookCounter />
       <EffectHookTitle />
+      {/* surround component which requires context with Context.Provider and pass the state as value */}
       <UserContext.Provider value={"John"}>
         <LocationContext.Provider value={"USA"}>
           <JobContext.Provider value={job}>

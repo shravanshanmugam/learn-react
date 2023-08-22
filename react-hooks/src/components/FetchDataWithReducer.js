@@ -37,6 +37,7 @@ const reducer = (state, action) => {
 };
 export default function FetchDataWithReducer() {
   const [state, dispatch] = React.useReducer(reducer, initialState);
+  // called on click as well
   function fetchUsers() {
     dispatch(request());
     setTimeout(() => {
@@ -48,6 +49,7 @@ export default function FetchDataWithReducer() {
         .catch((error) => dispatch(failure(error.message)));
     }, 1000);
   }
+  // called on first-render
   React.useEffect(() => {
     fetchUsers();
   }, []);

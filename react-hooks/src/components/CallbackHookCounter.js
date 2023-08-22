@@ -5,6 +5,8 @@ function CallbackHookCounter() {
   function incrementAge() {
     setAge((age) => age + 1);
   }
+  // cache the callback function itself
+  // callback function is changed only when dependencies are changed
   const callbackAge = React.useCallback(() => incrementAge(), []);
   const [salary, setSalary] = React.useState(10000);
   function incrementSalary() {
@@ -23,6 +25,7 @@ function CallbackHookCounter() {
   );
 }
 
+// render component only when state or props have changed
 const Title = React.memo(() => {
   console.log("Rendering title");
   return <p>Counter</p>;

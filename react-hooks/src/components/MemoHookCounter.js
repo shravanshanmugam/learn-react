@@ -3,6 +3,8 @@ import React from "react";
 function MemoHookCounter() {
   const [counterOne, setCounterOne] = React.useState(0);
   const [counterTwo, setCounterTwo] = React.useState(0);
+  // cache the result
+  // memoized function is changed only when result changes
   const isEven = React.useMemo(() => {
     let i = 0;
     while (i < 2_000_000_000) i++;

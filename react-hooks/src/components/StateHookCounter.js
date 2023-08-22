@@ -11,16 +11,20 @@ export default function StateHook() {
 
   function handleChange(e) {
     const { name, value } = e.target;
+    // change value using the previous state and return the new state
+    // using implicit return here by surrounding with circular brackets like () => ({})
     setUserName((prevState) => ({
       ...prevState,
       [name]: value,
     }));
   }
 
+  // change value directly
   function changeItem(e) {
     setCurrentItem(e.target.value);
   }
 
+  // on submit button, to avoid multiple re-renders, we call e.preventDefault() function first
   function addItem(e) {
     e.preventDefault();
     console.log("add item", currentItem);
