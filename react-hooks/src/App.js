@@ -12,6 +12,7 @@ import RefHookFocusInput from "./components/RefHookFocusInput";
 import RefHookTimer from "./components/RefHookTimer";
 import CustomHookDocTitle from "./components/CustomHookDocTitle";
 import CustomHookCounter from "./components/CustomHookCounter";
+import CustomHookFormInput from "./components/CustomHookFormInput";
 
 // create context
 export const UserContext = React.createContext();
@@ -48,6 +49,7 @@ function App() {
       <RefHookTimer />
       <CustomHookDocTitle />
       <CustomHookCounter />
+      <CustomHookFormInput />
     </div>
   );
 }
