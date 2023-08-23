@@ -10,6 +10,7 @@ import CallbackHookCounter from "./components/CallbackHookCounter";
 import MemoHookCounter from "./components/MemoHookCounter";
 import RefHookFocusInput from "./components/RefHookFocusInput";
 import RefHookTimer from "./components/RefHookTimer";
+import CustomHookDocTitle from "./components/CustomHookDocTitle";
 
 // create context
 export const UserContext = React.createContext();
@@ -30,7 +31,7 @@ function App() {
         <LocationContext.Provider value={"USA"}>
           <JobContext.Provider value={job}>
             <ContextHook />
-            <div className="context-button">
+            <div className="sub-container">
               <button onClick={() => setJob("Architect")}>Change job</button>
             </div>
           </JobContext.Provider>
@@ -44,6 +45,7 @@ function App() {
       <MemoHookCounter />
       <RefHookFocusInput />
       <RefHookTimer />
+      <CustomHookDocTitle />
     </div>
   );
 }

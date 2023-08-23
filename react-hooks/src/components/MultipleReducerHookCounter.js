@@ -20,7 +20,7 @@ export default function MultipleReducerHookCounter() {
   // two independent counters with same reducer function
   const [countTwo, dispatchTwo] = React.useReducer(reducer, initialState);
   return (
-    <div className="reducer-container">
+    <div className="sub-container">
       <p>Multiple Reducer - Container 1</p>
       <p>Count: {count.firstCounter}</p>
       <button onClick={() => dispatch({ type: "decrement", value: 5 })}>

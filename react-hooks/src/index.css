@@ -124,24 +124,13 @@ header {
   text-align: center;
 }
 
-.state-counter-container {
-  background-color: #46cdf6;
-  padding: 10px 0px 10px 0px;
-}
-
-.state-form-container {
+.sub-inner-container {
   background-color: #46cdf6;
   color: #23272f;
   padding: 10px 0px 10px 0px;
 }
 
-.state-item-container {
-  background-color: #46cdf6;
-  color: #23272f;
-  padding: 10px 0px 10px 0px;
-}
-
-.effect-container {
+.sub-container {
   background-color: #46cdf6;
   color: #23272f;
   padding: 10px 0px 10px 0px;
@@ -162,34 +151,6 @@ header {
   }
 }
 
-.user-container {
-  background-color: #46cdf6;
-  color: #23272f;
-  padding: 10px 0px 10px 0px;
-  text-align: center;
-}
-
-.context-button {
-  background-color: #46cdf6;
-  color: #23272f;
-  padding: 10px 0px 10px 0px;
-  text-align: center;
-}
-
-.reducer-container {
-  background-color: #46cdf6;
-  color: #23272f;
-  padding: 10px 0px 10px 0px;
-  text-align: center;
-}
-
-.reducer-context-container {
-  background-color: #46cdf6;
-  color: #23272f;
-  padding: 10px 0px 10px 0px;
-  text-align: center;
-}
-
 .context-provider {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -201,39 +162,4 @@ header {
   border-radius: 5px;
   margin: 0px 5px 0px 5px;
   padding: 5px;
-}
-
-.fetch-data-with-reducer {
-  background-color: #46cdf6;
-  color: #23272f;
-  padding: 10px 0px 10px 0px;
-  text-align: center;
-}
-
-.callback-container {
-  background-color: #46cdf6;
-  color: #23272f;
-  padding: 10px 0px 10px 0px;
-  text-align: center;
-}
-
-.memo-counter {
-  background-color: #46cdf6;
-  color: #23272f;
-  padding: 10px 0px 10px 0px;
-  text-align: center;
-}
-
-.ref-container {
-  background-color: #46cdf6;
-  color: #23272f;
-  padding: 10px 0px 10px 0px;
-  text-align: center;
-}
-
-.ref-timer-container {
-  background-color: #46cdf6;
-  color: #23272f;
-  padding: 10px 0px 10px 0px;
-  text-align: center;
 }

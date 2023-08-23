@@ -14,7 +14,7 @@ function CallbackHookCounter() {
   }
   const callbackSalary = React.useCallback(() => incrementSalary(), []);
   return (
-    <div className="callback-container">
+    <div className="sub-container">
       <p>Callback Hook Counter</p>
       <Title />
       <Count text="Age" count={age} />

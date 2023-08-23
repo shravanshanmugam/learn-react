@@ -35,13 +35,13 @@ export default function StateHook() {
 
   return (
     <div className="state-container">
-      <div className="state-counter-container">
+      <div className="sub-inner-container">
         <p>State hook Count: {count}</p>
         <button onClick={() => setCount(count - 1)}>-</button>
         <button onClick={() => setCount(initialCount)}>Reset</button>
         <button onClick={() => setCount(count + 1)}>+</button>
       </div>
-      <div className="state-form-container">
+      <div className="sub-inner-container">
         <p>Greetings!</p>
         <form>
           <label htmlFor="first-name">First name:</label>
@@ -67,7 +67,7 @@ export default function StateHook() {
           <span className="blinking-cursor">|</span>!
         </p>
       </div>
-      <div className="state-item-container">
+      <div className="sub-inner-container">
         <p>State hook Add items!</p>
         <form>
           <label htmlFor="item-name">Item name:</label>

@@ -19,7 +19,7 @@ export default function EffectHook() {
   // incase dependencies array is empty, executes side effects only on first render
   return (
     <div>
-      <div className="effect-container">
+      <div className="sub-container">
         <p>Effect hook</p>
         <button onClick={() => setCount(count + 1)}>
           Click me to change document title!

@@ -55,7 +55,7 @@ export default function FetchDataWithReducer() {
   }, []);
 
   return (
-    <div className="fetch-data-with-reducer">
+    <div className="sub-container">
       <p>Fetch data with reducer</p>
       <button onClick={fetchUsers}>Fetch users</button>
       <div>

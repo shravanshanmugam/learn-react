@@ -9,7 +9,7 @@ function RefHookFocusInput() {
     inputRef.current.focus();
   }, []);
   return (
-    <div className="ref-container">
+    <div className="sub-container">
       <p>Ref Hook Focus Input</p>
       {/* attach reference object to element using the ref attribute */}
       <input type="text" ref={inputRef} />

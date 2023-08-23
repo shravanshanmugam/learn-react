@@ -17,7 +17,7 @@ function RefHookTimer() {
     return () => clearInterval(buttonRef.current);
   }, []);
   return (
-    <div className="ref-timer-container">
+    <div className="sub-container">
       <p>Ref Hook Timer</p>
       <p>Passed {timer} seconds</p>
       {/**

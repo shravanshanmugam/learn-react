@@ -29,7 +29,7 @@ export default function ReducerHookCounter() {
    * 5. manage global state instead of local component state
    */
   return (
-    <div className="reducer-container">
+    <div className="sub-container">
       <p>Reducer Container</p>
       <p>Count: {count}</p>
       <button onClick={() => dispatch("decrement")}>-</button>

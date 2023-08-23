@@ -12,7 +12,7 @@ function MemoHookCounter() {
     return counterOne % 2 === 0 ? "Even" : "Odd";
   }, [counterOne]);
   return (
-    <div className="memo-counter">
+    <div className="sub-container">
       <p>Memo Hook Counter</p>
       <div>
         <button onClick={() => setStartSlowCounter(true)}>

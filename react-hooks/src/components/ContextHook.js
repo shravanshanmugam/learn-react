@@ -6,7 +6,7 @@ export default function ContextHook() {
   // requires Context object and return current state
   const job = React.useContext(JobContext);
   return (
-    <div className="user-container">
+    <div className="sub-container">
       <p>Context hook</p>
       <UserContext.Consumer>
         {/* Surround component which requires state data with Context.Consumer */}
@@ -15,7 +15,7 @@ export default function ContextHook() {
             <LocationContext.Consumer>
               {(location) => {
                 return (
-                  <div className="user-container">
+                  <div className="sub-container">
                     <p>
                       My name is {user}. I am from {location}. I work as a {job}
                     </p>
