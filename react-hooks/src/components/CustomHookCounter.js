@@ -31,7 +31,7 @@ function CounterOne() {
 }
 
 function CounterTwo() {
-  const [count, increment, decrement, reset] = useCounter(10);
+  const [count, increment, decrement, reset] = useCounter(10, 10);
   return (
     <div className="sub-inner-container">
       <p>Counter Two: {count}</p>
