@@ -16,6 +16,7 @@ function CustomHookFormInput() {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlForm="first-name">First name: </label>
+          {/* set value and onChange using JSON spread operator */}
           <input id="first-name" type="text" {...bindFirstName} />
         </div>
         <div>
