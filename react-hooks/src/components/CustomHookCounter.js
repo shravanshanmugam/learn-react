@@ -7,10 +7,11 @@ function CustomHookCounter() {
       <p>Custom Hook Counter</p>
       <div className="counter-container">
         <CounterOne />
-        <CounterTwo />
+        <CounterOne />
         <CounterOne />
         <CounterTwo />
-        <CounterOne />
+        <CounterTwo />
+        <CounterTwo />
       </div>
     </div>
   );
@@ -30,7 +31,7 @@ function CounterOne() {
 }
 
 function CounterTwo() {
-  const [count, increment, decrement, reset] = useCounter();
+  const [count, increment, decrement, reset] = useCounter(10);
   return (
     <div className="sub-inner-container">
       <p>Counter Two: {count}</p>
