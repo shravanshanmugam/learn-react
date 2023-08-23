@@ -163,3 +163,8 @@ header {
   margin: 0px 5px 0px 5px;
   padding: 5px;
 }
+
+.counter-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}

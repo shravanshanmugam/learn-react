@@ -11,6 +11,7 @@ import MemoHookCounter from "./components/MemoHookCounter";
 import RefHookFocusInput from "./components/RefHookFocusInput";
 import RefHookTimer from "./components/RefHookTimer";
 import CustomHookDocTitle from "./components/CustomHookDocTitle";
+import CustomHookCounter from "./components/CustomHookCounter";
 
 // create context
 export const UserContext = React.createContext();
@@ -46,6 +47,7 @@ function App() {
       <RefHookFocusInput />
       <RefHookTimer />
       <CustomHookDocTitle />
+      <CustomHookCounter />
     </div>
   );
 }
