@@ -373,17 +373,37 @@ function App() {
 - We export a `loader` function from the page that fetches the data
 
 ```js
-
+export function loader() {
+  // sync API call using async-await
+  return getVans();
+}
 ```
 
 - We pass a `loader` prop to the `Route` that renders the that page and pass in the `loader` function
 
 ```js
+import HomePage, { loader as homePageLoader } from "./Home";
 
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<HomePage />} loader={homePageLoader} />
+  )
+);
 ```
 
 - Use the `useLoaderData` hook in the component to get the data
+- This hook is called before we are routed to the new page so the data is available before the component is rendered
 
 ```js
+import { useLoaderData } from "react-router-dom";
+// inside functional component
+const data = useLoaderData();
+// we get the data from the loader function and use it in rendering our component directly
+```
 
+- To handle errors we can pass `errorElement` in our `Route`
+- It catches errors in loader and errors inside the component
+
+```xml
+<Route path="/" element={<HomePage />} loader={homePageLoader} errorElement={<h1>There was an error!</h1>} />
 ```
