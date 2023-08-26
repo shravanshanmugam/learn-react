@@ -302,7 +302,7 @@ function handleFilterChange(key, value) {
 - We can keep track of the query params when we are navigating through pages by passing it as a <code>state</code> in <code>Link</code>
 
 ```xml
-<Link to={van.id} state={{ search: searchParams.toString() }}>
+<Link to={van.id} state={{ search: `?${searchParams.toString()}` }}>
 ```
 
 - We can consume this in the new page using the <code>useLocation</code> hook from <code>react-router-dom</code> library
@@ -313,11 +313,11 @@ function handleFilterChange(key, value) {
 import { useLocation } from "react-router-dom";
 /// inside functional component
 const location = useLocation();
+const search = location.state?.search || "";
 ```
 
 - We can route to previous Link state using the following
 
 ```xml
-<Link to={location.state.search ? `..?${location.state.search}` : ".." relative="path"
-            >Back to all vans</Link>
+<Link to={`..${search}`} relative="path">Back to all vans</Link>
 ```
