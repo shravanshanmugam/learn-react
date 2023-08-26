@@ -319,6 +319,7 @@ import { useLocation } from "react-router-dom";
 // inside functional component
 const location = useLocation();
 const search = location.state?.search || "";
+const typeFilter = location.state?.type || "";
 ```
 
 - We can route to previous `Link` state using the following
