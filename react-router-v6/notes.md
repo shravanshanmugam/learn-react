@@ -144,8 +144,31 @@ const activeStyle = {
 ## Relative Link
 
 - With relative linking, the child route path is assumed based on the parent route path
+
+```xml
+<Route path="host" element={<HostLayout />}>
+    <Route path="dasbhoard" element={<Dashboard />} />
+    <Route path="income" element={<Income />} />
+    <Route path="reviews" element={<Reviews />} />
+    <Route path="vans" element={<HostVans />} />
+    <Route path="vans/:id" element={<HostVanDetail />} />
+</Route>
+```
+
 - To navigate to current path we can use following
 
 ```xml
 <Link to=".">Home</Link></code>
+```
+
+- To go back to parent path we can use following. It will not go back one level in the path.
+
+```xml
+<Link to="../">Go back</Link></code>
+```
+
+- If we go back from <code>/host/vans/1</code> it will go back to <code>/host</code> and not <code>/vans</code> since the parent route is <code>/host</code>. To go to <code>/vans</code> we can do the following
+
+```xml
+<Link to="../vans">Go back</Link></code>
 ```
