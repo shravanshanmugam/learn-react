@@ -306,6 +306,8 @@ function handleFilterChange(key, value) {
 ```
 
 - We can consume this in the new page using the <code>useLocation</code> hook from <code>react-router-dom</code> library
+- This state is maintained even when page is refreshed
+- Link state will not be maintained on new browser or when shared with someone else
 
 ```js
 import { useLocation } from "react-router-dom";
