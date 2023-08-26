@@ -114,6 +114,15 @@ import { Outlet } from "react-router-dom";
 </Route>
 ```
 
+- Another trivial way is to set element for parent route as <code>&lt;Outlet/&gt;</code>
+
+```xml
+<Route path="/vans" element={<Outlet/>}>
+    <Route index element={<Vans />} />
+    <Route path=":id" element={<VanDetail />} />
+</Route>
+```
+
 ## NavLink
 
 - Allows to use className or inline style prop
