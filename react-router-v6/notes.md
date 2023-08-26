@@ -233,3 +233,22 @@ const [currentVan, setCurrentVan] = useOutletContext();
   - Filtering, sorting, pagination
 - Used as "single source of truth" for application state
   - When a user should be able to revisit or share the page we can raise the state up to the URL in query parameter
+- We can use <code>useSearchParams</code> hook from <code>react-router-dom</code> library
+- We can move the state to the url like following
+
+```xml
+<Link to="?type=simple">Jedi</Link>
+<Link to=".">Clear</Link>
+```
+
+- We can also use the following in case we have multiple query parameters
+
+```js
+import { useSearchParams } from "react-router-dom";
+// inside functional component
+const [searchParams, setSearchParams] = useSearchParams();
+const type = searchParams.get("type");
+// inside event handler function
+const params = serializeFormQuery(event.target);
+setSearchParams(params);
+```
