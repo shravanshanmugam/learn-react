@@ -46,6 +46,7 @@ import { Link } from "react-router-dom";
 
 ## Nested Routes
 
+- Use when we have shared UI where we only want to update a container instead of reloading the entire page
 - Create list of child routes in a parent route
 - Child route element will point to child component
 - Parent route component should have an <code>Outlet</code> component where the child component will render based on the path
