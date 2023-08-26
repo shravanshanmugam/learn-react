@@ -118,7 +118,7 @@ import { Outlet } from "react-router-dom";
 
 - Allows to use className or inline style prop
 - We can use it to highlight the page user is currently on by applying some CSS
-- Since react tries to match multiple routes, the styling can apply to the route matching the parent route as well. We can add an <code>end</end> prop in case a more nested route matches
+- Since react tries to match multiple routes, the styling can apply to the route matching the parent route as well. We can add an <code>end</code> prop in case a more nested route matches
 
 ```css
 .active-link {
@@ -139,4 +139,13 @@ const activeStyle = {
 ```xml
 <NavLink to="/" end style={({isActive}) => isActive ? activeStyle : null }>Home</NavLink>
 <NavLink to="/about" className={({isActive}) => isActive ? "active-link" : null }>About</NavLink>
+```
+
+## Relative Link
+
+- With relative linking, the child route path is assumed based on the parent route path
+- To navigate to current path we can use following
+
+```xml
+<Link to=".">Home</Link></code>
 ```
