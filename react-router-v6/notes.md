@@ -327,3 +327,14 @@ const typeFilter = location.state?.type || "all";
 ```xml
 <Link to={`..${search}`} relative="path">Back to {typeFilter} vans</Link>
 ```
+
+## Error pages
+
+- Add a catch all route as a child of main parent layout route
+
+```xml
+<Route path="/" element={<Layout />}>
+    <!-- all other routes -->
+    <Route path="*" element={<h1>Page not found!</h1>} />
+</Route>
+```
