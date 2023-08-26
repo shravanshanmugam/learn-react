@@ -330,7 +330,7 @@ const typeFilter = location.state?.type || "all";
 
 ## Error pages
 
-- Add a catch all route as a child of main parent layout route
+- Add a catch-all route as a child of main parent layout route
 
 ```xml
 <Route path="/" element={<Layout />}>
