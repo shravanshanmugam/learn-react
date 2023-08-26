@@ -170,5 +170,5 @@ const activeStyle = {
 - If we go back from <code>/host/vans/1</code> it will go back to <code>/host</code> and not <code>/vans</code> since the parent route is <code>/host</code>. To go to <code>/vans</code> we can do the following
 
 ```xml
-<Link to="../vans">Go back</Link></code>
+<Link to="../vans">Back to all vans</Link></code>
 ```
