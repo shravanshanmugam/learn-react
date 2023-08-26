@@ -254,3 +254,21 @@ const type = searchParams.get("type");
 const params = serializeFormQuery(event.target);
 setSearchParams(params);
 ```
+
+#### Merge query parameters
+
+```js
+function genNewSearchParamString(key, value) {
+  const sp = new URLSearchParams(searchParams);
+  if (value === null) {
+    sp.delete(key);
+  } else {
+    sp.set(key, value);
+  }
+  return `?${sp.toString()}`;
+}
+```
+
+```xml
+<Link to={genNewSearchParamString("type", "luxury")}>Luxury</Link>
+```
