@@ -402,8 +402,17 @@ const data = useLoaderData();
 ```
 
 - To handle errors we can pass `errorElement` in our `Route`
+- Error thrown in child `Route` will be handled by `errorElement` of the nearest parent `Route`
 - It catches errors in `loader` and errors inside the component
 
 ```xml
 <Route path="/" element={<HomePage />} loader={homePageLoader} errorElement={<h1>There was an error!</h1>} />
+```
+
+- We can get the error being thrown using `useRouterError` hook from `react-router-dom`
+
+```js
+import { useRouteError } from "react-router-dom";
+// inside functional component
+const error = useRouteError();
 ```
