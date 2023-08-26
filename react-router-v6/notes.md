@@ -257,6 +257,8 @@ setSearchParams(params);
 
 #### Merge query parameters
 
+- Using URL string
+
 ```js
 function genNewSearchParamString(key, value) {
   const sp = new URLSearchParams(searchParams);
@@ -272,4 +274,25 @@ function genNewSearchParamString(key, value) {
 ```xml
 <Link to={genNewSearchParamString("type", "luxury")}>Luxury</Link>
 <Link to={genNewSearchParamString("type", null)}>Clear</Link>
+```
+
+- Using <code>setSearchParams</code> function
+
+```js
+function handleFilterChange(key, value) {
+  // take previous params, modify and return
+  setSearchParams((prevParams) => {
+    if (value === null) {
+      prevParams.delete(key);
+    } else {
+      prevParams.set(key, value);
+    }
+    return prevParams;
+  });
+}
+```
+
+```xml
+<button onClick={() => handleFilterChange("type", "Rugged")}>Rugged</button>
+<button onClick={() => handleFilterChange("type", null)}>Clear</button>
 ```
