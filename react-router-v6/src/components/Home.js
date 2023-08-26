@@ -2,19 +2,29 @@ import React from "react";
 
 function Home() {
   return (
-    <div>
-      <div className="header">
-        <header>
-          <nav class="left">
-            <h2>#VANLIFE</h2>
-          </nav>
-          <nav class="right">
-            <h2>About</h2>
-            <h2>Vans</h2>
-          </nav>
-        </header>
-      </div>
-      <main></main>
+    <div className="home">
+      <header>
+        <nav class="left">
+          <h2>#VANLIFE</h2>
+        </nav>
+        <nav class="right">
+          <h2>About</h2>
+          <h2>Vans</h2>
+        </nav>
+      </header>
+      <main>
+        <div className="hero">
+          <h2>You got the travel plans, we got the travel vans.</h2>
+          <p>
+            Add adventure to your life by joining the #vanlife movement. Rent
+            the perfect van to make your perfect road trip.
+          </p>
+          <button>Find your van</button>
+        </div>
+      </main>
+      <footer>
+        <p>&copy; 2022 #VANLIFE</p>
+      </footer>
     </div>
   );
 }
