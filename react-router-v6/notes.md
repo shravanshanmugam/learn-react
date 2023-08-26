@@ -112,3 +112,29 @@ import { Outlet } from "react-router-dom";
     <Route path=":id" element={<VanDetail />} />
 </Route>
 ```
+
+## NavLink
+
+- Allows to use className or inline style prop
+- We can use it to highlight the page user is currently on by applying some CSS
+
+```css
+.active-link {
+  font-weight: bold;
+  text-decoration: underline;
+  color: red;
+}
+```
+
+```js
+const activeStyle = {
+  fontWeight: "bold",
+  textDecoration: "underline",
+  color: "red",
+};
+```
+
+```xml
+<NavLink to="/" style={({isActive}) => isActive ? activeStyle : null }>Home</NavLink>
+<NavLink to="/about" className={({isActive}) => isActive ? "active-link" : null }>About</NavLink>
+```
