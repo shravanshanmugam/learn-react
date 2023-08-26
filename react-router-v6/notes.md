@@ -21,6 +21,10 @@
 - We can add our routes inside browser route like below
 - React matches multiple routes in our definition
 
+```js
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+```
+
 ```xml
 <BrowserRoute>
     <Routes>
@@ -33,7 +37,7 @@
 ## Link
 
 - Using anchor tag will refresh the page and lose state.
-- Navigate from one page to another in react app using Link element.
+- Navigate from one page to another in react app using `Link` element.
 - It works like an anchor tag but it doesn't refresh the page.
 - State in App component can be passed to both Home and About component so is not lost.
 
@@ -48,7 +52,7 @@ import { Link } from "react-router-dom";
 ## Route by path parameter
 
 - Typically used to get details for particular resource
-- We can use <code>useParams</code> hook from <code>react-router-dom</code> library to get the path parameter
+- We can use `useParams` hook from `react-router-dom` library to get the path parameter
 
 ```xml
 <Route path="/vans/:id" element={<VanDetail />} />
@@ -66,7 +70,7 @@ const params = useParams();
 - Use when we have shared UI where we only want to update a container instead of reloading the entire page
 - Create list of child routes in a parent route
 - Child route element will point to child component
-- Parent route component should have an <code>Outlet</code> component where the child component will render based on the path
+- Parent route component should have an `Outlet` component where the child component will render based on the path
 
 ```xml
 <Route path="/host" element={<HostLayout />}>
@@ -107,8 +111,8 @@ import { Outlet } from "react-router-dom";
 
 ## Relative path
 
-- Instead of using absolute path, we can drop <code>/</code> from the route path which will make it relative path
-- We only have to mention the <code>slug</code> or <code>path parameter</code> in the child route's path
+- Instead of using absolute path, we can drop `/` from the route path which will make it relative path
+- We only have to mention the `slug` or `path parameter` in the child route's path
 
 ```xml
 <Route path="host" element={<HostLayout />}>
@@ -130,7 +134,7 @@ import { Outlet } from "react-router-dom";
 </Route>
 ```
 
-- Another trivial way is to set element for parent route as <code>&lt;Outlet/&gt;</code>
+- Another trivial way is to set element for parent route as `<Outlet/>`
 
 ```xml
 <Route path="/vans" element={<Outlet/>}>
@@ -141,9 +145,10 @@ import { Outlet } from "react-router-dom";
 
 ## NavLink
 
-- Allows to use className or inline style prop
+- Allows to use `className` or inline `style` prop
 - We can use it to highlight the page user is currently on by applying some CSS
-- Since react tries to match multiple routes, the styling can apply to the route matching the parent route as well. We can add an <code>end</code> prop in case a more nested route matches
+- We can check that by using `event.isActive` property
+- Since react tries to match multiple routes, the styling can apply to the route matching the parent route as well. We can add an `end` prop in case a more nested route matches
 
 ```css
 .active-link {
@@ -183,31 +188,31 @@ const activeStyle = {
 - To navigate to current path we can use following
 
 ```xml
-<Link to=".">Home</Link></code>
+<Link to=".">Home</Link>`
 ```
 
 - To go back to parent path we can use following. It will not go back one level in the path.
 
 ```xml
-<Link to="..">Go back</Link></code>
+<Link to="..">Go back</Link>`
 ```
 
 - To go back in path instead of route we can do the following
 
 ```xml
-<Link to="../vans">Back to all vans</Link></code>
+<Link to="../vans">Back to all vans</Link>`
 ```
 
-- To go back in path instead of route we can use the <code>relative</code> attribute in <code>&lt;Link&gt;</code>
+- To go back in path instead of route we can use the `relative` attribute in `Link`
 
 ```xml
-<Link to=".." relative="path">Back to all vans</Link></code>
+<Link to=".." relative="path">Back to all vans</Link>`
 ```
 
 ## Outlet context
 
-- We can pass state from parent route to child route using <code>useOutletContext</code> hook from <code>react-router-dom</code> library
-- It is similary to React <code>useContext</code> hook
+- We can pass state from parent route to child route using `useOutletContext` hook from `react-router-dom` library
+- It is similary to React `useContext` hook
 
 ```js
 const [currentVan, setCurrentVan] = React.useState(null);
@@ -233,7 +238,7 @@ const [currentVan, setCurrentVan] = useOutletContext();
   - Filtering, sorting, pagination
 - Used as "single source of truth" for application state
   - When a user should be able to revisit or share the page we can raise the state up to the URL in query parameter
-- We can use <code>useSearchParams</code> hook from <code>react-router-dom</code> library
+- We can use `useSearchParams` hook from `react-router-dom` library
 - We can move the state to the url like following
 
 ```xml
@@ -276,7 +281,7 @@ function genNewSearchParamString(key, value) {
 <Link to={genNewSearchParamString("type", null)}>Clear</Link>
 ```
 
-- Using <code>setSearchParams</code> function
+- Using `setSearchParams` function
 
 ```js
 function handleFilterChange(key, value) {
@@ -299,24 +304,24 @@ function handleFilterChange(key, value) {
 
 ## Query params - Link state
 
-- We can keep track of the query params when we are navigating through pages by passing it as a <code>state</code> in <code>Link</code>
+- We can keep track of the query params when we are navigating through pages by passing it as a `state` in `Link`
 
 ```xml
 <Link to={van.id} state={{ search: `?${searchParams.toString()}` }}>
 ```
 
-- We can consume this in the new page using the <code>useLocation</code> hook from <code>react-router-dom</code> library
+- We can consume this in the new page using the `useLocation` hook from `react-router-dom` library
 - This state is maintained even when page is refreshed
-- Link state will not be maintained on new browser or when shared with someone else
+- `Link` state will not be maintained on new browser or when shared with someone else
 
 ```js
 import { useLocation } from "react-router-dom";
-/// inside functional component
+// inside functional component
 const location = useLocation();
 const search = location.state?.search || "";
 ```
 
-- We can route to previous Link state using the following
+- We can route to previous `Link` state using the following
 
 ```xml
 <Link to={`..${search}`} relative="path">Back to all vans</Link>
