@@ -173,11 +173,17 @@ const activeStyle = {
 - To go back to parent path we can use following. It will not go back one level in the path.
 
 ```xml
-<Link to="../">Go back</Link></code>
+<Link to="..">Go back</Link></code>
 ```
 
-- If we go back from <code>/host/vans/1</code> it will go back to <code>/host</code> and not <code>/vans</code> since the parent route is <code>/host</code>. To go to <code>/vans</code> we can do the following
+- To go back in path instead of route we can do the following
 
 ```xml
 <Link to="../vans">Back to all vans</Link></code>
+```
+
+- To go back in path instead of route we can use the <code>relative</code> attribute in <code>&lt;Link&gt;</code>
+
+```xml
+<Link to=".." relative="path">Back to all vans</Link></code>
 ```
