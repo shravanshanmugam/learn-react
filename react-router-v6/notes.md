@@ -237,8 +237,10 @@ const [currentVan, setCurrentVan] = useOutletContext();
 - We can move the state to the url like following
 
 ```xml
-<Link to="?type=simple">Jedi</Link>
+<Link to="?type=simple">Simple</Link>
 <Link to=".">Clear</Link>
+<!-- alternatively -->
+<button onClick={() => setSearchParams({type: "rugged"})}>Rugged</button>
 ```
 
 - We can also use the following in case we have multiple query parameters
