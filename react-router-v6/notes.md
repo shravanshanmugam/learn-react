@@ -103,10 +103,10 @@ import { Outlet } from "react-router-dom";
 ## When to Nest?
 
 - When child element does not share UI with parent element, we don't have to create nested route
-- Trivial case would be to create an empty parent route with element as the <code>Outlet</code>
+- Trivial way is to ignore parent element and set an index route in the children
 
 ```xml
-<Route path="/vans" element={<Outlet/>}>
+<Route path="/vans">
     <Route index element={<Vans />} />
     <Route path=":id" element={<VanDetail />} />
 </Route>
