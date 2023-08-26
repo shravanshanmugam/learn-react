@@ -47,7 +47,7 @@ footer {
 
 header {
   top: 0;
-  height: 112px;
+  height: 10vh;
   background-color: #fff7ed;
   display: flex;
   flex-wrap: row wrap;
@@ -77,14 +77,12 @@ header {
 .left h2 {
   font-size: 26px;
   font-weight: 900;
-  line-height: 40px;
 }
 
 .right h2 {
   color: #4d4d4d;
   font-size: 16px;
   font-weight: 600;
-  line-height: 22px;
 }
 
 main {
@@ -97,32 +95,40 @@ main {
     url("assets/images/home-hero.png"),
     lightgray 0px -65.191px / 100% 178.109% no-repeat;
   background-size: cover;
+  padding: 100px 20px;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
 }
 
-.hero {
+.hero-text {
   display: flex;
   flex-flow: column wrap;
-  margin-inline: 26px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
-.hero h2 {
-  height: 84px;
-  margin-top: 65px;
+.hero-text h2 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   color: #fff;
   font-size: 36px;
   font-weight: 800;
-  line-height: 42px;
 }
 
-.hero p {
-  height: 48px;
-  margin-top: 22px;
+.hero-text p {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   color: #fff;
   font-size: 16px;
   font-weight: 500;
-  line-height: 24px;
 }
-.hero button {
+main button {
+  height: 50px;
   border: none;
   border-radius: 5px;
   background: #ff8c38;
@@ -131,12 +137,11 @@ main {
   text-align: center;
   font-size: 16px;
   font-weight: 700;
-  line-height: 32px;
 }
 
 footer {
   bottom: 0;
-  height: 75px;
+  height: 10vh;
   background-color: #252525;
 }
 
@@ -146,5 +151,4 @@ footer p {
   color: #aaa;
   font-size: 14px;
   font-weight: 500;
-  line-height: 24px;
 }
