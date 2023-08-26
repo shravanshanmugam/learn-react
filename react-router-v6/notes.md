@@ -187,3 +187,26 @@ const activeStyle = {
 ```xml
 <Link to=".." relative="path">Back to all vans</Link></code>
 ```
+
+## Outlet context
+
+- We can pass state from parent route to child route using <code>useOutletContext</code> hook from <code>react-router-dom</code> library
+- It is similary to React <code>useContext</code> hook
+
+```js
+const [currentVan, setCurrentVan] = React.useState(null);
+```
+
+#### Context provider
+
+```xml
+<Outlet context={[currentVan, setCurrentVan]} />
+```
+
+#### Context consumer
+
+```js
+import { useOutletContext } from "react-router-dom";
+// inside functional component
+const [currentVan, setCurrentVan] = useOutletContext();
+```
