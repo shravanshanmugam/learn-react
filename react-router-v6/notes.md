@@ -254,7 +254,7 @@ const [currentVan, setCurrentVan] = useOutletContext();
 import { useSearchParams } from "react-router-dom";
 // inside functional component
 const [searchParams, setSearchParams] = useSearchParams();
-const type = searchParams.get("type");
+const typeFilter = searchParams.get("type");
 // inside event handler function
 const params = serializeFormQuery(event.target);
 setSearchParams(params);
@@ -307,7 +307,7 @@ function handleFilterChange(key, value) {
 - We can keep track of the query params when we are navigating through pages by passing it as a `state` in `Link`
 
 ```xml
-<Link to={van.id} state={{ search: `?${searchParams.toString()}` }}>
+<Link to={van.id} state={{ search: `?${searchParams.toString()}`, type: typeFilter }}>
 ```
 
 - We can consume this in the new page using the `useLocation` hook from `react-router-dom` library
