@@ -271,4 +271,5 @@ function genNewSearchParamString(key, value) {
 
 ```xml
 <Link to={genNewSearchParamString("type", "luxury")}>Luxury</Link>
+<Link to={genNewSearchParamString("type", null)}>Clear</Link>
 ```
