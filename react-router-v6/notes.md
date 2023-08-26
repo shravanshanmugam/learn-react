@@ -319,11 +319,11 @@ import { useLocation } from "react-router-dom";
 // inside functional component
 const location = useLocation();
 const search = location.state?.search || "";
-const typeFilter = location.state?.type || "";
+const typeFilter = location.state?.type || "all";
 ```
 
 - We can route to previous `Link` state using the following
 
 ```xml
-<Link to={`..${search}`} relative="path">Back to all vans</Link>
+<Link to={`..${search}`} relative="path">Back to {typeFilter} vans</Link>
 ```
