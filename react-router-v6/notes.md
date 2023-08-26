@@ -45,6 +45,22 @@ import { Link } from "react-router-dom";
 <Link to="/about">About</Link>
 ```
 
+## Route by path parameter
+
+- Typically used to get details for particular resource
+- We can use <code>useParams</code> hook from <code>react-router-dom</code> library to get the path parameter
+
+```xml
+<Route path="/vans/:id" element={<VanDetail />} />
+```
+
+```js
+import { useParams } from "react-router-dom";
+// inside functional component
+const params = useParams();
+// params = { id: 1 } when routed to /vans/1
+```
+
 ## Nested Routes
 
 - Use when we have shared UI where we only want to update a container instead of reloading the entire page
@@ -210,3 +226,10 @@ import { useOutletContext } from "react-router-dom";
 // inside functional component
 const [currentVan, setCurrentVan] = useOutletContext();
 ```
+
+## Query parameters
+
+- They are used to represent a change in the UI
+  - Filtering, sorting, pagination
+- Used as "single source of truth" for application state
+  - When a user should be able to revisit or share the page we can raise the state up to the URL in query parameter
