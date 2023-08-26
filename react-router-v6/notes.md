@@ -26,12 +26,12 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 ```
 
 ```xml
-<BrowserRoute>
+<BrowserRouter>
     <Routes>
         <Route />
         ...
     <Routes>
-</BrowserRoute>
+</BrowserRouter>
 ```
 
 ## Link
@@ -68,9 +68,9 @@ const params = useParams();
 ## Nested Routes
 
 - Use when we have shared UI where we only want to update a container instead of reloading the entire page
-- Create list of child routes in a parent route
-- Child route element will point to child component
-- Parent route component should have an `Outlet` component where the child component will render based on the path
+- Create list of child `Route` elements in a parent `Route`
+- Child `Route` element will point to child component
+- Parent `Route` component should have an `Outlet` component where the child component will render based on the path
 
 ```xml
 <Route path="/host" element={<HostLayout />}>
@@ -82,7 +82,7 @@ const params = useParams();
 
 ## Outlet
 
-- It is a hole or a container where the child route will render based on the path
+- It is a hole or a container where the child `Route` will render based on the path
 
 ```js
 import { Outlet } from "react-router-dom";
@@ -97,9 +97,9 @@ import { Outlet } from "react-router-dom";
 
 ## Index route
 
-- It is the default child route of a parent route from the list of all child routes
-- We need not specify path for the index route
-- It will render on the parent route path itself
+- It is the default child `Route` of a parent `Route` from the list of all child `Route` definitions
+- We need not specify path for the index `Route`
+- It will render on the parent `Route` path itself
 
 ```xml
 <Route path="host" element={<HostLayout />}>
@@ -111,8 +111,8 @@ import { Outlet } from "react-router-dom";
 
 ## Relative path
 
-- Instead of using absolute path, we can drop `/` from the route path which will make it relative path
-- We only have to mention the `slug` or `path parameter` in the child route's path
+- Instead of using absolute path, we can drop `/` from the `Route` path which will make it relative path
+- We only have to mention the `slug` or `path parameter` in the child `Route`'s path
 
 ```xml
 <Route path="host" element={<HostLayout />}>
@@ -124,8 +124,8 @@ import { Outlet } from "react-router-dom";
 
 ## When to Nest?
 
-- When child element does not share UI with parent element, we don't have to create nested route
-- Trivial way is to ignore parent element and set an index route in the children
+- When child element does not share UI with parent element, we don't have to create nested `Route`
+- Trivial way is to ignore parent element and set an index `Route` in the children
 
 ```xml
 <Route path="/vans">
@@ -134,7 +134,7 @@ import { Outlet } from "react-router-dom";
 </Route>
 ```
 
-- Another trivial way is to set element for parent route as `<Outlet/>`
+- Another trivial way is to set element for parent `Route` as `<Outlet/>`
 
 ```xml
 <Route path="/vans" element={<Outlet/>}>
@@ -148,7 +148,7 @@ import { Outlet } from "react-router-dom";
 - Allows to use `className` or inline `style` prop
 - We can use it to highlight the page user is currently on by applying some CSS
 - We can check that by using `event.isActive` property
-- Since react tries to match multiple routes, the styling can apply to the route matching the parent route as well. We can add an `end` prop in case a more nested route matches
+- Since react tries to match multiple routes, the styling can apply to the `Route` matching the parent `Route` as well. We can add an `end` prop in case a more nested `Route` matches
 
 ```css
 .active-link {
@@ -173,7 +173,7 @@ const activeStyle = {
 
 ## Relative Link
 
-- With relative linking, the child route path is assumed based on the parent route path
+- With relative linking, the child `Route` path is assumed based on the parent `Route` path
 
 ```xml
 <Route path="host" element={<HostLayout />}>
@@ -197,13 +197,13 @@ const activeStyle = {
 <Link to="..">Go back</Link>`
 ```
 
-- To go back in path instead of route we can do the following
+- To go back in path instead of `Route` we can do the following
 
 ```xml
 <Link to="../vans">Back to all vans</Link>`
 ```
 
-- To go back in path instead of route we can use the `relative` attribute in `Link`
+- To go back in path instead of `Route` we can use the `relative` attribute in `Link`
 
 ```xml
 <Link to=".." relative="path">Back to all vans</Link>`
@@ -211,7 +211,7 @@ const activeStyle = {
 
 ## Outlet context
 
-- We can pass state from parent route to child route using `useOutletContext` hook from `react-router-dom` library
+- We can pass state from parent `Route` to child `Route` using `useOutletContext` hook from `react-router-dom` library
 - It is similary to React `useContext` hook
 
 ```js
@@ -330,7 +330,7 @@ const typeFilter = location.state?.type || "all";
 
 ## Error pages
 
-- Add a catch-all route as a child of main parent layout route
+- Add a catch-all `Route` as a child of main parent layout `Route`
 
 ```xml
 <Route path="/" element={<Layout />}>
@@ -343,4 +343,27 @@ const typeFilter = location.state?.type || "all";
 
 ```xml
 <Link to="/">Return to Home</Link>
+```
+
+## Data layer API
+
+- We make fetch API request after rendering component which forces us to handle error and loading state in all our components
+- This leads to writing lot of boiler plate code
+- We can make use of `useLoaderData` hook from `react-router-dom`
+- We export a `loader` function from the page that fetches the data
+
+```js
+
+```
+
+- We pass a `loader` prop to the `Route` that renders the that page and pass in the `loader` function
+
+```js
+
+```
+
+- Use the `useLoaderData` hook in the component to get the data
+
+```js
+
 ```
