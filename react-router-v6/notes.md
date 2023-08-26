@@ -338,3 +338,9 @@ const typeFilter = location.state?.type || "all";
     <Route path="*" element={<h1>Page not found!</h1>} />
 </Route>
 ```
+
+- We can also add a `Link` back to home page in the error page
+
+```xml
+<Link to="/">Return to Home</Link>
+```
