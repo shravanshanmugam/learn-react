@@ -1,10 +1,10 @@
-## Multi-page app vs Single page app
+# Multi-page app vs Single page app
 
-### Multi-page app (MPA)
+## Multi-page app (MPA)
 
-Client (Browser) makes request to server to fetch each page
+- Client (Browser) makes request to server to fetch each page
 
-### Single page app (SPA)
+## Single page app (SPA)
 
 1. Client makes request to server to fetch page one time
    which returns an entire (react) application and the app makes incremental updates
