@@ -296,3 +296,19 @@ function handleFilterChange(key, value) {
 <button onClick={() => handleFilterChange("type", "Rugged")}>Rugged</button>
 <button onClick={() => handleFilterChange("type", null)}>Clear</button>
 ```
+
+## Query params - Link state
+
+- We can keep track of the query params when we are navigating through pages by passing it as a <code>state</code> in <code>Link</code>
+
+```xml
+<Link to={van.id} state={{ search: searchParams.toString() }}>
+```
+
+- We can consume this in the new page using the <code>useLocation</code> hook from <code>react-router-dom</code> library
+
+```js
+import { useLocation } from "react-router-dom";
+/// inside functional component
+const location = useLocation();
+```
