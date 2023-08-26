@@ -10,10 +10,10 @@ function App() {
       Navigate from one page to another in react app using Link element.
       It works like an anchor tag but it doesn't refresh the page.
       State in App component can be passed to both Home and About component so is not lost. */}
-      <nav>
+      {/* <nav>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
-      </nav>
+      </nav> */}
       <Routes>
         {/* pass the component as parameter */}
         <Route path="/" element={<Home />} />
