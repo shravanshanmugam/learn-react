@@ -51,9 +51,10 @@ import { Link } from "react-router-dom";
 - Parent route component should have an <code>Outlet</code> component where the child component will render based on the path
 
 ```xml
-<Route path="/" element={<PageLayout />} />
-    <Route path="/home element={<Home />} />
-    <Route path="/about element={<About />} />
+<Route path="/host" element={<HostLayout />}>
+    <Route path="/host/dasbhoard" element={<Dashboard />} />
+    <Route path="/host/income" element={<Income />} />
+    <Route path="/host/reviews" element={<Reviews />} />
 </Route>
 ```
 
@@ -67,7 +68,7 @@ import { Outlet } from "react-router-dom";
 
 ```xml
 <>
-    <h1>Page layout goes here</h1>
+    <h1>Host layout goes here</h1>
     <Outlet />
 </>
 ```
@@ -78,9 +79,35 @@ import { Outlet } from "react-router-dom";
 - We need not specify path for the index route
 - It will render on the parent route path itself
 
+```xml
+<Route path="host" element={<HostLayout />}>
+    <Route index element={<Dashboard />} />
+    <Route path="income" element={<Income />} />
+    <Route path="reviews" element={<Reviews />} />
+</Route>
 ```
-<Route path="/" element={<PageLayout />} />
-    <Route index element={<Home />} />
-    <Route path="/about element={<About />} />
+
+## Relative path
+
+- Instead of using absolute path, we can drop <code>/</code> from the route path which will make it relative path
+- We only have to mention the <code>slug</code> or <code>path parameter</code> in the child route's path
+
+```xml
+<Route path="host" element={<HostLayout />}>
+    <Route path="dasbhoard" element={<Dashboard />} />
+    <Route path="income" element={<Income />} />
+    <Route path="reviews" element={<Reviews />} />
+</Route>
+```
+
+## When to Nest?
+
+- When child element does not share UI with parent element, we don't have to create nested route
+- Trivial case would be to create an empty parent route with element as the <code>Outlet</code>
+
+```xml
+<Route path="/vans" element={<Outlet/>}>
+    <Route index element={<Vans />} />
+    <Route path=":id" element={<VanDetail />} />
 </Route>
 ```
