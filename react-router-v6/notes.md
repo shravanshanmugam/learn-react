@@ -350,6 +350,26 @@ const typeFilter = location.state?.type || "all";
 - We make fetch API request after rendering component which forces us to handle error and loading state in all our components
 - This leads to writing lot of boiler plate code
 - We can make use of `useLoaderData` hook from `react-router-dom`
+- To use this hook we have to write our router using `createBrowserRouter` as it is not supported in `<BrowserRouter>`
+- `createBrowserRouter` used JSON definition for router
+- We can use `createRoutesFromElements` to convert component based router to JSON based router
+
+```js
+import {
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(<Route path="/" element={<HomePage />} />)
+);
+
+function App() {
+  return <RouterProvider router={router} />;
+}
+```
+
 - We export a `loader` function from the page that fetches the data
 
 ```js
