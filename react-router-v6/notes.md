@@ -402,7 +402,7 @@ const data = useLoaderData();
 ```
 
 - To handle errors we can pass `errorElement` in our `Route`
-- It catches errors in loader and errors inside the component
+- It catches errors in `loader` and errors inside the component
 
 ```xml
 <Route path="/" element={<HomePage />} loader={homePageLoader} errorElement={<h1>There was an error!</h1>} />
