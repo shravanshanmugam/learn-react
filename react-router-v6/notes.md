@@ -12,6 +12,20 @@
      data and makes changes to the view based on the data.
   4. Entire page is not reloaded. Only content is changed
 
+## Browser Route
+
+- This is a context provider for routes
+- We can add our routes inside browser route like below
+
+```
+<BrowserRoute>
+    <Routes>
+        <Route />
+        ...
+    <Routes>
+</BrowserRoute>
+```
+
 ## Link
 
 - Using anchor tag will refresh the page and lose state.
