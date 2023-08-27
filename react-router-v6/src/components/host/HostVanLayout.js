@@ -1,18 +1,10 @@
 import React from "react";
-import { Outlet, useParams } from "react-router-dom";
-import { getHostVanById } from "../../api/vans";
+import { Outlet, useLoaderData } from "react-router-dom";
 import ActiveNavLink from "../common/ActiveNavLink";
 
 export default function HostVanLayout() {
   console.log("render HostVanLayout");
-  const params = useParams();
-  const [hostVan, setHostVan] = React.useState({});
-  React.useEffect(() => {
-    getHostVanById(params.id)
-      .then((data) => data[0])
-      .then((data) => setHostVan(data))
-      .catch((e) => console.error(e));
-  }, [params.id]);
+  const hostVan = useLoaderData()[0];
   return (
     <div className="host-van-info-container">
       <ActiveNavLink to=".." relative="path" text="Back to all vans" />

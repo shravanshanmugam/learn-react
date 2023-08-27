@@ -11,7 +11,9 @@ import {
 import PageLayout from "./components/PageLayout";
 import {
   getAllVans as VansLoader,
+  getVanById as VanByIdLoader,
   getAllHostVans as HostVansLoader,
+  getHostVanById as HostVanByIdLoader,
 } from "./api/vans";
 import VanDetails from "./components/VanDetails";
 import HostLayout from "./components/host/HostLayout";
@@ -41,7 +43,7 @@ const router = createBrowserRouter(
         errorElement={<Error />}
         loader={VansLoader}
       />
-      <Route path="vans/:id" element={<VanDetails />} />
+      <Route path="vans/:id" element={<VanDetails />} loader={VanByIdLoader} />
       <Route
         path="host"
         element={<HostLayout />}
@@ -51,7 +53,11 @@ const router = createBrowserRouter(
         <Route index element={<Dashboard />} />
         <Route path="income" element={<Income />} />
         <Route path="vans" element={<HostVans />} />
-        <Route path="vans/:id" element={<HostVanLayout />}>
+        <Route
+          path="vans/:id"
+          element={<HostVanLayout />}
+          loader={HostVanByIdLoader}
+        >
           <Route index element={<HostVanDetails />} />
           <Route path="pricing" element={<HostVanPricing />} />
           <Route path="photos" element={<HostVanPhotos />} />

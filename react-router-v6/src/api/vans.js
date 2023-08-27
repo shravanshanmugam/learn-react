@@ -16,9 +16,9 @@ export async function getAllVans() {
   return await get("/vans");
 }
 
-export async function getVanById(id) {
+export async function getVanById({ params }) {
   console.log("get van by id API");
-  return await get(`/vans/${id}`);
+  return await get(`/vans/${params.id}`);
 }
 
 export async function getAllHostVans() {
@@ -26,7 +26,7 @@ export async function getAllHostVans() {
   return await get("/host/vans");
 }
 
-export async function getHostVanById(id) {
+export async function getHostVanById({ params }) {
   console.log("get host van by id API");
-  return await get(`/host/vans/${id}`);
+  return await get(`/host/vans/${params.id}`);
 }

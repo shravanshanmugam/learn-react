@@ -1,18 +1,10 @@
 import React from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLoaderData, useLocation } from "react-router-dom";
 import ActiveNavLink from "./common/ActiveNavLink";
-import { getVanById } from "../api/vans";
 
 function VanDetails() {
   console.log("render VanDetails");
-  const params = useParams();
-  const [van, setVan] = React.useState({});
-  React.useEffect(() => {
-    getVanById(params.id)
-      .then((data) => data[0])
-      .then((data) => setVan(data))
-      .catch((e) => console.error(e));
-  }, [params.id]);
+  const van = useLoaderData()[0];
   const location = useLocation();
   const path = location.state?.search || "";
   const type = location.state?.type || "all";
