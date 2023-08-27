@@ -9,7 +9,7 @@
 body,
 #root {
   font-family: "Inter", sans-serif;
-  height: 100vh;
+  /* height: 100vh; */
   font-size: 1rem;
   background-color: #fff7ed;
   color: #161616;
@@ -22,6 +22,11 @@ img {
 
 .nowrap {
   white-space: nowrap;
+}
+
+a {
+  text-decoration: none;
+  color: #4d4d4d;
 }
 
 header {
@@ -51,13 +56,12 @@ header {
   align-items: center;
 }
 
-a {
-  text-decoration: none;
-  color: #4d4d4d;
+.header-nav a:hover,
+.header-nav a:focus {
+  text-decoration: underline;
+  color: #161616;
 }
 
-.header-nav a:hover,
-.header-nav a:focus,
 .active-link {
   text-decoration: underline;
   color: #161616;
@@ -128,7 +132,7 @@ footer {
 }
 
 .vans-inner-container a:hover,
-a:focus {
+.vans-container a:focus {
   text-decoration: none;
 }
 
@@ -157,47 +161,73 @@ a.go-back:focus {
   justify-content: space-between;
 }
 
-/* .page-outlet-container nav {
+.page-outlet-container {
   display: flex;
-  gap: 10px;
-} */
-
-/* .host-outlet-container {
-  padding: 10px;
-  background-color: #ffead0;
-}
-
-.host-vans-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
+  flex-direction: column;
   gap: 20px;
 }
 
-.host-van-info-container {
+.host-nav {
   display: flex;
-  flex-flow: column wrap;
+  gap: 10px;
 }
 
-.host-van-card,
-.host-van-info {
-  padding: 10px;
-  font-size: 0.8rem;
+.host-vans-container {
+  display: flex;
+  flex-flow: column;
+  gap: 20px;
+}
+
+.host-van-card {
+  padding: 5px;
   background-color: #fff;
 }
 
-.host-van-card,
-.host-van-info figure {
+.host-van-card figure {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
 }
 
-.host-van-name {
-  text-align: center;
+.host-van-card img {
+  float: left;
+  margin-right: 20px;
 }
 
-.host-van-price {
-  color: #4d4d4d;
-  text-align: center;
-} */
+.host-van-card h2 {
+  color: #161616;
+}
+
+.host-van-info-container {
+  padding: 20px;
+  background-color: #fff;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 20px;
+}
+
+.host-van-info-figure {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.host-van-info-nav {
+  display: flex;
+  padding-inline: 20px;
+  gap: 20px;
+}
+
+.host-van-details-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.host-van-details {
+  font-size: 1.1rem;
+}
+
+.host-van-details .small-text {
+  font-size: 0.9rem;
+}

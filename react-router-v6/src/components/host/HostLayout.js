@@ -6,7 +6,7 @@ export default function HostLayout() {
   const hostVans = useLoaderData();
   return (
     <>
-      <nav>
+      <nav className="host-nav">
         <ActiveNavLink to="." text="Dashboard" end />
         <ActiveNavLink to="income" text="Income" />
         <ActiveNavLink to="vans" text="Vans" />
