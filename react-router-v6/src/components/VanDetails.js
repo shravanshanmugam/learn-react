@@ -14,6 +14,7 @@ function VanDetails() {
         to={`..${path}`}
         relative="path"
         text={`Back to ${type} vans`}
+        disable
       />
       <div className="van-card">
         <img src={van.imageUrl} alt={van.name} width="400" />

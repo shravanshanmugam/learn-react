@@ -7,7 +7,7 @@ export default function HostVanLayout() {
   const hostVan = useLoaderData()[0];
   return (
     <div className="host-van-info-container">
-      <ActiveNavLink to=".." relative="path" text="Back to all vans" />
+      <ActiveNavLink to=".." relative="path" text="Back to all vans" disable />
       {hostVan && (
         <>
           <div className="host-van-info">

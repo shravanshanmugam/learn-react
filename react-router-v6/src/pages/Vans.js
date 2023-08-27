@@ -41,7 +41,7 @@ export default function Vans() {
         >
           Luxury
         </ButtonLink>
-        {type && <ActiveNavLink to="." text="Clear all filters" end />}
+        {type && <ActiveNavLink to="." text="Clear all filters" end disable />}
       </nav>
       <div className="host-vans-container">{vansElement}</div>
     </>
