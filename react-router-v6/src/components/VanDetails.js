@@ -16,15 +16,21 @@ function VanDetails() {
   }, [params.id]);
   const location = useLocation();
   console.log("location", location);
+  const path = location.state?.search || "";
+  const type = location.state?.type || "all";
   return (
     <>
-      <ActiveNavLink to=".." relative="path" text="Back to all vans" />
+      <ActiveNavLink
+        to={`..${path}`}
+        relative="path"
+        text={`Back to ${type} vans`}
+      />
       <div className="van-card">
         <img src={van.imageUrl} alt={van.name} width="400" />
         <p>Name: {van.name}</p>
         <p>Description: {van.description}</p>
         <p>Price: ${van.price}/day</p>
-        <p>Type: ${van.type}/day</p>
+        <p>Type: {van.type}</p>
       </div>
     </>
   );
