@@ -16,7 +16,7 @@ export const RQSuperHeroesPage = () => {
      *
      * {"id":4,"name":"Flash","alterEgo":"Barry Allen"}
      */
-    if (data.data.length === 4) setMyRefreshInterval(false);
+    if (data.length === 4) setMyRefreshInterval(false);
   };
   const onError = (error) => {
     console.log("run side effect after API error response", error);
@@ -46,6 +46,7 @@ export const RQSuperHeroesPage = () => {
    *
    * To check error scenario change the url and refresh the page or click on the button.
    */
+  // response comes in data.data
   const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
     "super-heroes",
     fetchSuperHeroes,
@@ -59,6 +60,10 @@ export const RQSuperHeroesPage = () => {
       refetchIntervalInBackground: true, // default value is false.
       onSuccess,
       onError,
+      select: (data) => {
+        console.log("select callback to transform or filter the data");
+        return data.data.map((hero) => hero.name);
+      }, // select callback runs before onSuccess callback. it is only called in case of success.
     }
   );
   /**
@@ -84,7 +89,6 @@ export const RQSuperHeroesPage = () => {
    * refetch interal in background will poll even when switching tabs/windows.
    */
   console.log({ isLoading, isFetching });
-  // response comes in data.data
   if (isLoading || isFetching) {
     return <h2>Loading...</h2>;
   }
@@ -94,8 +98,8 @@ export const RQSuperHeroesPage = () => {
   return (
     <>
       <h2>React Query Super Heroes Page</h2>
-      {data?.data.map((hero) => {
-        return <div key={hero.name}>{hero.name}</div>;
+      {data?.map((heroName) => {
+        return <div key={heroName}>{heroName}</div>;
       })}
       <button onClick={refetch}>Fetch Super Heroes!</button>
     </>
