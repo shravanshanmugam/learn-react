@@ -64,6 +64,7 @@ nav,
   text-align: right;
   display: flex;
   gap: 10px;
+  align-items: center;
 }
 
 footer {
@@ -83,6 +84,7 @@ footer {
 .page-outlet-container nav {
   height: 5%;
   padding: 2px 5px;
+  margin: 20px 5px;
 }
 
 .page-outlet-container main {
@@ -94,6 +96,26 @@ footer {
 a {
   text-decoration: none;
   color: white;
+}
+
+button {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid white;
+  border-radius: 2px;
+  background-color: inherit;
+  color: white;
+}
+
+button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.selected {
+  text-decoration: underline;
+  border: 1px solid #bbb;
+  color: #bbb;
 }
 
 a:hover,
