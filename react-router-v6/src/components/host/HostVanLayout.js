@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet, useParams } from "react-router-dom";
-import { getHostVanById } from "../../api/hostVans";
+import { getHostVanById } from "../../api/vans";
 import ActiveNavLink from "../common/ActiveNavLink";
 
 export default function HostVanLayout() {

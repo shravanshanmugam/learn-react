@@ -65,29 +65,41 @@ const vans = [
     type: "rugged",
   },
 ];
+
 app.use("/api", cors());
 
-app.get("/api/host/vans", function (req, res, next) {
-  console.log("GET request called", req.query);
-  // res.status(400).end({});
-  const queryParam = req.query ? Object.keys(req.query)[0] : null;
-  if (queryParam) {
-    const filteredVans = vans.filter(
-      (van) => van[queryParam] === req.query[queryParam]
-    );
-    res.end(JSON.stringify(filteredVans));
-  } else {
-    res.end(JSON.stringify(vans));
-  }
-});
+app.get("/api/vans", getAllVans());
 
-app.get("/api/host/vans/:id", function (req, res, next) {
-  console.log("GET by id request called");
-  const van = vans.filter((van) => van.id === req.params.id);
-  res.end(JSON.stringify(van));
-});
+app.get("/api/vans/:id", getVanById());
+
+app.get("/api/host/vans", getAllVans());
+
+app.get("/api/host/vans/:id", getVanById());
 
 app.listen(PORT, function (err) {
   if (err) console.log(err);
   console.log("Server listening on PORT", PORT);
 });
+function getVanById() {
+  return function (req, res, next) {
+    console.log("GET by id request called");
+    const van = vans.filter((van) => van.id === req.params.id);
+    res.end(JSON.stringify(van));
+  };
+}
+
+function getAllVans() {
+  return function (req, res, next) {
+    console.log("GET request called", req.query);
+    // res.status(400).end({});
+    const queryParam = req.query ? Object.keys(req.query)[0] : null;
+    if (queryParam) {
+      const filteredVans = vans.filter(
+        (van) => van[queryParam] === req.query[queryParam]
+      );
+      res.end(JSON.stringify(filteredVans));
+    } else {
+      res.end(JSON.stringify(vans));
+    }
+  };
+}

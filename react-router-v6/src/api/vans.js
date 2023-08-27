@@ -10,9 +10,19 @@ async function get(path) {
     };
   }
   const data = await response.json();
-  console.log("data", data);
+  console.log("API data", data);
   return data;
 }
+export async function getAllVans() {
+  console.log("get all vans API");
+  return await get("/vans");
+}
+
+export async function getVanById(id) {
+  console.log("get van by id API");
+  return await get(`/vans/${id}`);
+}
+
 export async function getAllHostVans() {
   console.log("get all host vans API");
   return await get("/host/vans");

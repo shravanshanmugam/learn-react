@@ -9,7 +9,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import PageLayout from "./components/PageLayout";
-import { getAllHostVans as HostVansLoader } from "./api/hostVans";
+import {
+  getAllVans as VansLoader,
+  getAllHostVans as HostVansLoader,
+} from "./api/vans";
 import HostLayout from "./components/host/HostLayout";
 import Dashboard from "./components/host/Dashboard";
 import Income from "./components/host/Income";
@@ -31,7 +34,12 @@ const router = createBrowserRouter(
     <Route path="/" element={<PageLayout />}>
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />
-      <Route path="vans" element={<Vans />} />
+      <Route
+        path="vans"
+        element={<Vans />}
+        errorElement={<Error />}
+        loader={VansLoader}
+      />
       <Route
         path="host"
         element={<HostLayout />}
