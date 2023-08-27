@@ -114,7 +114,7 @@ a:focus {
 .host-van-card {
   padding: 10px;
   font-size: 0.8rem;
-  background-color: #aaa;
+  background-color: #666;
 }
 
 .host-van-card figure {
@@ -127,7 +127,6 @@ a:focus {
   float: left;
   margin-right: 20px;
   font-size: 0.8rem;
-  background-color: #aaa;
 }
 
 .host-vans-container {
