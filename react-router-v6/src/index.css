@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
 * {
   margin: 0;
@@ -8,10 +8,11 @@
 
 body,
 #root {
-  font-family: "Roboto", sans-serif;
+  font-family: "Inter", sans-serif;
   height: 100vh;
   font-size: 1rem;
-  color: white;
+  background-color: #fff7ed;
+  color: #161616;
 }
 
 img {
@@ -43,14 +44,9 @@ img {
   background: #111;
 }
 
-header,
-footer {
-  position: sticky;
-  background-color: #111;
-  text-align: center;
-}
-
 header {
+  position: sticky;
+  text-align: center;
   top: 0;
   height: 10%;
   display: flex;
@@ -59,8 +55,32 @@ header {
   padding-inline: 20px;
 }
 
+.header-home a {
+  text-transform: uppercase;
+  color: #000;
+}
+
+.header-home a:hover {
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
+  color: #4d4d4d;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+  color: #161616;
+}
+
+.active-link {
+  text-decoration: underline;
+  color: #161616;
+}
+
 nav,
-.header-links {
+.header-nav {
   text-align: right;
   display: flex;
   gap: 10px;
@@ -68,8 +88,11 @@ nav,
 }
 
 footer {
-  width: 100%;
+  position: fixed;
   bottom: 0;
+  background-color: #252525;
+  color: #aaa;
+  width: 100%;
   height: 10%;
   display: grid;
   place-content: center;
@@ -78,7 +101,7 @@ footer {
 .page-outlet-container {
   padding: 25px;
   height: 80%;
-  background-color: #222;
+  background-color: #fff7ed;
 }
 
 .page-outlet-container nav {
@@ -90,21 +113,16 @@ footer {
 .page-outlet-container main {
   height: 95%;
   overflow-y: scroll;
-  scrollbar-color: black;
-}
-
-a {
-  text-decoration: none;
-  color: white;
+  scrollbar-color: #ffead0;
 }
 
 button {
   padding: 10px;
   font-size: 1rem;
-  border: 1px solid white;
+  border: 1px solid #161616;
   border-radius: 2px;
   background-color: inherit;
-  color: white;
+  color: #161616;
 }
 
 button:hover {
@@ -118,19 +136,9 @@ button:hover {
   color: #bbb;
 }
 
-a:hover,
-a:focus {
-  text-decoration: underline;
-}
-
-.active-link {
-  text-decoration: underline;
-  color: #bbb;
-}
-
 .host-outlet-container {
   padding: 10px;
-  background-color: #555;
+  background-color: #ffead0;
 }
 
 .host-vans-container {
@@ -149,7 +157,7 @@ a:focus {
 .host-van-info {
   padding: 10px;
   font-size: 0.8rem;
-  background-color: #666;
+  background-color: #fff;
 }
 
 .host-van-card,
@@ -160,11 +168,10 @@ a:focus {
 }
 
 .host-van-name {
-  font-size: 2.5rem;
   text-align: center;
 }
 
 .host-van-price {
-  font-size: 1.5rem;
+  color: #4d4d4d;
   text-align: center;
 }

@@ -7,8 +7,8 @@ export default function HostVanCard(props) {
         <figure>
           <img src={props.imageUrl} alt={props.name} width="150" />
           <figcaption>
-            <p>{props.name}</p>
-            <p>${props.price}/day</p>
+            <p className="host-van-name">{props.name}</p>
+            <p className="host-van-price">${props.price}/day</p>
           </figcaption>
         </figure>
       </section>

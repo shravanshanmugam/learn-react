@@ -69,8 +69,8 @@ function VanCard(props) {
         <figure>
           <img src={props.imageUrl} alt={props.name} width="150" />
           <figcaption>
-            <p>{props.name}</p>
-            <p>${props.price}/day</p>
+            <p className="van-card-name">{props.name}</p>
+            <p className="van-card-price"> ${props.price}/day</p>
           </figcaption>
         </figure>
       </section>
