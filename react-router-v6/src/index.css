@@ -113,8 +113,9 @@ a:focus {
 
 .host-vans-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px 100px;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: 20px;
 }
 
 .host-van-info-container {
@@ -136,21 +137,12 @@ a:focus {
   justify-content: space-evenly;
 }
 
-.host-van-card,
-.host-van-info img {
-  float: left;
-  margin-right: 20px;
-  font-size: 0.8rem;
-}
-
-.host-van-car,
-.host-van-info .host-van-name {
+.host-van-name {
   font-size: 2.5rem;
   text-align: center;
 }
 
-.host-van-car,
-.host-van-info .host-van-price {
+.host-van-price {
   font-size: 1.5rem;
   text-align: center;
 }

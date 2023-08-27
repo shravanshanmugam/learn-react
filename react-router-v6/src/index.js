@@ -14,7 +14,10 @@ import HostLayout from "./components/host/HostLayout";
 import Dashboard from "./components/host/Dashboard";
 import Income from "./components/host/Income";
 import HostVans from "./components/host/HostVans";
-import HostVanInfo from "./components/host/HostVanInfo";
+import HostVanLayout from "./components/host/HostVanLayout";
+import HostVanDetails from "./components/host/HostVanDetails";
+import HostVanPhotos from "./components/host/HostVanPhotos";
+import HostVanPricing from "./components/host/HostVanPricing";
 import Reviews from "./components/host/Reviews";
 import Home from "./pages/Home";
 import Vans from "./pages/Vans";
@@ -38,7 +41,11 @@ const router = createBrowserRouter(
         <Route index element={<Dashboard />} />
         <Route path="income" element={<Income />} />
         <Route path="vans" element={<HostVans />} />
-        <Route path="vans/:id" element={<HostVanInfo />} />
+        <Route path="vans/:id" element={<HostVanLayout />}>
+          <Route index element={<HostVanDetails />} />
+          <Route path="pricing" element={<HostVanPricing />} />
+          <Route path="photos" element={<HostVanPhotos />} />
+        </Route>
         <Route path="reviews" element={<Reviews />} />
       </Route>
       <Route path="*" element={<NotFound />} />
