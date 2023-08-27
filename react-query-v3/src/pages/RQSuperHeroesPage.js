@@ -6,6 +6,12 @@ const fetchSuperHeroes = () => {
 };
 export const RQSuperHeroesPage = () => {
   console.log("render RQSuperHeroesPage");
+  const onSuccess = (data) => {
+    console.log("run side effect after API success response", data);
+  };
+  const onError = (error) => {
+    console.log("run side effect after API error response", error);
+  };
   /**
    * react query caches the data for 5 minutes using query key and function as the unique key.
    * when loading this component it checks if data is present in cache for this API.
@@ -24,6 +30,11 @@ export const RQSuperHeroesPage = () => {
    * refetch will happen if cache has expired even when stale time has not expired.
    *
    * polling for data at regular intervals, it is not dependent on refetch on mount or refetch on window focus
+   *
+   * we can pass onSuccess, onError callbacks if we want to run side effects after fetching data.
+   * on API failure, it retries 3 times. if failed all 3 attempts, then it call onError callback.
+   *
+   * To check error scenario change the url and refresh the page or click on the button.
    */
   const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
     "super-heroes",
@@ -36,6 +47,8 @@ export const RQSuperHeroesPage = () => {
       refetchOnWindowFocus: false, // default value is true. this prevents refreshing data when switching tabs/windows.
       refetchInterval: 5000, // default value is false.
       refetchIntervalInBackground: true, // default value is false.
+      onSuccess,
+      onError,
     }
   );
   /**
@@ -46,9 +59,11 @@ export const RQSuperHeroesPage = () => {
    * enabled prevents fetching on mount. it can be used to fetch on event like click of a button.
    *
    * cache depends on unmount. if cache is present, loading = false, fetching = true.
+   * cache deals with loading screen.
    *
    * staleness is dependent on cache. if not stale, loading = false, fetching = false.
    * if cache expires, it is considered stale. if cache expired, loading = true, fetching = true.
+   * staleness deals with refetching.
    *
    * refetch on mount when false is not dependent on staleness but it is dependent on cache.
    *
