@@ -1,6 +1,6 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
-const router = express.Router();
 const PORT = 8080;
 
 const vans = [
@@ -65,9 +65,11 @@ const vans = [
     type: "rugged",
   },
 ];
-// Single route
-router.get("/vans", function (req, res, next) {
+app.use("/api", cors());
+
+app.get("/api/host/vans", function (req, res, next) {
   console.log("GET request called", req.query);
+  // throw new Error("something blahblah");
   const queryParam = req.query ? Object.keys(req.query)[0] : null;
   if (queryParam) {
     const filteredVans = vans.filter(
@@ -79,13 +81,11 @@ router.get("/vans", function (req, res, next) {
   }
 });
 
-router.get("/vans/:id", function (req, res, next) {
+app.get("/api/host/vans/:id", function (req, res, next) {
   console.log("GET by id request called");
   const van = vans.filter((van) => van.id === req.params.id);
   res.end(JSON.stringify(van));
 });
-
-app.use("/api", router);
 
 app.listen(PORT, function (err) {
   if (err) console.log(err);
