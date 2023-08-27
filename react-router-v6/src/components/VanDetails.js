@@ -10,18 +10,21 @@ function VanDetails() {
   const type = location.state?.type || "all";
   return (
     <>
+      &larr;{" "}
       <ActiveNavLink
         to={`..${path}`}
         relative="path"
-        text={`Back to ${type} vans`}
+        className="go-back"
         disable
-      />
+      >
+        Back to {type} vans
+      </ActiveNavLink>
       <div className="van-card">
         <img src={van.imageUrl} alt={van.name} width="400" />
-        <p>Name: {van.name}</p>
-        <p>Description: {van.description}</p>
-        <p>Price: ${van.price}/day</p>
-        <p>Type: {van.type}</p>
+        <button className={`selected ${van.type}`}>{van.type}</button>
+        <h2>{van.name}</h2>
+        <h3>${van.price}/day</h3>
+        <p>{van.description}</p>
       </div>
     </>
   );

@@ -24,26 +24,6 @@ img {
   white-space: nowrap;
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #333;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #f1f1f1;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #111;
-}
-
 header {
   position: sticky;
   text-align: center;
@@ -63,28 +43,54 @@ header {
 .header-home a:hover {
   text-decoration: none;
 }
-a {
-  text-decoration: none;
-  color: #4d4d4d;
-}
 
-a:hover,
-a:focus {
-  text-decoration: underline;
-  color: #161616;
-}
-
-.active-link {
-  text-decoration: underline;
-  color: #161616;
-}
-
-nav,
 .header-nav {
   text-align: right;
   display: flex;
   gap: 10px;
   align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: #4d4d4d;
+}
+
+.header-nav a:hover,
+.header-nav a:focus,
+.active-link {
+  text-decoration: underline;
+  color: #161616;
+}
+
+button {
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffead0;
+  color: #4d4d4d;
+}
+
+.simple:hover,
+.simple.selected {
+  cursor: pointer;
+  color: #ffead0;
+  background-color: #e17654;
+}
+
+.rugged:hover,
+.rugged.selected {
+  cursor: pointer;
+  color: #ffead0;
+  background-color: #161616;
+}
+
+.luxury:hover,
+.luxury.selected {
+  cursor: pointer;
+  color: #ffead0;
+  background-color: #115e59;
 }
 
 footer {
@@ -101,42 +107,62 @@ footer {
 .page-outlet-container {
   padding: 25px;
   height: 80%;
-  background-color: #fff7ed;
 }
 
-.page-outlet-container nav {
-  height: 5%;
-  padding: 2px 5px;
-  margin: 20px 5px;
+.vans-container {
+  height: 100%;
 }
 
-.page-outlet-container main {
-  height: 95%;
-  overflow-y: scroll;
-  scrollbar-color: #ffead0;
+.vans-container nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-button {
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #161616;
-  border-radius: 2px;
-  background-color: inherit;
-  color: #161616;
+.vans-inner-container {
+  padding: 20px 0px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: start;
+  gap: 20px;
 }
 
-button:hover {
-  cursor: pointer;
+.vans-inner-container a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+.van-card img {
+  border-radius: 5px;
+}
+
+.van-card button {
+  text-transform: capitalize;
+}
+
+.clear-filters,
+.clear-filters:hover {
   text-decoration: underline;
 }
 
-.selected {
+a.go-back,
+a.go-back:hover,
+a.go-back:focus {
   text-decoration: underline;
-  border: 1px solid #bbb;
-  color: #bbb;
+  color: #4d4d4d;
 }
 
-.host-outlet-container {
+.van-card figcaption {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* .page-outlet-container nav {
+  display: flex;
+  gap: 10px;
+} */
+
+/* .host-outlet-container {
   padding: 10px;
   background-color: #ffead0;
 }
@@ -174,4 +200,4 @@ button:hover {
 .host-van-price {
   color: #4d4d4d;
   text-align: center;
-}
+} */
