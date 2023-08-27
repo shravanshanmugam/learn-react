@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 import { SuperHeroesPage } from "./pages/SuperHeroesPage";
 import { RQSuperHeroesPage } from "./pages/RQSuperHeroesPage";
 import { HomePage } from "./pages/HomePage";
@@ -18,6 +19,7 @@ function App() {
           <Route path="/rq-super-heroes" element={<RQSuperHeroesPage />} />
         </Routes>
       </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </QueryClientProvider>
   );
 }
