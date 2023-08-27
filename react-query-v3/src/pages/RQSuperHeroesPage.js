@@ -5,6 +5,7 @@ const fetchSuperHeroes = () => {
   return axios.get("http://localhost:4000/superheroes");
 };
 export const RQSuperHeroesPage = () => {
+  console.log("render RQSuperHeroesPage");
   const { isLoading, data } = useQuery("super-heroes", fetchSuperHeroes);
   // response comes in data.data
   if (isLoading) {
