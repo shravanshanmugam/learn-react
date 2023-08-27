@@ -1,22 +1,6 @@
 import { Outlet, useLoaderData } from "react-router-dom";
 import ActiveNavLink from "../common/ActiveNavLink";
 
-export async function loader() {
-  console.log("load host vans data");
-  const response = await fetch("http://localhost:8080/api/host/vans");
-  console.log("host vans response", response);
-  if (!response.ok) {
-    throw {
-      message: "Something went wrong",
-      status: response.status,
-      statusText: response.statusText,
-    };
-  }
-  const data = await response.json();
-  console.log("host vans data", data);
-  return data;
-}
-
 export default function HostLayout() {
   console.log("render HostLayout");
   const hostVans = useLoaderData();

@@ -9,11 +9,12 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import PageLayout from "./components/PageLayout";
-import { loader as HostVansLoader } from "./components/host/HostLayout";
+import { getAllHostVans as HostVansLoader } from "./api/hostVans";
 import HostLayout from "./components/host/HostLayout";
 import Dashboard from "./components/host/Dashboard";
 import Income from "./components/host/Income";
 import HostVans from "./components/host/HostVans";
+import HostVanInfo from "./components/host/HostVanInfo";
 import Reviews from "./components/host/Reviews";
 import Home from "./pages/Home";
 import Vans from "./pages/Vans";
@@ -37,6 +38,7 @@ const router = createBrowserRouter(
         <Route index element={<Dashboard />} />
         <Route path="income" element={<Income />} />
         <Route path="vans" element={<HostVans />} />
+        <Route path="vans/:id" element={<HostVanInfo />} />
         <Route path="reviews" element={<Reviews />} />
       </Route>
       <Route path="*" element={<NotFound />} />
