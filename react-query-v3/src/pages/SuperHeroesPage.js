@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 export const SuperHeroesPage = () => {
+  console.log("render SuperHeroesPage");
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
   const [error, setError] = useState("");
