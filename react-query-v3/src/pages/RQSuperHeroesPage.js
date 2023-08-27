@@ -1,3 +1,4 @@
+import React from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
 
@@ -6,11 +7,20 @@ const fetchSuperHeroes = () => {
 };
 export const RQSuperHeroesPage = () => {
   console.log("render RQSuperHeroesPage");
+  const [myRefreshInterval, setMyRefreshInterval] = React.useState(3000);
   const onSuccess = (data) => {
     console.log("run side effect after API success response", data);
+    /**
+     * Stop polling once length of data is 4.
+     * To verify this, set enabled to true and append this to db.json
+     *
+     * {"id":4,"name":"Flash","alterEgo":"Barry Allen"}
+     */
+    if (data.data.length === 4) setMyRefreshInterval(false);
   };
   const onError = (error) => {
     console.log("run side effect after API error response", error);
+    setMyRefreshInterval(false);
   };
   /**
    * react query caches the data for 5 minutes using query key and function as the unique key.
@@ -45,7 +55,7 @@ export const RQSuperHeroesPage = () => {
       staleTime: 5000, // default value is 0 - so it refetches everytime. staleness prevents immediate refresh when not required.
       refetchOnMount: false, // default value is true. this prevents refreshing data when switching routes/pages.
       refetchOnWindowFocus: false, // default value is true. this prevents refreshing data when switching tabs/windows.
-      refetchInterval: 5000, // default value is false.
+      refetchInterval: myRefreshInterval, // default value is false.
       refetchIntervalInBackground: true, // default value is false.
       onSuccess,
       onError,
