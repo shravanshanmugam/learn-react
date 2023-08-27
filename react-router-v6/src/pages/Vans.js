@@ -4,9 +4,7 @@ import ActiveNavLink from "../components/common/ActiveNavLink";
 export default function Vans() {
   console.log("render Vans");
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log("search params", searchParams.toString());
   const type = searchParams.get("type") || "";
-  console.log("type", type);
   var vans = useLoaderData();
   vans = type ? vans.filter((van) => van.type === type) : vans;
   const vansElement = vans.map((van) => <VanCard key={van.name} {...van} />);
@@ -25,7 +23,7 @@ export default function Vans() {
 }
 
 function VanCard(props) {
-  console.log("render HostVanCard");
+  console.log("render VanCard");
   const [searchParams, setSearchParams] = useSearchParams();
   const type = searchParams.get("type");
   return (

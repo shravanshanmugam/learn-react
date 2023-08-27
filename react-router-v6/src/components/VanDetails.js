@@ -6,7 +6,6 @@ import { getVanById } from "../api/vans";
 function VanDetails() {
   console.log("render VanDetails");
   const params = useParams();
-  console.log("params", params);
   const [van, setVan] = React.useState({});
   React.useEffect(() => {
     getVanById(params.id)
@@ -15,7 +14,6 @@ function VanDetails() {
       .catch((e) => console.error(e));
   }, [params.id]);
   const location = useLocation();
-  console.log("location", location);
   const path = location.state?.search || "";
   const type = location.state?.type || "all";
   return (

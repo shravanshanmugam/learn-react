@@ -1,7 +1,6 @@
 const API_URL = "http://localhost:8080/api";
 async function get(path) {
   const response = await fetch(API_URL + path);
-  console.log("response", response);
   if (!response.ok) {
     throw {
       message: "Something went wrong",
@@ -10,7 +9,6 @@ async function get(path) {
     };
   }
   const data = await response.json();
-  console.log("API data", data);
   return data;
 }
 export async function getAllVans() {

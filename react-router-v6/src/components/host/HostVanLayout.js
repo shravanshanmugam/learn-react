@@ -6,7 +6,6 @@ import ActiveNavLink from "../common/ActiveNavLink";
 export default function HostVanLayout() {
   console.log("render HostVanLayout");
   const params = useParams();
-  console.log("params", params);
   const [hostVan, setHostVan] = React.useState({});
   React.useEffect(() => {
     getHostVanById(params.id)
