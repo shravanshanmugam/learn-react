@@ -5,14 +5,15 @@ export async function loader() {
   console.log("load host vans data");
   const response = await fetch("http://localhost:8080/api/host/vans");
   console.log("host vans response", response);
-  const data = await response.json();
   if (!response.ok) {
-    return {
+    throw {
       message: "Something went wrong",
       status: response.status,
       statusText: response.statusText,
     };
   }
+  const data = await response.json();
+  console.log("host vans data", data);
   return data;
 }
 

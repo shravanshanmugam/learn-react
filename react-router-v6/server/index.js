@@ -69,7 +69,7 @@ app.use("/api", cors());
 
 app.get("/api/host/vans", function (req, res, next) {
   console.log("GET request called", req.query);
-  // throw new Error("something blahblah");
+  // res.status(400).end({});
   const queryParam = req.query ? Object.keys(req.query)[0] : null;
   if (queryParam) {
     const filteredVans = vans.filter(
