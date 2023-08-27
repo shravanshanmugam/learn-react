@@ -13,7 +13,7 @@ export default function HostVanLayout() {
       .then((data) => data[0])
       .then((data) => setHostVan(data))
       .catch((e) => console.error(e));
-  }, []);
+  }, [params.id]);
   return (
     <div className="host-van-info-container">
       <ActiveNavLink to=".." relative="path" text="Back to all vans" />

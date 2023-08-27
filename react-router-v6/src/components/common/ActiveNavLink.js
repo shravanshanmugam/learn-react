@@ -5,7 +5,7 @@ function activeClassName() {
 export default function ActiveNavLink(props) {
   return (
     <>
-      <NavLink className={activeClassName()} {...props}>
+      <NavLink className={activeClassName()} state={props.state} {...props}>
         {props.text}
       </NavLink>
     </>

@@ -13,6 +13,7 @@ import {
   getAllVans as VansLoader,
   getAllHostVans as HostVansLoader,
 } from "./api/vans";
+import VanDetails from "./components/VanDetails";
 import HostLayout from "./components/host/HostLayout";
 import Dashboard from "./components/host/Dashboard";
 import Income from "./components/host/Income";
@@ -40,6 +41,7 @@ const router = createBrowserRouter(
         errorElement={<Error />}
         loader={VansLoader}
       />
+      <Route path="vans/:id" element={<VanDetails />} />
       <Route
         path="host"
         element={<HostLayout />}

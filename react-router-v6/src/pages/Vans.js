@@ -17,9 +17,21 @@ export default function Vans() {
     <>
       <h2>Explore our van options</h2>
       <nav>
-        <ActiveNavLink to="?type=simple" text="Simple" />
-        <ActiveNavLink to="?type=rugged" text="Rugged" />
-        <ActiveNavLink to="?type=luxury" text="Luxury" />
+        <ActiveNavLink
+          to="?type=simple"
+          text="Simple"
+          state={{ search: searchParams.toString(), type }}
+        />
+        <ActiveNavLink
+          to="?type=rugged"
+          text="Rugged"
+          state={{ search: searchParams.toString(), type }}
+        />
+        <ActiveNavLink
+          to="?type=luxury"
+          text="Luxury"
+          state={{ search: searchParams.toString(), type }}
+        />
         <ActiveNavLink to="." text="Clear all filters" end />
       </nav>
       <div className="host-vans-container">{vansElement}</div>
