@@ -27,7 +27,7 @@ export default function HostLayout() {
         <ActiveNavLink to="vans" text="Vans" />
         <ActiveNavLink to="reviews" text="Reviews" />
       </nav>
-      <main>
+      <main className="host-outlet-container">
         <Outlet context={hostVans} />
       </main>
     </>

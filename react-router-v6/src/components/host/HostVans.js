@@ -10,7 +10,7 @@ export default function HostVans() {
   return (
     <>
       <h2>Your listed vans</h2>
-      {hostVansElement}
+      <div className="host-vans-container">{hostVansElement}</div>
     </>
   );
 }

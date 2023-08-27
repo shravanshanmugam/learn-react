@@ -6,11 +6,41 @@
   box-sizing: border-box;
 }
 
-body {
+body,
+#root {
   font-family: "Roboto", sans-serif;
-  min-height: 100vh;
+  height: 100vh;
   font-size: 1rem;
   color: white;
+}
+
+img {
+  display: block;
+  height: auto;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #333;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #f1f1f1;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #111;
 }
 
 header,
@@ -22,30 +52,43 @@ footer {
 
 header {
   top: 0;
-  height: 10vh;
+  height: 10%;
   display: flex;
   align-items: center;
   place-content: space-between;
-  padding-inline: 2%;
+  padding-inline: 20px;
 }
 
-nav {
+nav,
+.header-links {
   text-align: right;
   display: flex;
   gap: 10px;
 }
 
 footer {
+  width: 100%;
   bottom: 0;
-  height: 8vh;
+  height: 10%;
   display: grid;
   place-content: center;
 }
 
-main {
-  padding: 5%;
-  height: 90vh;
+.page-outlet-container {
+  padding: 25px;
+  height: 80%;
   background-color: #222;
+}
+
+.page-outlet-container nav {
+  height: 5%;
+  padding: 2px 5px;
+}
+
+.page-outlet-container main {
+  height: 95%;
+  overflow-y: scroll;
+  scrollbar-color: black;
 }
 
 a {
@@ -61,4 +104,38 @@ a:focus {
 .active-link {
   text-decoration: underline;
   color: #bbb;
+}
+
+.host-outlet-container {
+  padding: 10px;
+  background-color: #555;
+}
+
+.host-van-card {
+  padding: 10px;
+  font-size: 0.8rem;
+  background-color: #aaa;
+}
+
+.host-van-card figure {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.host-van-card img {
+  float: left;
+  margin-right: 20px;
+  font-size: 0.8rem;
+  background-color: #aaa;
+}
+
+.host-vans-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 100px;
+}
+
+.host-van-card p {
+  text-align: center;
 }

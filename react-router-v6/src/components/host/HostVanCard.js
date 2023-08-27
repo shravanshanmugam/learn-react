@@ -1,10 +1,11 @@
 export default function HostVanCard(props) {
   return (
-    <section key={props.name}>
+    <section key={props.name} className="host-van-card">
       <figure>
-        <img src={props.imageUrl} alt={props.name} width="200" />
+        <img src={props.imageUrl} alt={props.name} width="150" />
         <figcaption>
-          {props.name} <span>${props.price}/dat</span>
+          <p>{props.name}</p>
+          <p>${props.price}/day</p>
         </figcaption>
       </figure>
     </section>

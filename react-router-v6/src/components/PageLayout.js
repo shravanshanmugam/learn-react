@@ -6,7 +6,7 @@ export default function PageLayout() {
   return (
     <>
       <Header />
-      <main>
+      <main className="page-outlet-container">
         <Outlet />
       </main>
       <Footer />

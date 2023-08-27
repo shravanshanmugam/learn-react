@@ -8,7 +8,7 @@ export default function Header() {
         <h2>
           <Link to="/">Home</Link>
         </h2>
-        <nav>
+        <nav className="header-links">
           <ActiveNavLink to="host" text="Host" end />
           <ActiveNavLink to="about" text="About" />
           <ActiveNavLink to="vans" text="Vans" />
