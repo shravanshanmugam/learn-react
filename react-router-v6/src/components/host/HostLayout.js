@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import ActiveNavLink from "../common/ActiveNavLink";
 export default function HostLayout() {
+  console.log("render HostLayout");
   return (
     <>
       <nav>
