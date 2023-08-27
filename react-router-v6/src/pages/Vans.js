@@ -52,7 +52,7 @@ function ButtonLink(props) {
   return (
     <button
       onClick={() => props.handleClick(props.name, props.value)}
-      {...props}
+      className={props.className}
     >
       {props.children}
     </button>
