@@ -25,6 +25,9 @@ export const PageLayout = () => {
           <li>
             <Link to="rq-paginated">RQ Paginated</Link>
           </li>
+          <li>
+            <Link to="rq-infinite">RQ Infinite</Link>
+          </li>
         </ul>
       </nav>
       <Outlet />

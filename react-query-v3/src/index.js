@@ -12,6 +12,7 @@ import RQParallelPage from "./pages/RQParallelPage";
 import RQDynamicParallelPage from "./pages/RQDynamicParallelPage";
 import RQDependentQueriesPage from "./pages/RQDependentQueriesPage";
 import RQPaginatedQueriesPage from "./pages/RQPaginatedQueriesPage";
+import RQInfinitePage from "./pages/RQInfinitePage";
 import "./index.css";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ function App() {
               element={<RQDependentQueriesPage email="johndoe@example.com" />}
             />
             <Route path="rq-paginated" element={<RQPaginatedQueriesPage />} />
+            <Route path="rq-infinite" element={<RQInfinitePage />} />
           </Route>
         </Routes>
       </BrowserRouter>

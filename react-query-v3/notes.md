@@ -71,6 +71,7 @@ if (isLoading || isFetching) {
 if (isError) {
   return <h2>{error.message}</h2>;
 }
+return <div>Super heroes here</div>;
 ```
 
 ## Query by id
@@ -135,9 +136,6 @@ const { data: channel } = useQuery(
 ```js
 const queryClient = useQueryClient();
 return useQuery(["super-hero", id], fetchSuperHero, {
-  select: (data) => {
-    return data?.data;
-  },
   initialData: () => {
     const hero = queryClient
       .getQueryData("super-heroes")
@@ -151,8 +149,52 @@ return useQuery(["super-hero", id], fetchSuperHero, {
 
 ## Paginated query
 
-- can be done similar to `Query by id` and managing `pageNumber` using `useState` hook
+- can be done similar to `Query by id` and by managing `pageNumber` using `useState` hook
 - set `keepPreviousData` to `true` so the previously fetch data stays on screen while fetching data for new query key in the background
+
+## Infinite query
+
+- use `useInfiniteQuery` hook
+- pass `getNextPageParam` callback which will return next page number to the hook
+
+```js
+const { data, hasNextPage, fetchNextPage, isFetching, isFetchingNextPage } =
+  useInfiniteQuery("colors", fetchColors, {
+    getNextPageParam: (_lastPage, pages) => {
+      return pages.length < 7 ? pages.length + 1 : undefined;
+    },
+  });
+```
+
+- process the data using the following
+
+```js
+{
+  data &&
+    data?.pages.map((group, index) => {
+      return (
+        <React.Fragment key={index}>
+          {group.data.map((color) => {
+            return <h2 key={color.id}>This is color {color.label}</h2>;
+          })}
+        </React.Fragment>
+      );
+    });
+}
+```
+
+- show `Load more` button if `hasNextPage=true`
+- call `fetchNextPage` callback to get next page data on click of button
+
+```js
+{
+  hasNextPage && (
+    <button onClick={fetchNextPage} disabled={!hasNextPage}>
+      Load more
+    </button>
+  );
+}
+```
 
 ## Summary
 
