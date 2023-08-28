@@ -43,12 +43,62 @@
 { "id": 4, "name": "Flash", "alterEgo": "Barry Allen" }
 ```
 
+## Query
+
+- write function to call API
+
+```js
+const fetchSuperHeroes = () => {
+  return axios.get("http://localhost:4000/superheroes");
+};
+```
+
+- use `useQuery` hook to fetch data
+
+```js
+const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
+  "super-heroes",
+  fetchSuperHeroes,
+  {
+    enabled: false,
+    cacheTime: 30000,
+    staleTime: 5000,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchInterval: 2000,
+    refetchIntervalInBackground: true,
+    onSuccess: (data) => {
+      console.log("run side effect after API success response", data);
+    },
+    onError: (error) => {
+      console.log("run side effect after API error response", error);
+    },
+    select: (data) => {
+      console.log("select callback to transform or filter the data");
+      // return data.data.map((hero) => hero.name);
+      return data.data;
+    },
+  }
+);
+```
+
+- return component based on state
+
+```js
+if (isLoading || isFetching) {
+  return <h2>Loading...</h2>;
+}
+if (isError) {
+  return <h2>{error.message}</h2>;
+}
+```
+
 ## Query by id
 
 - pass query key as an array with name and id as value
 
 ```js
-useQuery(["super-hero", id], fetchSuperHero);
+const { isLoading, data } = useQuery(["super-hero", id], fetchSuperHero);
 ```
 
 - in fetch API function, accept `queryKey` as parameter, `queryKey[1]` will contain the id
@@ -62,6 +112,24 @@ const fetchSuperHero = ({ queryKey }) => {
 ## Parallel queries
 
 - use two `useQuery` hooks, one for each API
+
+## Dynamic parallel queries
+
+- use `useQueries` hook and write mapper to return properties of fetch API
+
+```js
+const queryResults = useQueries(
+  ids.map((id) => {
+    return {
+      queryKey: ["super-heroes", id],
+      queryFn: () => fetchSuperHero(id),
+      select: (data) => data.data,
+    };
+  })
+);
+const hero1 = queryResults[0]?.data;
+const hero2 = queryResults[1]?.data;
+```
 
 ## SUMMARY
 

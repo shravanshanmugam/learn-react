@@ -10,6 +10,7 @@ const fetchFriends = () => {
   return axios.get("http://localhost:4000/friends");
 };
 function RQParallelPage() {
+  console.log("render RQParallelPage");
   const { data: superHeroes } = useQuery("super-heroes", fetchSuperHeroes, {
     select: (data) => data?.data,
   });
@@ -19,9 +20,12 @@ function RQParallelPage() {
   return (
     <>
       <h2>Super heroes</h2>
-      {superHeroes && superHeroes.map((superHero) => <p>{superHero.name}</p>)}
+      {superHeroes &&
+        superHeroes.map((superHero) => (
+          <p key={superHero.id}>{superHero.name}</p>
+        ))}
       <h2>Friends</h2>
-      {friends && friends.map((friend) => <p>{friend.name}</p>)}
+      {friends && friends.map((friend) => <p key={friend.id}>{friend.name}</p>)}
     </>
   );
 }

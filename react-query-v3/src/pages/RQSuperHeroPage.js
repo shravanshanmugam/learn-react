@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import useSuperHeroData from "../hooks/useSuperHeroData";
 
 function RQSuperHeroPage() {
+  console.log("RQSuperHeroPage");
   const params = useParams();
   const { isLoading, data, isError, error, isFetching } = useSuperHeroData(
     params.id

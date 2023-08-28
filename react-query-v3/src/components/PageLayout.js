@@ -16,6 +16,9 @@ export const PageLayout = () => {
           <li>
             <Link to="rq-parallel">RQ Parallel</Link>
           </li>
+          <li>
+            <Link to="rq-dynamic-parallel">RQ Dynamic Parallel</Link>
+          </li>
         </ul>
       </nav>
       <Outlet />
