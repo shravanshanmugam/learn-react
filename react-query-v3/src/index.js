@@ -10,6 +10,7 @@ import { HomePage } from "./pages/HomePage";
 import RQSuperHeroPage from "./pages/RQSuperHeroPage";
 import RQParallelPage from "./pages/RQParallelPage";
 import RQDynamicParallelPage from "./pages/RQDynamicParallelPage";
+import RQDependentQueriesPage from "./pages/RQDependentQueriesPage";
 import "./index.css";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ function App() {
               path="rq-dynamic-parallel"
               element={<RQDynamicParallelPage ids={[1, 3]} />}
             />
+            <Route path="rq-dependent" element={<RQDependentQueriesPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
