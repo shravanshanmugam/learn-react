@@ -147,6 +147,28 @@ const hero2 = queryResults[1]?.data;
   );
   ```
 
+  ## Initial data
+
+  - set initial data function to fetch data from cache of another fetch API query to prevent loading
+  - we can do this using `useQueryClient` hook
+
+```js
+const queryClient = useQueryClient();
+return useQuery(["super-hero", id], fetchSuperHero, {
+  select: (data) => {
+    return data?.data;
+  },
+  initialData: () => {
+    const hero = queryClient
+      .getQueryData("super-heroes")
+      ?.data?.find((hero) => hero.id === parseInt(id));
+    return hero ? { data: hero } : undefined;
+  },
+});
+```
+
+- `select` callback will be called after `initialData` function is called
+
 ## SUMMARY
 
 - enabled prevents fetching on mount. it can be used to fetch on event like click of a button.

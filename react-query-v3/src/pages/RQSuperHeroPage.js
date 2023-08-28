@@ -16,15 +16,19 @@ function RQSuperHeroPage() {
   }
   return (
     <>
-      <h2>
-        Name: <small>{data.name}</small>
-      </h2>
-      <h2>
-        Alter ego: <small>{data.alterEgo}</small>
-      </h2>
-      <Link to=".." relative="path">
-        <button>Go back</button>
-      </Link>
+      {data && (
+        <>
+          <h2>
+            Name: <small>{data.name}</small>
+          </h2>
+          <h2>
+            Alter ego: <small>{data.alterEgo}</small>
+          </h2>
+          <Link to=".." relative="path">
+            <button>Go back</button>
+          </Link>
+        </>
+      )}
     </>
   );
 }
