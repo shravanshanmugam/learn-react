@@ -11,6 +11,7 @@ const fetchChannel = (id) => {
 };
 
 function RQDependentQueriesPage({ email }) {
+  console.log("render RQDependentQueriesPage");
   const { data: user } = useQuery(["users", email], () => fetchUser(email), {
     select: (data) => data?.data,
   });
@@ -31,10 +32,10 @@ function RQDependentQueriesPage({ email }) {
       <h2>Channels</h2>
       {channel &&
         channel.tags.map((tag) => (
-          <>
+          <h2 key={tag}>
             {tag}
             <br />
-          </>
+          </h2>
         ))}
     </div>
   );

@@ -22,6 +22,9 @@ export const PageLayout = () => {
           <li>
             <Link to="rq-dependent">RQ Dependent</Link>
           </li>
+          <li>
+            <Link to="rq-paginated">RQ Paginated</Link>
+          </li>
         </ul>
       </nav>
       <Outlet />

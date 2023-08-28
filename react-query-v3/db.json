@@ -41,5 +41,59 @@
       "id": "johnDoe1",
       "tags": ["cooking", "travel", "technology"]
     }
+  ],
+  "colors": [
+    {
+      "id": 1,
+      "label": "red"
+    },
+    {
+      "id": 2,
+      "label": "blue"
+    },
+    {
+      "id": 3,
+      "label": "green"
+    },
+    {
+      "id": 4,
+      "label": "yellow"
+    },
+    {
+      "id": 5,
+      "label": "orange"
+    },
+    {
+      "id": 6,
+      "label": "pink"
+    },
+    {
+      "id": 7,
+      "label": "brown"
+    },
+    {
+      "id": 8,
+      "label": "violet"
+    },
+    {
+      "id": 9,
+      "label": "black"
+    },
+    {
+      "id": 10,
+      "label": "cyan"
+    },
+    {
+      "id": 11,
+      "label": "magenta"
+    },
+    {
+      "id": 12,
+      "label": "lime"
+    },
+    {
+      "id": 13,
+      "label": "indigo"
+    }
   ]
 }

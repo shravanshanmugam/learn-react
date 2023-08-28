@@ -169,6 +169,11 @@ return useQuery(["super-hero", id], fetchSuperHero, {
 
 - `select` callback will be called after `initialData` function is called
 
+## Paginated query
+
+- can be done similar to `Query by id` and managing `pageNumber` using `useState` hook
+- set `keepPreviousData` to `true` so the previously fetch data stays on screen while fetching data for new query key in the background
+
 ## SUMMARY
 
 - enabled prevents fetching on mount. it can be used to fetch on event like click of a button.
@@ -185,15 +190,16 @@ return useQuery(["super-hero", id], fetchSuperHero, {
 
 ## Default values
 
-| **Property**                | **Default value** | **Description**                                                                  |
-| --------------------------- | ----------------- | -------------------------------------------------------------------------------- |
-| enabled                     | true              | Fetches data on mount                                                            |
-| cacheTime                   | 5 mins            | Prevents loading screen by showing cached data when refetching in the background |
-| staleTime                   | 0                 | Prevents refetching data when it is not required                                 |
-| refetchOnMount              | true              | Prevents refetching the data when switching routes or pages                      |
-| refetchOnWindowFocus        | true              | Prevents refetching the data when switching tabs or windows                      |
-| refetchInterval             | false             | Polls for data at regular interval                                               |
-| refetchIntervalInBackground | false             | Polls for data even when user is not active                                      |
-| onSuccess                   |                   | Called when fetching data is successful                                          |
-| onError                     |                   | Called after 3 retries when fetching data fails                                  |
-| select                      |                   | Called before onSuccess callback. Can be used to transform or filter data        |
+| **Property**                | **Default value** | **Description**                                                                                     |
+| --------------------------- | ----------------- | --------------------------------------------------------------------------------------------------- |
+| enabled                     | true              | Fetches data on mount                                                                               |
+| cacheTime                   | 5 mins            | Prevents loading screen by showing cached data when refetching in the background                    |
+| staleTime                   | 0                 | Prevents refetching data when it is not required                                                    |
+| refetchOnMount              | true              | Prevents refetching the data when switching routes or pages                                         |
+| refetchOnWindowFocus        | true              | Prevents refetching the data when switching tabs or windows                                         |
+| refetchInterval             | false             | Polls for data at regular interval                                                                  |
+| refetchIntervalInBackground | false             | Polls for data even when user is not active                                                         |
+| onSuccess                   |                   | Called when fetching data is successful                                                             |
+| onError                     |                   | Called after 3 retries when fetching data fails                                                     |
+| select                      |                   | Called before onSuccess callback. Can be used to transform or filter data                           |
+| keepPreviousData            | false             | Keeps previously fetched data on the screen while fetching data for new query key in the background |
