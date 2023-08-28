@@ -29,5 +29,17 @@
       "id": 3,
       "name": "Rachel Green"
     }
+  ],
+  "users": [
+    {
+      "id": "johndoe@example.com",
+      "channelId": "johnDoe1"
+    }
+  ],
+  "channels": [
+    {
+      "id": "johnDoe1",
+      "tags": ["cooking", "travel", "technology"]
+    }
   ]
 }
