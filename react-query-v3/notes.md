@@ -1,27 +1,17 @@
 # React Query
 
-/\*\*
-
-- Stop polling once length of data is 4.
-- To verify this, set enabled to true and append this to db.json
--
-- {"id":4,"name":"Flash","alterEgo":"Barry Allen"}
-  \*/
-
-/\*\*
-
 ## API Response
 
-- response comes in data.data
+- response comes in `data.data`
 
 ## Cache time
 
-- react query caches the data using query key and function as the unique key.
+- react query caches the data using `queryKey` and fetch function as the unique key.
 - when loading this component, it checks if data is present in cache for this API.
-- if the data is present in cache, it is immediately returned without setting isLoading to true.
+- if the data is present in cache, it is immediately returned without setting `isLoading` to `true`.
 - however, background refetch is triggered and on success the new data is updated in the UI.
-- when background refetch happens isFetching will be set to true but isLoading will bet set to false.
-- when refetch happens after cached data expires, both isLoading and isFetching will be set to true.
+- when background refetch happens `isFetching` will be set to `true` but `isLoading` will bet set to `false`.
+- when refetch happens after cached data expires, both `isLoading` and `isFetching` will be set to `true`.
 - the cached data is garbage collected after the cache time expires.
 - cache only expires when component is unmounted.
 
@@ -36,30 +26,50 @@
 
 ## Callbacks
 
-- we can pass onSuccess, onError callbacks if we want to run side effects after fetching data.
-- on API failure, it retries 3 times. if failed all 3 attempts, then it call onError callback.
+- we can pass `onSuccess`, `onError` callbacks if we want to run side effects after fetching data.
+- on API failure, it retries `3 times`. if failed all 3 attempts, then it calls `onError` callback.
 
 ## Debug
 
 - go to Devtools -> Network and set Throttling to Slow 3G.
-- switch between Traditional Super Heroes page and RQ Super Heroes page and check in React query dev tools.
+- switch between _Traditional Super Heroes_ page and _RQ Super Heroes_ page and check in React query dev tools.
 - switch to different tab or window and come back and check in React query dev tools.
 - To check error scenario change the url and refresh the page or click on the button.
 - To check refresh interval scenario do the following
   - Stop polling once length of data is 4.
-  - To verify this, set enabled to true and append this to db.json
+  - To verify this, set `enabled` to `true` and append this to db.json
 
 ```json
 { "id": 4, "name": "Flash", "alterEgo": "Barry Allen" }
 ```
 
+## Query by id
+
+- pass query key as an array with name and id as value
+
+```js
+useQuery(["super-hero", id], fetchSuperHero);
+```
+
+- in fetch API function, accept `queryKey` as parameter, `queryKey[1]` will contain the id
+
+```js
+const fetchSuperHero = ({ queryKey }) => {
+  return axios.get(`http://localhost:4000/superheroes/${queryKey[1]}`);
+};
+```
+
+## Parallel queries
+
+- use two `useQuery` hooks, one for each API
+
 ## SUMMARY
 
 - enabled prevents fetching on mount. it can be used to fetch on event like click of a button.
-- cache depends on unmount. if cache is present, loading = false, fetching = true.
+- cache depends on unmount. if cache is present, `loading = false, fetching = true`.
 - cache deals with loading screen.
-- staleness is dependent on cache. if not stale, loading = false, fetching = false.
-- if cache expires, it is considered stale. if cache expired, loading = true, fetching = true.
+- staleness is dependent on cache. if not stale, `loading = false, fetching = false`.
+- if cache expires, it is considered stale. if cache expired, `loading = true, fetching = true`.
 - when data becomes stale, it renders the component one time without refetching the data.
 - staleness deals with refetching.
 - refetch on mount when false is not dependent on staleness but it is dependent on cache.

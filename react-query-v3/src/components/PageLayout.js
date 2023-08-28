@@ -13,6 +13,9 @@ export const PageLayout = () => {
           <li>
             <Link to="rq-super-heroes">RQ Super Heroes</Link>
           </li>
+          <li>
+            <Link to="rq-parallel">RQ Parallel</Link>
+          </li>
         </ul>
       </nav>
       <Outlet />
