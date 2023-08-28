@@ -131,6 +131,22 @@ const hero1 = queryResults[0]?.data;
 const hero2 = queryResults[1]?.data;
 ```
 
+## Dependent queries
+
+- set dependent query `enabled` flag as `false` so it does not fetch on mount
+
+  ```js
+  // here channelId is dependent on users
+  const { data: channel } = useQuery(
+    ["channels", channelId],
+    () => fetchChannel(channelId),
+    {
+      enabled: !!channelId, // double negation sets to false if channelId is not present
+      select: (data) => data?.data,
+    }
+  );
+  ```
+
 ## SUMMARY
 
 - enabled prevents fetching on mount. it can be used to fetch on event like click of a button.

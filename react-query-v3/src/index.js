@@ -31,7 +31,7 @@ function App() {
             />
             <Route
               path="rq-dependent"
-              element={<RQDependentQueriesPage email="johndoe@xample.com" />}
+              element={<RQDependentQueriesPage email="johndoe@example.com" />}
             />
           </Route>
         </Routes>
