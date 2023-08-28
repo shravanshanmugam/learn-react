@@ -58,27 +58,7 @@ const fetchSuperHeroes = () => {
 ```js
 const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
   "super-heroes",
-  fetchSuperHeroes,
-  {
-    enabled: false,
-    cacheTime: 30000,
-    staleTime: 5000,
-    refetchOnMount: false,
-    refetchOnWindowFocus: false,
-    refetchInterval: 2000,
-    refetchIntervalInBackground: true,
-    onSuccess: (data) => {
-      console.log("run side effect after API success response", data);
-    },
-    onError: (error) => {
-      console.log("run side effect after API error response", error);
-    },
-    select: (data) => {
-      console.log("select callback to transform or filter the data");
-      // return data.data.map((hero) => hero.name);
-      return data.data;
-    },
-  }
+  fetchSuperHeroes
 );
 ```
 
@@ -135,22 +115,22 @@ const hero2 = queryResults[1]?.data;
 
 - set dependent query `enabled` flag as `false` so it does not fetch on mount
 
-  ```js
-  // here channelId is dependent on users
-  const { data: channel } = useQuery(
-    ["channels", channelId],
-    () => fetchChannel(channelId),
-    {
-      enabled: !!channelId, // double negation sets to false if channelId is not present
-      select: (data) => data?.data,
-    }
-  );
-  ```
+```js
+// here channelId is dependent on users
+const { data: channel } = useQuery(
+  ["channels", channelId],
+  () => fetchChannel(channelId),
+  {
+    enabled: !!channelId, // double negation sets to false if channelId is not present
+    select: (data) => data?.data,
+  }
+);
+```
 
-  ## Initial data
+## Initial data
 
-  - set initial data function to fetch data from cache of another fetch API query to prevent loading
-  - we can do this using `useQueryClient` hook
+- set initial data function to fetch data from cache of another fetch API query to prevent loading
+- we can do this using `useQueryClient` hook
 
 ```js
 const queryClient = useQueryClient();
@@ -174,7 +154,7 @@ return useQuery(["super-hero", id], fetchSuperHero, {
 - can be done similar to `Query by id` and managing `pageNumber` using `useState` hook
 - set `keepPreviousData` to `true` so the previously fetch data stays on screen while fetching data for new query key in the background
 
-## SUMMARY
+## Summary
 
 - enabled prevents fetching on mount. it can be used to fetch on event like click of a button.
 - cache depends on unmount. if cache is present, `loading = false, fetching = true`.
