@@ -29,7 +29,10 @@ function App() {
               path="rq-dynamic-parallel"
               element={<RQDynamicParallelPage ids={[1, 3]} />}
             />
-            <Route path="rq-dependent" element={<RQDependentQueriesPage />} />
+            <Route
+              path="rq-dependent"
+              element={<RQDependentQueriesPage email="johndoe@xample.com" />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>
