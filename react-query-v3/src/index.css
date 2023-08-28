@@ -24,3 +24,17 @@ nav ul li {
   list-style-type: none;
   margin-right: 16px;
 }
+
+.super-heroes a {
+  text-decoration: none;
+  color: black;
+}
+
+.super-heroes a:hover {
+  text-decoration: underline;
+  color: black;
+}
+.super-heroes {
+  display: flex;
+  flex-flow: column wrap;
+}

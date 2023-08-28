@@ -7,6 +7,7 @@ import { PageLayout } from "./components/PageLayout";
 import { SuperHeroesPage } from "./pages/SuperHeroesPage";
 import { RQSuperHeroesPage } from "./pages/RQSuperHeroesPage";
 import { HomePage } from "./pages/HomePage";
+import RQSuperHeroPage from "./pages/RQSuperHeroPage";
 import "./index.css";
 
 const queryClient = new QueryClient();
@@ -19,6 +20,7 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="super-heroes" element={<SuperHeroesPage />} />
             <Route path="rq-super-heroes" element={<RQSuperHeroesPage />} />
+            <Route path="rq-super-heroes/:id" element={<RQSuperHeroPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

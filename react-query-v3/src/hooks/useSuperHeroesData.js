@@ -17,7 +17,8 @@ function useSuperHeroesData(myRefreshInterval, onSuccess, onError) {
     onError,
     select: (data) => {
       console.log("select callback to transform or filter the data");
-      return data.data.map((hero) => hero.name);
+      // return data.data.map((hero) => hero.name);
+      return data.data;
     },
   });
 }
