@@ -217,6 +217,25 @@ const handleAddHeroClick = () => {
 };
 ```
 
+## Query Invalidation
+
+- after `POST` request, we want to invalidate the data from `GET` request to fetch all super heroes
+- we can add use the `useQueryClient` hook and `invalidateQueries` on success callback of mutation
+
+```js
+import { useMutation, useQueryClient } from "react-query";
+
+// inside functional component or custom hook
+const queryClient = useQueryClient();
+return useMutation(addSuperHero, {
+  onSuccess: (data) => {
+    queryClient.invalidateQueries("super-heroes");
+  },
+});
+```
+
+- this will automatically refetch the data for super heroes by calling function in `useQuery` hook
+
 ## Summary
 
 - enabled prevents fetching on mount. it can be used to fetch on event like click of a button.
