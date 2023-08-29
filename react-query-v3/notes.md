@@ -259,6 +259,65 @@ return useMutation(addSuperHero, {
 });
 ```
 
+### Optimistic Updates
+
+- instead of refreshing the `GET` request data after making the `POST` call, we can update it before
+- we are optimistic that the `POST` call will be successful
+- this way the user will see the updated data on the UI
+- we can do this by defining `onMutate`, `onError`, `onSettled` callbacks in `useMutation` hook
+- `onMutate` is called before the mutation function is received so it accepts the same parameters
+- here we can cancel any outgoing refetch request so they don't overwrite our optimistic updates
+- we get the previous data so we can rollback in case of any error
+
+```js
+const queryClient = useQueryClient();
+
+return useMutation(addSuperHero, {
+  onMutate: async (newHero) => {
+    // cancel refetch queries
+    await queryClient.cancelQueries("super-heroes");
+    // get previous data to rollback in case of error
+    const previousHeroData = queryClient.getQueryData("super-heroes");
+    queryClient.setQueryData("super-heroes", (oldQueryData) => {
+      return {
+        ...oldQueryData,
+        data: [
+          ...oldQueryData.data,
+          // insert optimistically what the new data will be
+          { id: oldQueryData?.data?.length + 1, ...newHero },
+        ],
+      };
+    });
+    // return previous data to rollback in case of error
+    return { previousHeroData };
+  },
+});
+```
+
+- `onError` is called when mutation encounters an error
+
+```js
+// error object, new data to insert, context containing information regarding the mutation
+{
+  onError: (_err, _newTodo, context) => {
+    // rollback to previous data
+    queryClient.setQueryData("super-heroes", context.previousHeroData);
+  };
+}
+```
+
+- `onSettled` is called when mutation is successful or encounters an error
+- here we want to refetch the data using `GET` request to update with the actual data
+- so we `invalidateQueries`
+
+```js
+{
+  onSettled: () => {
+    queryClient.invalidateQueries("super-heroes");
+  };
+}
+```
+
 ## Summary
 
 - enabled prevents fetching on mount. it can be used to fetch on event like click of a button.
