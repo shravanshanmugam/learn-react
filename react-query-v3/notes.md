@@ -196,6 +196,27 @@ const { data, hasNextPage, fetchNextPage, isFetching, isFetchingNextPage } =
 }
 ```
 
+## Mutation
+
+- using `useMutate` hook, pass function which will make `POST` request
+
+```js
+const addSuperHero = (hero) => {
+  return axios.post(`http://localhost:4000/superheroes`, hero);
+};
+const { mutate: addHero } = useMutation(addSuperHero);
+```
+
+- on form submit, you can call the `mutate` function by passing the data
+
+```js
+const handleAddHeroClick = () => {
+  // name, alterEgo are updated using `useState` hook
+  const hero = { name, alterEgo };
+  addHero(hero);
+};
+```
+
 ## Summary
 
 - enabled prevents fetching on mount. it can be used to fetch on event like click of a button.
