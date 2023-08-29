@@ -236,6 +236,29 @@ return useMutation(addSuperHero, {
 
 - this will automatically refetch the data for super heroes by calling function in `useQuery` hook
 
+## Handling Mutation Response
+
+- query invalidation will make `GET` call to refetch the data after the `POST` call
+- typically we get newly inserted data in mutation response
+- using `useQueryClient` hook we can use this response to update the data for `GET` request in the `onSuccess` callback
+- this reduces an additional network call to refetch the data
+
+```js
+const queryClient = useQueryClient();
+
+return useMutation(addSuperHero, {
+  onSuccess: (data) => {
+    queryClient.setQueryData("super-heroes", (oldQueryData) => {
+      return {
+        ...oldQueryData,
+        // merge newly inserted data from mutation response with existing data
+        data: [...oldQueryData.data, data.data],
+      };
+    });
+  },
+});
+```
+
 ## Summary
 
 - enabled prevents fetching on mount. it can be used to fetch on event like click of a button.
