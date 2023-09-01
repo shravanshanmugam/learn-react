@@ -7,7 +7,7 @@ export const loader = () => {
   console.log("getAllVans loader");
   const loggedIn = false;
   if (!loggedIn) {
-    throw redirect("/login");
+    throw redirect("/login?state=not_logged_in");
   }
   return getAllVans();
 };

@@ -443,9 +443,7 @@ if (!loggedIn) {
 // inside funcitonal component
 const location = useLocation();
 const message = location?.state?.message || "";
-if (message) {
-  alert(message);
-}
+console.log(message); // show this message the user
 ```
 
 ### Drawbacks
@@ -462,6 +460,7 @@ if (message) {
 - We check if user is logged-in inside the loader function
 - If user is not logged-in we use `redirect` to take him to the `login` page first
 - This will redirect the user to login even before making API call or rendering the component
+- We can pass `state` as a query param and consume in `login` page using `useSearchParams` hook to show message to user
 
 ```js
 import { redirect, useLoaderData, useLocation } from "react-router-dom";
@@ -469,7 +468,7 @@ import { redirect, useLoaderData, useLocation } from "react-router-dom";
 function requireAuth() {
   const loggedIn = false; // hard-coding for example
   if (!loggedIn) {
-    throw redirect("/login");
+    throw redirect("/login?state=not_logged_in");
   }
 }
 // inside loader function

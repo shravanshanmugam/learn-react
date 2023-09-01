@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
 export default function Login() {
   const [loginFormData, setLoginFormData] = React.useState({
@@ -9,9 +9,13 @@ export default function Login() {
   const location = useLocation();
   const message = location?.state?.message || "";
   if (message) {
-    alert(message);
+    console.log("You must log-in first!");
   }
-
+  const [searchParams, setSearchParams] = useSearchParams();
+  const state = searchParams.get("state");
+  if (state === "not_logged_in") {
+    console.log("You must log-in first!");
+  }
   function handleSubmit(e) {
     e.preventDefault();
     console.log(loginFormData);
