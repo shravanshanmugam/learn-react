@@ -1,6 +1,16 @@
 import React from "react";
-import { useLoaderData, useLocation } from "react-router-dom";
+import { redirect, useLoaderData, useLocation } from "react-router-dom";
 import ActiveNavLink from "./common/ActiveNavLink";
+import { getAllVans } from "../api/vans";
+
+export const loader = () => {
+  console.log("getAllVans loader");
+  const loggedIn = false;
+  if (!loggedIn) {
+    throw redirect("/login");
+  }
+  return getAllVans();
+};
 
 function VanDetails() {
   console.log("render VanDetails");

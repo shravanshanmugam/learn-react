@@ -10,11 +10,11 @@ import {
 } from "react-router-dom";
 import PageLayout from "./components/PageLayout";
 import {
-  getAllVans as VansLoader,
   getVanById as VanByIdLoader,
   getAllHostVans as HostVansLoader,
   getHostVanById as HostVanByIdLoader,
 } from "./api/vans";
+import { loader as VansLoader } from "./components/VanDetails";
 import VanDetails from "./components/VanDetails";
 import HostLayout from "./components/host/HostLayout";
 import Dashboard from "./components/host/Dashboard";
@@ -38,7 +38,14 @@ const router = createBrowserRouter(
     <Route path="/" element={<PageLayout />}>
       <Route index element={<Home />} />
       <Route path="login" element={<Login />} />
-      <Route path="about" element={<About />} />
+      <Route
+        path="about"
+        element={<About />}
+        loader={async () => {
+          console.log("about loader");
+          return null;
+        }}
+      />
       <Route
         path="vans"
         element={<Vans />}

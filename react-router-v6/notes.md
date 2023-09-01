@@ -426,12 +426,36 @@ const error = useRouteError();
 ### Implementation
 
 - We check in the parent `Route` component whether user is logged
-- If user is not logged in, we use `Navigate` component from `react-router-dom` to take user to the login page first
+- If user is not logged in, we use `Navigate` component from `react-router-dom` to take user to the `login` page first
 
 ```js
 import { Navigate } from "react-router-dom";
 // inside component which requires authentication
 if (!loggedIn) {
   return <Navigate to="/login" />;
+}
+```
+
+### Drawbacks
+
+- Incase we use data loader for fetching data before routing to the component, we will unnecessarily make API calls before checking if user is logged in
+- This also defeats the purpose of protecting the information without authentication
+
+## Protected Routes with Loader Redirect
+
+- If user isn't logged in, redirect to Login page when protected route loaders run, before any route rendering happens
+- Downside is that this needs to happen inside every protected route's loader
+
+### Implementation
+
+- We check if user is logged-in inside the loader function
+- If user is not logged-in we use `redirect` to take him to the `login` page first
+- This will redirect the user to login even before making API call or rendering the component
+
+```js
+import { redirect, useLoaderData, useLocation } from "react-router-dom";
+// inside loader function
+if (!loggedIn) {
+  throw redirect("/login");
 }
 ```
