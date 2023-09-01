@@ -444,7 +444,6 @@ if (!loggedIn) {
 ## Protected Routes with Loader Redirect
 
 - If user isn't logged in, redirect to Login page when protected route loaders run, before any route rendering happens
-- Downside is that this needs to happen inside every protected route's loader
 
 ### Implementation
 
@@ -458,4 +457,20 @@ import { redirect, useLoaderData, useLocation } from "react-router-dom";
 if (!loggedIn) {
   throw redirect("/login");
 }
+```
+
+### Drawbacks
+
+- This needs to happen inside every protected route's loader
+- The loaders for parent `Route` and the child `Route` will run in parallel only to decide if user is authenticated
+- To verify that both parent and child loaders run in parallel use `setTimeout` to look at out of order execution
+
+```js
+const loader = async () => {
+  const rand = Math.random() * 2;
+  setTimeout(() => {
+    console.log("host layout loader");
+  }, rand);
+  return HostVansLoader();
+};
 ```

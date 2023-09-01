@@ -57,11 +57,47 @@ const router = createBrowserRouter(
         path="host"
         element={<HostLayout />}
         errorElement={<Error />}
-        loader={HostVansLoader}
+        loader={async () => {
+          const rand = Math.random() * 2;
+          setTimeout(() => {
+            console.log("host layout loader");
+          }, rand);
+          return HostVansLoader();
+        }}
       >
-        <Route index element={<Dashboard />} />
-        <Route path="income" element={<Income />} />
-        <Route path="vans" element={<HostVans />} />
+        <Route
+          index
+          element={<Dashboard />}
+          loader={async () => {
+            const rand = Math.random() * 2;
+            setTimeout(() => {
+              console.log("host dashboard loader");
+            }, rand);
+            return null;
+          }}
+        />
+        <Route
+          path="income"
+          element={<Income />}
+          loader={async () => {
+            const rand = Math.random() * 2;
+            setTimeout(() => {
+              console.log("host income loader");
+            }, rand);
+            return null;
+          }}
+        />
+        <Route
+          path="vans"
+          element={<HostVans />}
+          loader={async () => {
+            const rand = Math.random() * 2;
+            setTimeout(() => {
+              console.log("host vans loader");
+            }, rand);
+            return null;
+          }}
+        />
         <Route
           path="vans/:id"
           element={<HostVanLayout />}
@@ -71,7 +107,17 @@ const router = createBrowserRouter(
           <Route path="pricing" element={<HostVanPricing />} />
           <Route path="photos" element={<HostVanPhotos />} />
         </Route>
-        <Route path="reviews" element={<Reviews />} />
+        <Route
+          path="reviews"
+          element={<Reviews />}
+          loader={async () => {
+            const rand = Math.random() * 2;
+            setTimeout(() => {
+              console.log("host reviews loader");
+            }, rand);
+            return null;
+          }}
+        />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Route>

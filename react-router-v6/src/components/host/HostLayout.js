@@ -4,7 +4,7 @@ import ActiveNavLink from "../common/ActiveNavLink";
 export default function HostLayout() {
   console.log("render HostLayout");
   const hostVans = useLoaderData();
-  const loggedIn = false;
+  const loggedIn = true;
   if (!loggedIn) {
     return <Navigate to="/login" />;
   }
