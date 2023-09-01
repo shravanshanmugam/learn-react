@@ -47,6 +47,9 @@ export default function Login() {
   return (
     <div className="login-container">
       <h1>Sign in to your account</h1>
+      {loginState === "not_logged_in" && (
+        <h3 style={{ color: "red" }}>You must log-in first!</h3>
+      )}
       <form onSubmit={handleSubmit} className="login-form">
         <input
           name="email"

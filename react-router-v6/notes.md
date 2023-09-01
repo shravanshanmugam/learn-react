@@ -509,4 +509,11 @@ const loginState = useLoaderData();
 if (loginState === "not_logged_in") {
   console.log("You must log-in first!");
 }
+
+// showing the message
+{
+  loginState === "not_logged_in" && (
+    <h3 style={{ color: "red" }}>You must log-in first!</h3>
+  );
+}
 ```
