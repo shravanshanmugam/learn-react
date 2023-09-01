@@ -1,6 +1,16 @@
 import React from "react";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
+export const loader = ({ request }) => {
+  console.log("login loader");
+  const searchParams = new URL(request.url).searchParams;
+  const state = searchParams?.get("state");
+  if (state === "not_logged_in") {
+    console.log("[loader] You must log-in first!");
+  }
+  return null;
+};
+
 export default function Login() {
   const [loginFormData, setLoginFormData] = React.useState({
     email: "",
@@ -9,12 +19,12 @@ export default function Login() {
   const location = useLocation();
   const message = location?.state?.message || "";
   if (message) {
-    console.log("You must log-in first!");
+    console.log("[useLocation] " + message);
   }
   const [searchParams, setSearchParams] = useSearchParams();
   const state = searchParams.get("state");
   if (state === "not_logged_in") {
-    console.log("You must log-in first!");
+    console.log("[useSearchParams] You must log-in first!");
   }
   function handleSubmit(e) {
     e.preventDefault();

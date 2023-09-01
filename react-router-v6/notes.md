@@ -492,3 +492,18 @@ const loader = async () => {
   return HostVansLoader();
 };
 ```
+
+## Login state message
+
+- We can use loader function for retrieving login `state` from query params or path params and show message to the user
+
+```js
+export const loader = ({ request }) => {
+  const searchParams = new URL(request.url).searchParams;
+  const state = searchParams?.get("state");
+  if (state === "not_logged_in") {
+    console.log("[loader] You must log-in first!");
+  }
+  return null;
+};
+```

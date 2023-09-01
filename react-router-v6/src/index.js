@@ -30,14 +30,14 @@ import Vans from "./pages/Vans";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import Error from "./pages/Error";
-import Login from "./pages/Login";
+import Login, { loader as loginLoader } from "./pages/Login";
 import "./index.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<PageLayout />}>
       <Route index element={<Home />} />
-      <Route path="login" element={<Login />} />
+      <Route path="login" element={<Login />} loader={loginLoader} />
       <Route
         path="about"
         element={<About />}
