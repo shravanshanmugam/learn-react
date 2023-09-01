@@ -453,10 +453,16 @@ if (!loggedIn) {
 
 ```js
 import { redirect, useLoaderData, useLocation } from "react-router-dom";
-// inside loader function
-if (!loggedIn) {
-  throw redirect("/login");
+// util function to check if user is authenticated
+function requireAuth() {
+  const loggedIn = false; // hard-coding for example
+  if (!loggedIn) {
+    throw redirect("/login");
+  }
 }
+// inside loader function
+await requireAuth();
+return fetchData();
 ```
 
 ### Drawbacks
