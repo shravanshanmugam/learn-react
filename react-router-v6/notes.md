@@ -463,6 +463,7 @@ if (!loggedIn) {
 
 - This needs to happen inside every protected route's loader
 - The loaders for parent `Route` and the child `Route` will run in parallel only to decide if user is authenticated
+- Due to this adding authentication check only in parent `Route` will not be sufficient as child `Route` can still render
 - To verify that both parent and child loaders run in parallel use `setTimeout` to look at out of order execution
 
 ```js
