@@ -12,6 +12,7 @@ export default function Header() {
           <ActiveNavLink to="host" text="Host" end />
           <ActiveNavLink to="about" text="About" />
           <ActiveNavLink to="vans" text="Vans" />
+          <ActiveNavLink to="login" text="Login" />
         </nav>
       </header>
     </>
