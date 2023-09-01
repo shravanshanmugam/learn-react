@@ -29,6 +29,7 @@ export default function Login() {
           onChange={handleChange}
           type="email"
           placeholder="Email address"
+          autoComplete="username"
           value={loginFormData.email}
         />
         <input
@@ -36,6 +37,7 @@ export default function Login() {
           onChange={handleChange}
           type="password"
           placeholder="Password"
+          autoComplete="current-password"
           value={loginFormData.password}
         />
         <button>Log in</button>
