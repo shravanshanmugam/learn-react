@@ -1,9 +1,13 @@
-import { Outlet, useLoaderData } from "react-router-dom";
+import { Navigate, Outlet, useLoaderData } from "react-router-dom";
 import ActiveNavLink from "../common/ActiveNavLink";
 
 export default function HostLayout() {
   console.log("render HostLayout");
   const hostVans = useLoaderData();
+  const loggedIn = false;
+  if (!loggedIn) {
+    return <Navigate to="/login" />;
+  }
   return (
     <>
       <nav className="host-nav">

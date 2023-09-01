@@ -416,3 +416,22 @@ import { useRouteError } from "react-router-dom";
 // inside functional component
 const error = useRouteError();
 ```
+
+## Protected Routes
+
+- Purpose is to stop data fetching of sensitive information and only allow logged in users to access their data
+- If user isn't logged in, stop data fetching by blocking components from rendering and send to the Login page
+- Since fetching is happening inside the components, if those components never render, the fetching never happens
+
+### Implementation
+
+- We check in the parent `Route` component whether user is logged
+- If user is not logged in, we use `Navigate` component from `react-router-dom` to take user to the login page first
+
+```js
+import { Navigate } from "react-router-dom";
+// inside component which requires authentication
+if (!loggedIn) {
+  return <Navigate to="/login" />;
+}
+```
