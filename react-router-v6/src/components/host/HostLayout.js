@@ -4,9 +4,11 @@ import ActiveNavLink from "../common/ActiveNavLink";
 export default function HostLayout() {
   console.log("render HostLayout");
   const hostVans = useLoaderData();
-  const loggedIn = true;
+  const loggedIn = false;
   if (!loggedIn) {
-    return <Navigate to="/login" />;
+    return (
+      <Navigate to="/login" state={{ message: "You must log-in first" }} />
+    );
   }
   return (
     <>

@@ -427,12 +427,24 @@ const error = useRouteError();
 
 - We check in the parent `Route` component whether user is logged
 - If user is not logged in, we use `Navigate` component from `react-router-dom` to take user to the `login` page first
+- We can pass `state` in `Navigate` component similar to `Link` component
 
 ```js
 import { Navigate } from "react-router-dom";
 // inside component which requires authentication
 if (!loggedIn) {
-  return <Navigate to="/login" />;
+  return <Navigate to="/login" state={{ message: "You must log-in first" }} />;
+}
+```
+
+- In login page we can consume this state using `useLocation` hook similar to `Link` component to display any message
+
+```js
+// inside funcitonal component
+const location = useLocation();
+const message = location?.state?.message || "";
+if (message) {
+  alert(message);
 }
 ```
 
