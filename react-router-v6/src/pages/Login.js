@@ -1,14 +1,15 @@
 import React from "react";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import {
+  useLoaderData,
+  useLocation,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 
 export const loader = ({ request }) => {
   console.log("login loader");
   const searchParams = new URL(request.url).searchParams;
-  const state = searchParams?.get("state");
-  if (state === "not_logged_in") {
-    console.log("[loader] You must log-in first!");
-  }
-  return null;
+  return searchParams?.get("state");
 };
 
 export default function Login() {
@@ -25,6 +26,10 @@ export default function Login() {
   const state = searchParams.get("state");
   if (state === "not_logged_in") {
     console.log("[useSearchParams] You must log-in first!");
+  }
+  const loginState = useLoaderData();
+  if (loginState === "not_logged_in") {
+    console.log("[useLoaderData] You must log-in first!");
   }
   function handleSubmit(e) {
     e.preventDefault();

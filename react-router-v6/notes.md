@@ -495,15 +495,18 @@ const loader = async () => {
 
 ## Login state message
 
-- We can use loader function for retrieving login `state` from query params or path params and show message to the user
+- We can use loader function for retrieving login `state` from query params or path params and return the state
+- Using `useLoaderData` we can consume the login state and display the mssage
 
 ```js
 export const loader = ({ request }) => {
   const searchParams = new URL(request.url).searchParams;
-  const state = searchParams?.get("state");
-  if (state === "not_logged_in") {
-    console.log("[loader] You must log-in first!");
-  }
-  return null;
+  return searchParams?.get("state");
 };
+
+// inside functional component
+const loginState = useLoaderData();
+if (loginState === "not_logged_in") {
+  console.log("You must log-in first!");
+}
 ```
