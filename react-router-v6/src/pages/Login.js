@@ -18,6 +18,8 @@ export default function Login() {
     email: "",
     password: "",
   });
+  const [submit, setSubmit] = React.useState(false);
+  const [error, setError] = React.useState(null);
   const location = useLocation();
   const message = location?.state?.message || "";
   if (message) {
@@ -33,10 +35,19 @@ export default function Login() {
     console.log("[useLoaderData] You must log-in first!");
   }
   function handleSubmit(e) {
-    e.preventDefault();
+    console.log("loginFormData", loginFormData);
     loginUser(loginFormData)
-      .then((resp) => console.log(resp))
-      .catch((e) => console.error(e.message));
+      .then((resp) => {
+        setError(null);
+        console.log(resp);
+      })
+      .catch((e) => {
+        setError(e.message);
+        console.error(e.message);
+      })
+      .finally(() => setSubmit(false));
+    setSubmit(true);
+    e.preventDefault();
   }
 
   function handleChange(e) {
@@ -50,6 +61,7 @@ export default function Login() {
   return (
     <div className="login-container">
       <h1>Sign in to your account</h1>
+      {error && <h2 style={{ color: "red" }}>{error}</h2>}
       {loginState === "not_logged_in" && (
         <h3 style={{ color: "red" }}>You must log-in first!</h3>
       )}
@@ -70,7 +82,9 @@ export default function Login() {
           autoComplete="current-password"
           value={loginFormData.password}
         />
-        <button>Log in</button>
+        <button disabled={submit} style={{ backgroundColor: submit && "grey" }}>
+          {submit ? "Logging in..." : "Log in"}
+        </button>
       </form>
     </div>
   );

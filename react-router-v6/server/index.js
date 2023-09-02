@@ -111,7 +111,7 @@ function login() {
       res
         .status(401)
         .end(
-          JSON.stringify({ message: "No user with those credential found!" })
+          JSON.stringify({ message: "No user with those credentials found!" })
         );
     } else {
       res.end(
