@@ -32,15 +32,15 @@ export default function Weather() {
   console.log("render Weather");
   const loaderData = useLoaderData();
 
-  function renderWeather() {
-    return (loadedWeather) => <h3>{loadedWeather.main.temp}ºF</h3>;
+  function renderWeather(loadedWeather) {
+    return <h3>{loadedWeather.main.temp}ºF</h3>;
   }
 
   return (
     <section className="weather-container">
       <h1>Weather in Salt Lake City</h1>
       <Suspense fallback={<h3>Loading...</h3>}>
-        <Await resolve={loaderData.weather}>{renderWeather()}</Await>
+        <Await resolve={loaderData.weather}>{renderWeather}</Await>
       </Suspense>
     </section>
   );

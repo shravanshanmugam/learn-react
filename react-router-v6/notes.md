@@ -664,8 +664,8 @@ return defer({ weather: weatherPromise });
 // inside functional component
 const loaderData = useLoaderData();
 
-function renderWeather() {
-  return (loadedWeather) => <h3>{loadedWeather.main.temp}ºF</h3>;
+function renderWeather(loadedWeather) {
+  return <h3>{loadedWeather.main.temp}ºF</h3>;
 }
 
 return (
@@ -682,6 +682,6 @@ return (
 import React, { Suspense } from "react";
 // inside functional component
 <Suspense fallback={<h3>Loading...</h3>}>
-  <Await resolve={loaderData.weather}>{renderWeather()}</Await>
+  <Await resolve={loaderData.weather}>{renderWeather}</Await>
 </Suspense>;
 ```
