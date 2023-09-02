@@ -642,3 +642,46 @@ return redirect(redirectTo);
 <!--form elements-->
 </Form>
 ```
+
+## Defer, Await and Suspense
+
+- Loader function might take lot of time to fetch the data
+- Until then the user will remain on the previous page
+- To show a loading state we can use `defer` function from `react-router-dom` and return a `Promise` instead of the data from the API
+
+```js
+import { defer } from "react-router-dom";
+// inside loader function
+const weatherPromise = getWeather(); // fetch data call
+return defer({ weather: weatherPromise });
+```
+
+- We wrap the component which needs to wait for the data using the `Await` component from `react-router-dom`
+- We set the `resolve` attribute with the promise from the `useLoaderData` hook
+- We use Render props to return the Component from the loader data
+
+```js
+// inside functional component
+const loaderData = useLoaderData();
+
+function renderWeather() {
+  return (loadedWeather) => <h3>{loadedWeather.main.temp}ºF</h3>;
+}
+
+return (
+  <>
+    <Await resolve={loaderData.weather}>{renderWeather()}</Await>
+  </>
+);
+```
+
+- We use `Suspense` component from `react` to wrap our `Await` component to avoid error when changing from one page back to this page
+- We set `fallback` attribute where we will display our loading component
+
+```js
+import React, { Suspense } from "react";
+// inside functional component
+<Suspense fallback={<h3>Loading...</h3>}>
+  <Await resolve={loaderData.weather}>{renderWeather()}</Await>
+</Suspense>;
+```

@@ -9,6 +9,7 @@ export default function Header() {
           <Link to="/">#VANLIFE</Link>
         </h2>
         <nav className="header-nav">
+          <ActiveNavLink to="weather" text="Weather" />
           <ActiveNavLink to="host" text="Host" end />
           <ActiveNavLink to="about" text="About" />
           <ActiveNavLink to="vans" text="Vans" />

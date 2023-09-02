@@ -28,6 +28,7 @@ import Reviews from "./components/host/Reviews";
 import Home from "./pages/Home";
 import Vans from "./pages/Vans";
 import About from "./pages/About";
+import Weather, { loader as weatherLoader } from "./pages/Weather";
 import NotFound from "./pages/NotFound";
 import Error from "./pages/Error";
 import Login, { loader as loginLoader } from "./pages/Login";
@@ -47,6 +48,7 @@ const router = createBrowserRouter(
         loader={formLoginLoader}
         action={formLoginAction}
       />
+      <Route path="weather" element={<Weather />} loader={weatherLoader} />
       <Route
         path="about"
         element={<About />}
