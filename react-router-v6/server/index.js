@@ -3,6 +3,15 @@ const cors = require("cors");
 const app = express();
 const PORT = 8080;
 
+const users = [
+  {
+    id: "1",
+    email: "test@gmail.com",
+    password: "p123",
+    name: "test",
+  },
+];
+
 const vans = [
   {
     id: "1",
@@ -76,6 +85,8 @@ app.get("/api/host/vans", getAllVans());
 
 app.get("/api/host/vans/:id", getVanById());
 
+app.post("/api/login", login());
+
 app.listen(PORT, function (err) {
   if (err) console.log(err);
   console.log("Server listening on PORT", PORT);
@@ -85,6 +96,29 @@ function getVanById() {
     console.log("GET by id request called");
     const van = vans.filter((van) => van.id === req.params.id);
     res.end(JSON.stringify(van));
+  };
+}
+
+function login() {
+  return function (req, res) {
+    console.log("LOGIN request call");
+    const { email, password } = JSON.parse(req.requestBody);
+    const foundUser = users.find(
+      (user) => user.email === email && user.password === password
+    );
+    console.log(foundUser);
+    if (!foundUser) {
+      return new Response(
+        401,
+        {},
+        { message: "No user with those credential found!" }
+      );
+    }
+    foundUser.password = undefined;
+    return {
+      user: foundUser,
+      token: "token123",
+    };
   };
 }
 
