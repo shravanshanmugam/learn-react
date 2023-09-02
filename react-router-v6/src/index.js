@@ -31,13 +31,22 @@ import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import Error from "./pages/Error";
 import Login, { loader as loginLoader } from "./pages/Login";
+import FormLogin, {
+  loader as formLoginLoader,
+  action as formLoginAction,
+} from "./pages/FormLogin";
 import "./index.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<PageLayout />}>
       <Route index element={<Home />} />
-      <Route path="login" element={<Login />} loader={loginLoader} />
+      <Route
+        path="login"
+        element={<FormLogin />}
+        loader={formLoginLoader}
+        action={formLoginAction}
+      />
       <Route
         path="about"
         element={<About />}

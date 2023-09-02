@@ -3,11 +3,12 @@ import { redirect, useLoaderData, useLocation } from "react-router-dom";
 import ActiveNavLink from "./common/ActiveNavLink";
 import { getAllVans } from "../api/vans";
 
-export const loader = () => {
+export const loader = ({ request }) => {
   console.log("getAllVans loader");
-  const loggedIn = false;
+  const pathname = new URL(request.url).pathname;
+  const loggedIn = localStorage.getItem("loggedIn");
   if (!loggedIn) {
-    throw redirect("/login?state=not_logged_in");
+    throw redirect(`/login?redirectTo=${pathname}`);
   }
   return getAllVans();
 };

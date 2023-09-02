@@ -517,3 +517,128 @@ if (loginState === "not_logged_in") {
   );
 }
 ```
+
+## React Router Form
+
+- We can use `Form` element from `react-router-dom` to simplify our react forms
+
+```js
+import { Form } from "react-router-dom";
+```
+
+```xml
+// inside functional component
+<Form>
+<!--form elements-->
+</Form>;
+```
+
+- We define an `action` function which gets called on form submission
+- We set this `action` function in the Login `Route` definition
+
+```xml
+<Route
+  path="login"
+  element={<FormLogin />}
+  loader={formLoginLoader}
+  action={formLoginAction}
+/>
+```
+
+- We can defined `method` in `Form`. In case of `GET` the form data comes as query params
+- In case of `POST` we get in request form data
+
+```js
+// inside action function
+const formData = await request.formData();
+const email = formData.get("email");
+const password = formData.get("password");
+// call api
+```
+
+```xml
+// inside functional component
+<Form method="POST">//... form elements</Form>;
+```
+
+- Inside `action` function we can call the API
+- On success, we store login state in `cookie` or `localStorage`
+- Also we redirect back to the protected resource
+
+```js
+await loginUser({ email, password });
+localStorage.setItem("loggedIn", true);
+return redirect("/vans"); // Here /vans is a protected resource
+```
+
+- On failure, we reset login state and we show an error message
+- To get the data from `action` function response we use `useActionData` hook from `react-router-dom`
+
+```js
+// inside action function
+try {
+  //
+} catch (e) {
+  localStorage.removeItem("loggedIn");
+  return e.message;
+}
+// inside functional component
+const errorMessage = useActionData();
+return (
+  <>
+    // Login form elements
+    {errorMessage && <h2 style={{ color: "red" }}>{errorMessage}</h2>}
+  </>
+);
+```
+
+- To track loading state after form submission, we use `useNavigation` hook from `react-router-dom` which return the navigation state
+- By default it is `idle`, on submitting form it goes to `submitting`
+- We can use this to show our loading state
+
+```js
+import { useNavigation } from "react-router-dom";
+// inside functional component
+const navigation = useNavigation();
+const submit = navigation?.state !== "idle";
+
+return (
+  <>
+    // Login form elements
+    <button disabled={submit} style={{ backgroundColor: submit && "grey" }}>
+      {submit ? "Logging in..." : "Log in"}
+    </button>
+  </>
+);
+```
+
+- In our nested protected resource, inside loader function we check if user is authenticated.
+- If not logged in we redirect to the login page using `redirect` function from `react-router-dom`
+- After login we want to take user to the original page. So we pass the state in the url to the login page
+- In case user lands directly on login page, we have to redirect to a default landing page
+
+```js
+// inside loader function
+const pathname = new URL(request.url).pathname;
+const loggedIn = localStorage.getItem("loggedIn");
+if (!loggedIn) {
+  throw redirect(`/login?redirectTo=${pathname}`);
+}
+```
+
+```js
+// inside action of Login page
+const redirectTo =
+  new URL(request.url).searchParams.get("redirectTo") || "/vans"; // /vans is the default landing page
+return redirect(redirectTo);
+```
+
+- After login, when user clicks on back button, we need to take him to the previous page instead of login page
+- We set `replace` attribute in the `Form` element. This will replace the login path with the original path user requested in the navigation history (stack) managed by the browser
+
+```xml
+// inside functional component
+<Form replace method="POST">
+<!--form elements-->
+</Form>
+```
