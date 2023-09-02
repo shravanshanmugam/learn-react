@@ -75,7 +75,7 @@ const vans = [
   },
 ];
 
-app.use("/api", cors());
+app.use("/api", express.json(), cors());
 
 app.get("/api/vans", getAllVans());
 
@@ -101,24 +101,26 @@ function getVanById() {
 
 function login() {
   return function (req, res) {
-    console.log("LOGIN request call");
-    const { email, password } = JSON.parse(req.requestBody);
+    console.log("LOGIN request call", req.body);
+    const { email, password } = req.body;
     const foundUser = users.find(
       (user) => user.email === email && user.password === password
     );
     console.log(foundUser);
     if (!foundUser) {
-      return new Response(
-        401,
-        {},
-        { message: "No user with those credential found!" }
-      );
+      res
+        .status(401)
+        .end(
+          JSON.stringify({ message: "No user with those credential found!" })
+        );
     }
     foundUser.password = undefined;
-    return {
-      user: foundUser,
-      token: "token123",
-    };
+    res.end(
+      JSON.stringify({
+        user: foundUser,
+        token: "token123",
+      })
+    );
   };
 }
 
