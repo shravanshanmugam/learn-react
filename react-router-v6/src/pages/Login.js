@@ -5,6 +5,7 @@ import {
   useNavigate,
   useSearchParams,
 } from "react-router-dom";
+import { loginUser } from "../api/login";
 
 export const loader = ({ request }) => {
   console.log("login loader");
@@ -33,7 +34,9 @@ export default function Login() {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(loginFormData);
+    loginUser(loginFormData)
+      .then((resp) => console.log(resp))
+      .catch((e) => console.error(e.message));
   }
 
   function handleChange(e) {

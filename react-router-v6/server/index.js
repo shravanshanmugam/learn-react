@@ -106,21 +106,21 @@ function login() {
     const foundUser = users.find(
       (user) => user.email === email && user.password === password
     );
-    console.log(foundUser);
+    console.log("foundUser", foundUser);
     if (!foundUser) {
       res
         .status(401)
         .end(
           JSON.stringify({ message: "No user with those credential found!" })
         );
+    } else {
+      res.end(
+        JSON.stringify({
+          user: { ...foundUser, password: undefined },
+          token: "token123",
+        })
+      );
     }
-    foundUser.password = undefined;
-    res.end(
-      JSON.stringify({
-        user: foundUser,
-        token: "token123",
-      })
-    );
   };
 }
 
